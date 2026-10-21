@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FAQS } from '../data/probizData';
-import { ChevronDown, HelpCircle, Sparkles, MessageCircle } from 'lucide-react';
+import { ChevronDown, HelpCircle } from 'lucide-react';
 
 export default function FaqSection({ onOpenQuote }) {
   const [openIndex, setOpenIndex] = useState(0);

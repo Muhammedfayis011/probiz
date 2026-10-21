@@ -3,14 +3,8 @@ import { COMPANY_INFO } from '../data/probizData';
 import {
   Calculator,
   CheckCircle2,
-  Building2,
   Send,
-  MessageSquare,
-  HelpCircle,
-  FileCheck,
-  Shield,
-  Clock,
-  Sparkles
+  MessageSquare
 } from 'lucide-react';
 
 const ENTITY_TYPES = [

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ProBizLogo from './ProBizLogo';
 import { COMPANY_INFO, SERVICES } from '../data/probizData';
-import { Phone, Mail, MapPin, ChevronDown, Menu, X, ArrowUpRight, ShieldCheck, Sparkles } from 'lucide-react';
+import { Phone, Mail, MapPin, ChevronDown, Menu, X, ArrowUpRight } from 'lucide-react';
 
 export default function Header({ onOpenQuote, onSelectService }) {
   const [scrolled, setScrolled] = useState(false);
@@ -178,7 +178,6 @@ export default function Header({ onOpenQuote, onSelectService }) {
               onClick={onOpenQuote}
               className="btn-gold text-xs py-2 px-4 shadow-lg"
             >
-              <Sparkles className="w-3.5 h-3.5" />
               <span>Get Free Consultation</span>
             </button>
           </div>

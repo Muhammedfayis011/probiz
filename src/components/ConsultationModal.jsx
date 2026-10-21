@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { COMPANY_INFO, SERVICES } from '../data/probizData';
-import { X, Send, CheckCircle2, MessageSquare, Phone } from 'lucide-react';
+import { SERVICES } from '../data/probizData';
+import { X, Send, CheckCircle2, MessageSquare } from 'lucide-react';
 
 export default function ConsultationModal({ isOpen, onClose, preselectedService }) {
   const [formData, setFormData] = useState({
@@ -11,13 +11,13 @@ export default function ConsultationModal({ isOpen, onClose, preselectedService 
     notes: ''
   });
   const [submitted, setSubmitted] = useState(false);
+  const [prevService, setPrevService] = useState(preselectedService);
 
-  // Sync preselectedService
-  React.useEffect(() => {
-    if (preselectedService) {
-      setFormData((prev) => ({ ...prev, service: preselectedService }));
-    }
-  }, [preselectedService]);
+  // Sync preselectedService during render if prop changes
+  if (preselectedService && preselectedService !== prevService) {
+    setPrevService(preselectedService);
+    setFormData((prev) => ({ ...prev, service: preselectedService }));
+  }
 
   if (!isOpen) return null;
 
@@ -32,8 +32,8 @@ export default function ConsultationModal({ isOpen, onClose, preselectedService 
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="relative w-full max-w-lg max-h-[92vh] overflow-y-auto rounded-2xl bg-[#0D121F] border border-[#C5A059]/40 p-5 sm:p-8 shadow-2xl">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="relative w-full max-w-lg max-h-[92vh] overflow-y-auto rounded-2xl bg-[#0D121F] border border-[#C5A059]/40 p-4 sm:p-6 md:p-8 shadow-2xl">
         
         {/* Close Button */}
         <button

@@ -1,11 +1,21 @@
 import React from 'react';
 import ProBizLogo from './ProBizLogo';
 import { COMPANY_INFO, SERVICES } from '../data/probizData';
-import { Phone, Mail, MapPin, Globe, ArrowUp, ShieldCheck, Heart } from 'lucide-react';
+import { Phone, Mail, MapPin, Globe, ArrowUp, ShieldCheck } from 'lucide-react';
 
-export default function Footer({ onSelectService, onOpenQuote }) {
+const CURRENT_YEAR = new Date().getFullYear();
+
+export default function Footer({ onSelectService, onOpenQuote, onNavigateSection }) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNav = (target) => {
+    if (onNavigateSection) {
+      onNavigateSection(target);
+    } else {
+      window.location.hash = `#${target}`;
+    }
   };
 
   return (
@@ -20,7 +30,17 @@ export default function Footer({ onSelectService, onOpenQuote }) {
           
           {/* Brand & Mission Column (Brochure Page 1 & 12) */}
           <div className="lg:col-span-4 space-y-4">
-            <ProBizLogo size="large" />
+            <a
+              href="#home"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToTop();
+              }}
+              style={{ textDecoration: 'none', display: 'inline-block', cursor: 'pointer' }}
+              aria-label="ProBiz Home"
+            >
+              <ProBizLogo size="large" />
+            </a>
             
             <p className="text-sm text-slate-300 font-medium leading-relaxed pt-2">
               {COMPANY_INFO.tagline}
@@ -50,8 +70,13 @@ export default function Footer({ onSelectService, onOpenQuote }) {
                 <li key={srv.id}>
                   <a
                     href={`#${srv.id}`}
-                    onClick={() => onSelectService && onSelectService(srv)}
-                    className="hover:text-[#DFBA73] transition-colors flex items-center gap-1.5"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (onSelectService) {
+                        onSelectService(srv);
+                      }
+                    }}
+                    className="hover:text-[#DFBA73] transition-colors flex items-center gap-1.5 cursor-pointer"
                   >
                     <span className="text-[#DFBA73] font-mono text-[11px]">{srv.number}.</span>
                     <span>{srv.title}</span>
@@ -68,32 +93,62 @@ export default function Footer({ onSelectService, onOpenQuote }) {
             </div>
             <ul className="space-y-2 text-xs">
               <li>
-                <a href="#about" className="hover:text-[#DFBA73] transition-colors">
+                <a
+                  href="#about"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav('about');
+                  }}
+                  className="hover:text-[#DFBA73] transition-colors cursor-pointer"
+                >
                   About ProBiz
                 </a>
               </li>
               <li>
-                <a href="#setup-guide" className="hover:text-[#DFBA73] transition-colors">
+                <a
+                  href="#our-process"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav('our-process');
+                  }}
+                  className="hover:text-[#DFBA73] transition-colors cursor-pointer"
+                >
                   Qatar Setup Guide
                 </a>
               </li>
               <li>
-                <a href="#cost-estimator" className="hover:text-[#DFBA73] transition-colors text-white font-semibold">
-                  Cost & Scope Calculator
-                </a>
-              </li>
-              <li>
-                <a href="#why-probiz" className="hover:text-[#DFBA73] transition-colors">
+                <a
+                  href="#why-qatar"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav('why-qatar');
+                  }}
+                  className="hover:text-[#DFBA73] transition-colors cursor-pointer"
+                >
                   Why Choose Us
                 </a>
               </li>
               <li>
-                <a href="#faqs" className="hover:text-[#DFBA73] transition-colors">
+                <a
+                  href="#why-qatar"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav('why-qatar');
+                  }}
+                  className="hover:text-[#DFBA73] transition-colors cursor-pointer"
+                >
                   Client FAQs
                 </a>
               </li>
               <li>
-                <a href="#contact" className="hover:text-[#DFBA73] transition-colors">
+                <a
+                  href="#contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav('contact');
+                  }}
+                  className="hover:text-[#DFBA73] transition-colors cursor-pointer"
+                >
                   Office Location Map
                 </a>
               </li>
@@ -164,7 +219,7 @@ export default function Footer({ onSelectService, onOpenQuote }) {
         {/* Bottom Copyright & Slogan Bar */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-3">
           <div>
-            &copy; {new Date().getFullYear()} {COMPANY_INFO.name}. All rights reserved. Doha, Qatar.
+            &copy; {CURRENT_YEAR} {COMPANY_INFO.name}. All rights reserved. Doha, Qatar.
           </div>
           <div className="font-medium text-[#DFBA73] tracking-wider uppercase text-[11px]">
             {COMPANY_INFO.tagline}

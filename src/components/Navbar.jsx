@@ -1,20 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import ProBizLogo from './ProBizLogo';
 
-const navLinks = ['Home', 'About', 'Services', 'Our Process', 'Why Qatar', 'Contact'];
+const navItems = [
+  { label: 'Home', id: 'home' },
+  { label: 'About', id: 'about' },
+  { label: 'Services', id: 'services' },
+  { label: 'Our Process', id: 'our-process' },
+  { label: 'Why Qatar', id: 'why-qatar' },
+  { label: 'Contact', id: 'contact' },
+];
 
-export default function Navbar({ onGetStarted }) {
+export default function Navbar({ onGetStarted, onNavigateSection, currentView = 'home' }) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const activeSection = currentView === 'service-detail' ? 'services' : currentView;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 30);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleItemClick = (e, targetId) => {
+    e.preventDefault();
+    setMobileOpen(false);
+    if (onNavigateSection) {
+      onNavigateSection(targetId);
+    }
+  };
 
   return (
     <nav
       style={{
-        position: 'absolute',
+        position: 'fixed',
         top: 0,
         left: 0,
         right: 0,
         zIndex: 50,
-        backgroundColor: 'transparent',
-        borderBottom: 'none',
+        backgroundColor: scrolled ? 'rgba(13,13,13,0.92)' : 'rgba(13,13,13,0.4)',
+        backdropFilter: 'blur(12px)',
+        borderBottom: scrolled ? '1px solid rgba(255,255,255,0.08)' : '1px solid transparent',
+        transition: 'all 0.3s ease',
       }}
     >
       <div
@@ -30,44 +60,22 @@ export default function Navbar({ onGetStarted }) {
           position: 'relative',
         }}
       >
-        {/* Left Side: Clean Written PROBIZ Text */}
+        {/* Left Side: PROBIZ Logo */}
         <a
           href="#home"
+          onClick={(e) => handleItemClick(e, 'home')}
           style={{
             textDecoration: 'none',
             display: 'flex',
-            flexDirection: 'column',
             zIndex: 2,
+            cursor: 'pointer',
           }}
+          aria-label="ProBiz Consultancy Services Home"
         >
-          <span
-            style={{
-              fontFamily: "'Space Grotesk', 'Plus Jakarta Sans', sans-serif",
-              fontWeight: 800,
-              fontSize: '1.4rem',
-              letterSpacing: '0.12em',
-              color: '#FFFFFF',
-              lineHeight: 1,
-            }}
-          >
-            PR<span style={{ color: '#C9A84C' }}>O</span>BIZ
-          </span>
-          <span
-            style={{
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
-              fontWeight: 600,
-              fontSize: '0.52rem',
-              letterSpacing: '0.24em',
-              color: '#C9A84C',
-              marginTop: 3,
-              textTransform: 'uppercase',
-            }}
-          >
-            CONSULTANCY SERVICES
-          </span>
+          <ProBizLogo size="normal" />
         </a>
 
-        {/* Center: Desktop Nav Links (Fixed to the Exact Center of Navbar) */}
+        {/* Center: Desktop Nav Links */}
         <div
           className="desktop-nav"
           style={{
@@ -80,27 +88,36 @@ export default function Navbar({ onGetStarted }) {
             zIndex: 2,
           }}
         >
-          {navLinks.map((link) => (
-            <a
-              key={link}
-              href={`#${link.toLowerCase().replace(' ', '-')}`}
-              style={{
-                color: link === 'Home' ? '#C9A84C' : '#CCCCCC',
-                textDecoration: 'none',
-                fontSize: '0.875rem',
-                fontWeight: 500,
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
-                borderBottom: link === 'Home' ? '2px solid #C9A84C' : 'none',
-                paddingBottom: 2,
-                transition: 'color 0.2s',
-                whiteSpace: 'nowrap',
-              }}
-              onMouseEnter={e => (e.target.style.color = '#DFBA73')}
-              onMouseLeave={e => (e.target.style.color = link === 'Home' ? '#C9A84C' : '#CCCCCC')}
-            >
-              {link}
-            </a>
-          ))}
+          {navItems.map((item) => {
+            const isActive = activeSection === item.id;
+            return (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                onClick={(e) => handleItemClick(e, item.id)}
+                style={{
+                  color: isActive ? '#C9A84C' : '#CCCCCC',
+                  textDecoration: 'none',
+                  fontSize: '0.875rem',
+                  fontWeight: isActive ? 600 : 500,
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  borderBottom: isActive ? '2px solid #C9A84C' : '2px solid transparent',
+                  paddingBottom: 2,
+                  transition: 'all 0.2s ease',
+                  whiteSpace: 'nowrap',
+                  cursor: 'pointer',
+                }}
+                onMouseEnter={e => {
+                  if (!isActive) e.target.style.color = '#DFBA73';
+                }}
+                onMouseLeave={e => {
+                  if (!isActive) e.target.style.color = '#CCCCCC';
+                }}
+              >
+                {item.label}
+              </a>
+            );
+          })}
         </div>
 
         {/* Right Side: CTA Button & Mobile Toggle */}
@@ -170,34 +187,43 @@ export default function Navbar({ onGetStarted }) {
         <div
           className="mobile-menu"
           style={{
-            backgroundColor: 'rgba(13,13,13,0.96)',
-            backdropFilter: 'blur(12px)',
+            backgroundColor: 'rgba(13,13,13,0.98)',
+            backdropFilter: 'blur(16px)',
             borderTop: '1px solid rgba(255,255,255,0.08)',
             borderBottom: '1px solid rgba(255,255,255,0.08)',
             padding: '1rem 1.5rem',
             display: 'flex',
             flexDirection: 'column',
-            gap: '1rem',
+            gap: '0.5rem',
+            maxHeight: 'calc(100vh - 70px)',
+            overflowY: 'auto',
           }}
         >
-          {navLinks.map((link) => (
-            <a
-              key={link}
-              href={`#${link.toLowerCase().replace(' ', '-')}`}
-              onClick={() => setMobileOpen(false)}
-              style={{
-                color: link === 'Home' ? '#C9A84C' : '#E0E0E0',
-                textDecoration: 'none',
-                fontSize: '0.95rem',
-                fontWeight: 600,
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
-                padding: '0.5rem 0',
-                borderBottom: '1px solid rgba(255,255,255,0.04)',
-              }}
-            >
-              {link}
-            </a>
-          ))}
+          {navItems.map((item) => {
+            const isActive = activeSection === item.id;
+            return (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                onClick={(e) => handleItemClick(e, item.id)}
+                style={{
+                  color: isActive ? '#C9A84C' : '#E0E0E0',
+                  textDecoration: 'none',
+                  fontSize: '0.95rem',
+                  fontWeight: isActive ? 700 : 500,
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  padding: '0.65rem 0',
+                  borderBottom: '1px solid rgba(255,255,255,0.04)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                }}
+              >
+                <span>{item.label}</span>
+                {isActive && <span style={{ color: '#C9A84C', fontSize: '0.8rem' }}>●</span>}
+              </a>
+            );
+          })}
           <button
             onClick={() => {
               setMobileOpen(false);
@@ -212,7 +238,7 @@ export default function Navbar({ onGetStarted }) {
               borderRadius: 6,
               border: 'none',
               cursor: 'pointer',
-              marginTop: '0.5rem',
+              marginTop: '0.75rem',
               width: '100%',
               textAlign: 'center',
             }}
@@ -228,9 +254,12 @@ export default function Navbar({ onGetStarted }) {
           .mobile-toggle { display: flex !important; }
           .navbar-container { padding: 0 1.25rem !important; }
         }
-        @media (max-width: 480px) {
-          .navbar-cta { padding: 0.5rem 0.9rem !important; font-size: 0.8rem !important; }
+        @media (max-width: 540px) {
+          .navbar-cta { display: none !important; }
           .navbar-container { padding: 0 1rem !important; }
+        }
+        @media (max-width: 360px) {
+          .navbar-container { padding: 0 0.75rem !important; }
         }
       `}</style>
     </nav>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { COMPANY_INFO } from '../data/probizData';
-import { MessageSquare, PhoneCall } from 'lucide-react';
+import { MessageSquare } from 'lucide-react';
 
 export default function FloatingWhatsApp() {
   return (

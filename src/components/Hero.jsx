@@ -3,14 +3,12 @@ import { COMPANY_INFO, STATS, CORE_PILLARS } from '../data/probizData';
 import DohaSkylineSvg from './DohaSkylineSvg';
 import {
   ArrowRight,
-  ShieldCheck,
   CheckCircle2,
   Building2,
   FileCheck,
   Users,
   Stethoscope,
-  Sparkles,
-  PhoneCall,
+  Laptop,
   MessageSquare
 } from 'lucide-react';
 
@@ -19,7 +17,7 @@ const iconMap = {
   FileCheck,
   Users,
   Stethoscope,
-  Sparkles
+  Laptop
 };
 
 export default function Hero({ onOpenQuote, onSelectPillar }) {

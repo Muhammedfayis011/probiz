@@ -1,8 +1,7 @@
 import React from 'react';
-import { COMPANY_INFO } from '../data/probizData';
-import { Target, CheckCircle2, Award, Users2, Layers, Clock, TrendingUp, Sparkles } from 'lucide-react';
+import { Target, Layers, Clock, TrendingUp } from 'lucide-react';
 
-export default function AboutSection({ onOpenQuote }) {
+export default function AboutSection() {
   return (
     <section id="about" className="py-20 relative bg-[#090D15]/80 border-t border-b border-white/5">
       {/* Decorative gradient accents */}
@@ -12,7 +11,6 @@ export default function AboutSection({ onOpenQuote }) {
         {/* Section Header */}
         <div className="max-w-3xl mb-12">
           <div className="badge-gold mb-3">
-            <Sparkles className="w-3.5 h-3.5" />
             <span>About ProBiz Consultancy</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-white tracking-tight">

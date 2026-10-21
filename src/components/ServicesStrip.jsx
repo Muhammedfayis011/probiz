@@ -56,33 +56,38 @@ const WebDevIcon = () => (
 
 const SERVICES = [
   {
+    id: 'recruitment-hr',
     Icon: RecruitmentIcon,
     title: 'Recruitment',
     desc: 'Connecting the right talent to the right opportunities.',
   },
   {
+    id: 'pro-services',
     Icon: ProServicesIcon,
     title: 'PRO Services',
     desc: 'Hassle-free government and business support.',
   },
   {
+    id: 'business-setup',
     Icon: CompanyFormationIcon,
     title: 'Company Formation',
     desc: 'End-to-end support for your business setup.',
   },
   {
+    id: 'branding-digital',
     Icon: BrandingIcon,
     title: 'Branding & Marketing',
     desc: 'Creative solutions to grow your brand.',
   },
   {
+    id: 'branding-digital',
     Icon: WebDevIcon,
     title: 'Web Development & Solutions',
     desc: 'Modern digital solutions for your business.',
   },
 ];
 
-export default function ServicesStrip() {
+export default function ServicesStrip({ onSelectService }) {
   return (
     <section
       style={{
@@ -103,9 +108,10 @@ export default function ServicesStrip() {
           gap: '1.5rem',
         }}
       >
-        {SERVICES.map(({ Icon, title, desc }) => (
+        {SERVICES.map(({ id, Icon, title, desc }) => (
           <div
             key={title}
+            onClick={() => onSelectService && onSelectService(id)}
             className="service-strip-item"
             style={{
               display: 'flex',

@@ -1,12 +1,12 @@
 import React from 'react';
-import { X, ArrowRight, CheckCircle2, Check, Sparkles } from 'lucide-react';
+import { X, ArrowRight, CheckCircle2, Check } from 'lucide-react';
 
 export default function ServiceModal({ service, onClose, onConsult }) {
   if (!service) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl bg-[#0D121F] border border-[#C5A059]/40 p-6 sm:p-8 shadow-2xl">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl bg-[#0D121F] border border-[#C5A059]/40 p-4 sm:p-6 md:p-8 shadow-2xl">
         
         {/* Close Button */}
         <button
@@ -109,7 +109,7 @@ export default function ServiceModal({ service, onClose, onConsult }) {
                   <div className="text-xs font-bold text-[#DFBA73] mb-1">{sec.title}</div>
                   <div className="text-[11px] text-slate-400 mb-2">{sec.desc}</div>
                   <ul className="space-y-1">
-                    {sec.items.slice(0, 4).map((item, idx) => (
+                    {sec.items.map((item, idx) => (
                       <li key={idx} className="flex items-start gap-1.5 text-[11px] text-slate-300">
                         <Check className="w-3 h-3 text-[#DFBA73] flex-shrink-0 mt-0.5" />
                         <span>{item}</span>

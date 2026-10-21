@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SERVICES, COMPANY_INFO } from '../data/probizData';
+import { SERVICES } from '../data/probizData';
 import {
   Briefcase,
   FileCheck2,
@@ -11,10 +11,6 @@ import {
   ArrowRight,
   ShieldCheck,
   FileText,
-  Building,
-  HelpCircle,
-  Sparkles,
-  PhoneCall,
   Check
 } from 'lucide-react';
 
@@ -28,14 +24,8 @@ const iconMap = {
 };
 
 export default function ServiceDeepDive({ activeServiceId, onSelectService, onOpenQuote }) {
-  const [selectedId, setSelectedId] = useState(activeServiceId || SERVICES[0].id);
-
-  // Sync if prop changes
-  React.useEffect(() => {
-    if (activeServiceId) {
-      setSelectedId(activeServiceId);
-    }
-  }, [activeServiceId]);
+  const [internalId, setInternalId] = useState(SERVICES[0].id);
+  const selectedId = activeServiceId || internalId;
 
   const currentService = SERVICES.find((s) => s.id === selectedId) || SERVICES[0];
   const ServiceIcon = iconMap[currentService.icon] || Briefcase;
@@ -46,8 +36,8 @@ export default function ServiceDeepDive({ activeServiceId, onSelectService, onOp
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="badge-gold mb-3 inline-flex">
-            <Sparkles className="w-3.5 h-3.5" />
+          <div className="badge-gold mb-3 inline-flex items-center gap-1.5">
+            
             <span>Detailed Service Specifications</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-white tracking-tight">
@@ -67,7 +57,7 @@ export default function ServiceDeepDive({ activeServiceId, onSelectService, onOp
               <button
                 key={s.id}
                 onClick={() => {
-                  setSelectedId(s.id);
+                  setInternalId(s.id);
                   if (onSelectService) onSelectService(s);
                 }}
                 className={`flex items-center gap-2 px-4 py-3 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all duration-200 ${
@@ -140,7 +130,7 @@ export default function ServiceDeepDive({ activeServiceId, onSelectService, onOp
               <div>
                 <h4 className="text-lg font-bold text-white mb-4 flex items-center gap-2 font-display">
                   <span className="w-2 h-2 rounded-full bg-[#DFBA73]" />
-                  <span>Our 8 Core Company Formation Services (Page 4):</span>
+                  <span>Our 8 Core Company Formation Services </span>
                 </h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {currentService.features.map((feat, idx) => (
@@ -158,29 +148,6 @@ export default function ServiceDeepDive({ activeServiceId, onSelectService, onOp
                         <div className="text-xs text-slate-400 leading-relaxed">
                           {feat.desc}
                         </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Company Structures Comparison */}
-              <div className="p-6 rounded-2xl bg-[#080C16] border border-[#C5A059]/25">
-                <div className="flex items-center justify-between mb-4">
-                  <h4 className="text-base font-bold text-white font-display">
-                    Guidance on Suitable Company Structures in Qatar:
-                  </h4>
-                  <span className="text-xs text-[#DFBA73] font-semibold">
-                    Law No. 1 of 2019 Compliant
-                  </span>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                  {currentService.structures.map((st, i) => (
-                    <div key={i} className="p-4 rounded-xl bg-[#0F1626] border border-white/5">
-                      <div className="text-xs font-bold text-[#DFBA73] mb-1">{st.name}</div>
-                      <p className="text-xs text-slate-400 mb-3 leading-relaxed">{st.desc}</p>
-                      <div className="text-[11px] font-mono text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded inline-block">
-                        Est: {st.timeline}
                       </div>
                     </div>
                   ))}

@@ -9,7 +9,7 @@ export const COMPANY_INFO = {
   phone: "+974 4000 1977",
   phoneRaw: "+97440001977",
   whatsappUrl: "https://wa.me/97440001977?text=Hello%20ProBiz%2C%20I%20am%20interested%20in%20your%20business%20services%20in%20Qatar.",
-  email: "hello@probiz.qa",
+  email: "probiz.qa@gmail.com",
   website: "www.probiz.qa",
   address: "Office #49, 10th Floor, Hleyton Tower, Al Baladhiya St., Al Miqrab, Doha, Qatar",
   addressShort: "Hleyton Tower, Al Miqrab, Doha, Qatar",
@@ -269,6 +269,32 @@ export const SERVICES = [
     themeColor: "from-amber-500/20 to-orange-600/10",
     badge: "DIGITAL SOLUTIONS BUILT AROUND YOUR NEEDS",
     icon: "Laptop",
+    features: [
+      {
+        title: "Website Development & Web Portals",
+        desc: "Custom responsive corporate websites, high-converting landing pages, and web portals engineered for maximum speed, security, and mobile responsiveness."
+      },
+      {
+        title: "E-Commerce & Qatar Payment Gateways",
+        desc: "End-to-end online store setups integrated with leading Qatar payment gateways (SkipCash, QPay, Sadad) and international checkouts."
+      },
+      {
+        title: "Custom Web Applications & ERPs",
+        desc: "Bespoke business software, CRM systems, client portals, and third-party REST API integrations tailored to Qatar business workflows."
+      },
+      {
+        title: "Brand Strategy & Visual Identity",
+        desc: "Bilingual English/Arabic logo design, brand books, color typography guidelines, and trademark registration assistance."
+      },
+      {
+        title: "SEO & Digital Performance Marketing",
+        desc: "Targeted Google Ads (PPC), local Qatar Search Engine Optimization (SEO), and social media lead generation across Meta and LinkedIn."
+      },
+      {
+        title: "Corporate Graphic Design & Collateral",
+        desc: "High-impact company profiles, pitch decks, brochures, product packaging, office branding, and exhibition signage."
+      }
+    ],
     sections: [
       {
         title: "Branding & Strategy",
