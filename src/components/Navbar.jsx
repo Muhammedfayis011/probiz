@@ -100,7 +100,7 @@ export default function Navbar({ onGetStarted, onNavigateSection, currentView = 
                   textDecoration: 'none',
                   fontSize: '0.875rem',
                   fontWeight: isActive ? 600 : 500,
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontFamily: "'Lora', serif",
                   borderBottom: isActive ? '2px solid #C9A84C' : '2px solid transparent',
                   paddingBottom: 2,
                   transition: 'all 0.2s ease',
@@ -130,7 +130,7 @@ export default function Navbar({ onGetStarted, onNavigateSection, currentView = 
               color: '#0D0D0D',
               fontWeight: 700,
               fontSize: '0.85rem',
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontFamily: "'Merriweather', 'Lora', serif",
               padding: '0.55rem 1.3rem',
               borderRadius: 6,
               border: 'none',
@@ -211,7 +211,7 @@ export default function Navbar({ onGetStarted, onNavigateSection, currentView = 
                   textDecoration: 'none',
                   fontSize: '0.95rem',
                   fontWeight: isActive ? 700 : 500,
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontFamily: "'Lora', serif",
                   padding: '0.65rem 0',
                   borderBottom: '1px solid rgba(255,255,255,0.04)',
                   display: 'flex',
@@ -249,7 +249,7 @@ export default function Navbar({ onGetStarted, onNavigateSection, currentView = 
       )}
 
       <style>{`
-        @media (max-width: 980px) {
+        @media (max-width: 1024px) {
           .desktop-nav { display: none !important; }
           .mobile-toggle { display: flex !important; }
           .navbar-container { padding: 0 1.25rem !important; }

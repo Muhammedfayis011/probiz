@@ -1,47 +1,44 @@
 import React from 'react';
 
-export default function ProBizLogo({ size = 'normal', className = '', style = {} }) {
-  const isLarge = size === 'large';
-  const isSmall = size === 'small';
+/**
+ * ProBiz Official Brand Logo
+ * Displays the authentic ProBiz Consultancy Services logo with golden ring and crisp typography.
+ */
+export default function ProBizLogo({ size = 'normal', className = '', style = {}, imgStyle = {} }) {
+  const heightMap = {
+    small: '26px',
+    normal: '35px',
+    large: '46px',
+    xlarge: '58px',
+  };
 
-  const mainFontSize = isLarge ? '1.85rem' : isSmall ? '1.15rem' : '1.4rem';
-  const subFontSize = isLarge ? '0.66rem' : isSmall ? '0.45rem' : '0.52rem';
-  const subMarginTop = isLarge ? 5 : isSmall ? 2 : 3;
+  const logoHeight = style.height || heightMap[size] || heightMap.normal;
 
   return (
     <div
-      className={`probiz-logo select-none ${className}`}
+      className={`probiz-logo-container inline-flex items-center select-none ${className}`}
       style={{
         display: 'inline-flex',
-        flexDirection: 'column',
+        alignItems: 'center',
+        lineHeight: 0,
         ...style,
       }}
     >
-      <span
+      <img
+        src="/probiz-logo.png"
+        alt="ProBiz Consultancy Services"
+        className="probiz-brand-logo transition-transform duration-200 hover:scale-[1.02]"
         style={{
-          fontFamily: "'Space Grotesk', 'Plus Jakarta Sans', sans-serif",
-          fontWeight: 800,
-          fontSize: mainFontSize,
-          letterSpacing: '0.12em',
-          color: '#FFFFFF',
-          lineHeight: 1,
+          height: logoHeight,
+          width: 'auto',
+          maxWidth: '100%',
+          objectFit: 'contain',
+          display: 'block',
+          filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.4))',
+          ...imgStyle,
         }}
-      >
-        PR<span style={{ color: '#C9A84C' }}>O</span>BIZ
-      </span>
-      <span
-        style={{
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
-          fontWeight: 600,
-          fontSize: subFontSize,
-          letterSpacing: '0.24em',
-          color: '#C9A84C',
-          marginTop: subMarginTop,
-          textTransform: 'uppercase',
-        }}
-      >
-        CONSULTANCY SERVICES
-      </span>
+        loading="eager"
+      />
     </div>
   );
 }

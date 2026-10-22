@@ -2,6 +2,7 @@ import React from 'react';
 import PageHero from './PageHero';
 import SetupRoadmap from './SetupRoadmap';
 import { ArrowRight, Landmark } from 'lucide-react';
+import processBgImg from '../assets/process-roadmap-bg.jpg';
 
 const MINISTRIES = [
   {
@@ -40,6 +41,7 @@ export default function ProcessPage({ onBackToHome, onOpenQuote }) {
         title="Structured Setup Roadmap."
         highlight="Transparent, Compliant & Fast."
         subtitle="We eliminate bureaucracy and delay. Our 6-phase company formation framework ensures every ministerial filing, translation, and approval is completed in exact legal sequence."
+        backgroundImage={processBgImg}
         onBackToHome={onBackToHome}
       />
 

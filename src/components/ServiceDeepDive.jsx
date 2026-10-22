@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
 import { SERVICES } from '../data/probizData';
+import mophBgImg from '../assets/moph-licensing-bg.jpg';
+import businessSetupBgImg from '../assets/business-setup-bg.jpg';
+import proServicesBgImg from '../assets/pro-services-bg.jpg';
+import brandingDigitalBgImg from '../assets/branding-digital-bg.jpg';
+import translationDocBgImg from '../assets/translation-document-bg.jpg';
+import recruitmentHrBgImg from '../assets/recruitment-hr-bg.jpg';
 import {
   Briefcase,
   FileCheck2,
@@ -127,6 +133,40 @@ export default function ServiceDeepDive({ activeServiceId, onSelectService, onOp
           {/* 1. Business Setup View (Page 4) */}
           {currentService.id === 'business-setup' && (
             <div className="space-y-10">
+              {/* Feature Banner with Business Setup Background Image & Text Overlay */}
+              <div className="relative rounded-2xl overflow-hidden border border-[#C5A059]/30 min-h-[220px] flex items-center p-6 sm:p-8">
+                <img
+                  src={businessSetupBgImg}
+                  alt="Business Setup & Company Formation Qatar"
+                  className="absolute inset-0 w-full h-full object-cover object-center sm:object-right opacity-45"
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      'linear-gradient(90deg, rgba(8,13,24,0.96) 0%, rgba(8,13,24,0.88) 45%, rgba(8,13,24,0.4) 80%, rgba(8,13,24,0.2) 100%)',
+                  }}
+                />
+                <div className="relative z-10 max-w-xl">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#DFBA73] mb-1.5 block">
+                    100% Foreign Ownership • MOCI Authorized
+                  </span>
+                  <h4 className="text-xl sm:text-2xl font-bold text-white font-display mb-2">
+                    Turn Your Business Idea Into A Qatar Entity
+                  </h4>
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                    Fast-track Commercial Registration (CR), Articles of Association, municipality licensing, and corporate bank accounts handled by seasoned Qatar corporate consultants.
+                  </p>
+                  <button
+                    onClick={() => onOpenQuote && onOpenQuote('Business Setup & Company Formation')}
+                    className="btn-gold text-xs py-2 px-4 inline-flex items-center gap-1.5"
+                  >
+                    <span>Request Free Setup Consultation</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+
               <div>
                 <h4 className="text-lg font-bold text-white mb-4 flex items-center gap-2 font-display">
                   <span className="w-2 h-2 rounded-full bg-[#DFBA73]" />
@@ -165,6 +205,40 @@ export default function ServiceDeepDive({ activeServiceId, onSelectService, onOp
           {/* 2. PRO & Government Services View (Page 5) */}
           {currentService.id === 'pro-services' && (
             <div className="space-y-8">
+              {/* Feature Banner with PRO Services Background Image & Text Overlay */}
+              <div className="relative rounded-2xl overflow-hidden border border-[#C5A059]/30 min-h-[220px] flex items-center p-6 sm:p-8">
+                <img
+                  src={proServicesBgImg}
+                  alt="PRO & Government Services Qatar"
+                  className="absolute inset-0 w-full h-full object-cover object-center sm:object-right opacity-45"
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      'linear-gradient(90deg, rgba(8,13,24,0.96) 0%, rgba(8,13,24,0.88) 45%, rgba(8,13,24,0.4) 80%, rgba(8,13,24,0.2) 100%)',
+                  }}
+                />
+                <div className="relative z-10 max-w-xl">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#DFBA73] mb-1.5 block">
+                    Direct Ministry Liaison • Rapid Approvals
+                  </span>
+                  <h4 className="text-xl sm:text-2xl font-bold text-white font-display mb-2">
+                    Less Paperwork. More Focus On Business.
+                  </h4>
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                    End-to-end management of employee visas, QID issuance, CR renewals, municipality clearance, and Ministry attestation under one dedicated corporate PRO coordinator.
+                  </p>
+                  <button
+                    onClick={() => onOpenQuote && onOpenQuote('PRO & Government Services')}
+                    className="btn-gold text-xs py-2 px-4 inline-flex items-center gap-1.5"
+                  >
+                    <span>Request PRO Retainer Consultation</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {currentService.groups.map((grp, idx) => (
                   <div key={idx} className="p-6 rounded-2xl bg-[#080D18] border border-[#C5A059]/20">
@@ -202,6 +276,40 @@ export default function ServiceDeepDive({ activeServiceId, onSelectService, onOp
           {/* 3. Translation & Document Services View (Page 6) */}
           {currentService.id === 'translation-services' && (
             <div className="space-y-8">
+              {/* Feature Banner with Translation & Document Services Background Image & Text Overlay */}
+              <div className="relative rounded-2xl overflow-hidden border border-[#C5A059]/30 min-h-[220px] flex items-center p-6 sm:p-8">
+                <img
+                  src={translationDocBgImg}
+                  alt="Translation & Document Services Qatar"
+                  className="absolute inset-0 w-full h-full object-cover object-center sm:object-right opacity-45"
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      'linear-gradient(90deg, rgba(8,13,24,0.96) 0%, rgba(8,13,24,0.88) 45%, rgba(8,13,24,0.4) 80%, rgba(8,13,24,0.2) 100%)',
+                  }}
+                />
+                <div className="relative z-10 max-w-xl">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#DFBA73] mb-1.5 block">
+                    Certified Legal Translation • MOJ & Court Accepted
+                  </span>
+                  <h4 className="text-xl sm:text-2xl font-bold text-white font-display mb-2">
+                    Clear Communication. Professionally Handled.
+                  </h4>
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                    Officially certified English-Arabic translations, commercial contracts, corporate bylaws, educational credentials, and full embassy & MOFA attestation support in Doha.
+                  </p>
+                  <button
+                    onClick={() => onOpenQuote && onOpenQuote('Translation & Document Services')}
+                    className="btn-gold text-xs py-2 px-4 inline-flex items-center gap-1.5"
+                  >
+                    <span>Request Document Translation</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {currentService.groups.map((grp, idx) => (
                   <div key={idx} className="p-6 rounded-2xl bg-[#080D18] border border-[#C5A059]/20">
@@ -254,6 +362,40 @@ export default function ServiceDeepDive({ activeServiceId, onSelectService, onOp
           {/* 4. Recruitment & HR Support View (Page 7) */}
           {currentService.id === 'recruitment-hr' && (
             <div className="space-y-8">
+              {/* Feature Banner with Recruitment & HR Background Image & Text Overlay */}
+              <div className="relative rounded-2xl overflow-hidden border border-[#C5A059]/30 min-h-[220px] flex items-center p-6 sm:p-8">
+                <img
+                  src={recruitmentHrBgImg}
+                  alt="Recruitment & HR Support Qatar"
+                  className="absolute inset-0 w-full h-full object-cover object-center sm:object-right opacity-45"
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      'linear-gradient(90deg, rgba(8,13,24,0.96) 0%, rgba(8,13,24,0.88) 45%, rgba(8,13,24,0.4) 80%, rgba(8,13,24,0.2) 100%)',
+                  }}
+                />
+                <div className="relative z-10 max-w-xl">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#DFBA73] mb-1.5 block">
+                    Corporate Workforce Solutions • Talent Acquisition
+                  </span>
+                  <h4 className="text-xl sm:text-2xl font-bold text-white font-display mb-2">
+                    The Right Talent. A Stronger Business.
+                  </h4>
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                    End-to-end recruitment coordination, multi-channel executive search, candidate qualification screening, and Ministry of Labour onboarding across Qatar.
+                  </p>
+                  <button
+                    onClick={() => onOpenQuote && onOpenQuote('Recruitment & HR Support')}
+                    className="btn-gold text-xs py-2 px-4 inline-flex items-center gap-1.5"
+                  >
+                    <span>Request Hiring Consultation</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                 {currentService.features.map((feat, idx) => (
                   <div key={idx} className="p-5 rounded-xl bg-[#090E1A] border border-[#C5A059]/20 hover:border-[#DFBA73]/50 transition-colors">
@@ -285,6 +427,40 @@ export default function ServiceDeepDive({ activeServiceId, onSelectService, onOp
           {/* 5. MOPH & Healthcare Services View (Pages 8 & 9) */}
           {currentService.id === 'healthcare-services' && (
             <div className="space-y-8">
+              {/* Feature Banner with MOPH Background Image & Text Overlay */}
+              <div className="relative rounded-2xl overflow-hidden border border-[#C5A059]/30 min-h-[220px] flex items-center p-6 sm:p-8">
+                <img
+                  src={mophBgImg}
+                  alt="MOPH & Healthcare Licensing Qatar"
+                  className="absolute inset-0 w-full h-full object-cover object-center sm:object-right opacity-45"
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      'linear-gradient(90deg, rgba(8,13,24,0.96) 0%, rgba(8,13,24,0.88) 45%, rgba(8,13,24,0.4) 80%, rgba(8,13,24,0.2) 100%)',
+                  }}
+                />
+                <div className="relative z-10 max-w-xl">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#DFBA73] mb-1.5 block">
+                    Ministry of Public Health Liaison & Regulatory Clearance
+                  </span>
+                  <h4 className="text-xl sm:text-2xl font-bold text-white font-display mb-2">
+                    Healthcare Licensing, Made Easier
+                  </h4>
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                    Direct application coordination, DataFlow PSV verification, Prometric scheduling, and facility accreditation with the Ministry of Public Health (MOPH) and Department of Healthcare Professions (DHP).
+                  </p>
+                  <button
+                    onClick={() => onOpenQuote && onOpenQuote('MOPH & Healthcare Licensing')}
+                    className="btn-gold text-xs py-2 px-4 inline-flex items-center gap-1.5"
+                  >
+                    <span>Request Healthcare Licensing Consultation</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {currentService.categories.map((cat, idx) => (
                   <div key={idx} className="p-6 rounded-2xl bg-[#080D18] border border-[#C5A059]/20 flex flex-col justify-between">
@@ -324,6 +500,40 @@ export default function ServiceDeepDive({ activeServiceId, onSelectService, onOp
           {/* 6. Branding & Digital Solutions View (Pages 10 & 11) */}
           {currentService.id === 'branding-digital' && (
             <div className="space-y-8">
+              {/* Feature Banner with Branding & Digital Background Image & Text Overlay */}
+              <div className="relative rounded-2xl overflow-hidden border border-[#C5A059]/30 min-h-[220px] flex items-center p-6 sm:p-8">
+                <img
+                  src={brandingDigitalBgImg}
+                  alt="Branding, Marketing & Digital Solutions Qatar"
+                  className="absolute inset-0 w-full h-full object-cover object-center sm:object-right opacity-45"
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      'linear-gradient(90deg, rgba(8,13,24,0.96) 0%, rgba(8,13,24,0.88) 45%, rgba(8,13,24,0.4) 80%, rgba(8,13,24,0.2) 100%)',
+                  }}
+                />
+                <div className="relative z-10 max-w-xl">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#DFBA73] mb-1.5 block">
+                    Brand Strategy • Web Portals • Performance Marketing
+                  </span>
+                  <h4 className="text-xl sm:text-2xl font-bold text-white font-display mb-2">
+                    Build A Brand That Stands Out In Qatar
+                  </h4>
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                    From brand identity and logo guidelines to high-converting responsive websites, Qatar payment gateway integrations, and custom CRM systems.
+                  </p>
+                  <button
+                    onClick={() => onOpenQuote && onOpenQuote('Branding, Marketing & Digital Solutions')}
+                    className="btn-gold text-xs py-2 px-4 inline-flex items-center gap-1.5"
+                  >
+                    <span>Request Digital Consultation</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {currentService.sections.map((sec, idx) => (
                   <div key={idx} className="p-6 rounded-2xl bg-[#080D18] border border-[#C5A059]/20">

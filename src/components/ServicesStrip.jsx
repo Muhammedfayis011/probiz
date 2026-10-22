@@ -148,7 +148,7 @@ export default function ServicesStrip({ onSelectService }) {
               <div
                 className="service-strip-title"
                 style={{
-                  fontFamily: "'Space Grotesk', 'Plus Jakarta Sans', sans-serif",
+                  fontFamily: "'Merriweather', serif",
                   fontWeight: 700,
                   fontSize: '0.9rem',
                   color: '#111111',
@@ -161,7 +161,7 @@ export default function ServicesStrip({ onSelectService }) {
               <div
                 className="service-strip-desc"
                 style={{
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontFamily: "'Lora', serif",
                   fontSize: '0.78rem',
                   color: '#666',
                   lineHeight: 1.5,

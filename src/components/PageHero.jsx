@@ -7,13 +7,46 @@ export default function PageHero({
   highlight,
   subtitle,
   breadcrumb,
+  backgroundImage,
   onBackToHome,
 }) {
   return (
-    <div className="relative pt-28 pb-14 bg-gradient-to-b from-[#060911] via-[#0B101D] to-[#0D0D0D] border-b border-[#C5A059]/20 overflow-hidden">
+    <div
+      className={`relative pt-28 pb-16 sm:pb-20 bg-gradient-to-b from-[#060911] via-[#0B101D] to-[#0D0D0D] border-b border-[#C5A059]/20 overflow-hidden ${
+        backgroundImage ? 'min-h-[420px] sm:min-h-[480px] flex flex-col justify-center' : ''
+      }`}
+    >
+      {/* Optional Background Image */}
+      {backgroundImage && (
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          <img
+            src={backgroundImage}
+            alt=""
+            className="w-full h-full object-cover object-center lg:object-right opacity-45 sm:opacity-55 lg:opacity-70"
+          />
+          {/* Desktop Left-to-Right Gradient: Ensures text is high contrast on left while showcasing imagery on right */}
+          <div
+            className="absolute inset-0 hidden sm:block"
+            style={{
+              background:
+                'linear-gradient(90deg, rgba(6,9,17,0.97) 0%, rgba(11,16,29,0.92) 42%, rgba(13,13,13,0.70) 65%, rgba(13,13,13,0.30) 85%, transparent 100%)',
+            }}
+          />
+          {/* Mobile Top-to-Bottom Gradient */}
+          <div
+            className="absolute inset-0 sm:hidden"
+            style={{
+              background:
+                'linear-gradient(180deg, rgba(6,9,17,0.94) 0%, rgba(11,16,29,0.88) 50%, rgba(13,13,13,0.96) 100%)',
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D] via-transparent to-[#060911]/70" />
+        </div>
+      )}
+
       {/* Golden ambient glow */}
-      <div className="absolute top-0 right-1/4 w-[600px] h-[350px] bg-[#C5A059]/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-0 left-10 w-[400px] h-[300px] bg-[#8A1538]/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-[600px] h-[350px] bg-[#C5A059]/10 rounded-full blur-[140px] pointer-events-none z-[1]" />
+      <div className="absolute bottom-0 left-10 w-[400px] h-[300px] bg-[#8A1538]/10 rounded-full blur-[140px] pointer-events-none z-[1]" />
 
       <div className="probiz-container relative z-10">
         {/* Breadcrumb Navigation */}

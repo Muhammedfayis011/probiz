@@ -3,6 +3,7 @@ import PageHero from './PageHero';
 import WhyChooseUs from './WhyChooseUs';
 import FaqSection from './FaqSection';
 import { DollarSign, Globe, Shield, TrendingUp } from 'lucide-react';
+import whyQatarBgImg from '../assets/why-qatar-bg.jpg';
 
 const QATAR_INCENTIVES = [
   {
@@ -36,6 +37,7 @@ export default function WhyQatarPage({ onBackToHome, onOpenQuote }) {
         title="Why Invest in Qatar."
         highlight="The Gateway to GCC Growth."
         subtitle="Ranked among the world's most stable, prosperous, and investor-friendly economies. Benefit from a tax-efficient ecosystem backed by Qatar National Vision 2030."
+        backgroundImage={whyQatarBgImg}
         onBackToHome={onBackToHome}
       />
 

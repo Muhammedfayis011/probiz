@@ -1,4 +1,5 @@
 import React from 'react';
+import aboutSkylineImg from '../assets/about-skyline.jpg';
 
 /* Why Choose Icons */
 const PinIcon = () => (
@@ -48,83 +49,6 @@ const WHY_ITEMS = [
   },
 ];
 
-/* Doha at Golden Hour – compact version for the About section left panel */
-const DohaAboutSvg = () => (
-  <svg
-    viewBox="0 0 520 360"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    preserveAspectRatio="xMidYMid slice"
-    style={{ width: '100%', height: '100%', display: 'block' }}
-  >
-    <defs>
-      <linearGradient id="aSky" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stopColor="#1D2B4A"/>
-        <stop offset="40%" stopColor="#9C4822"/>
-        <stop offset="70%" stopColor="#E07A30"/>
-        <stop offset="100%" stopColor="#F2BF60"/>
-      </linearGradient>
-      <radialGradient id="aSun" cx="65%" cy="42%" r="52%">
-        <stop offset="0%" stopColor="#FFE8A8" stopOpacity="0.9"/>
-        <stop offset="35%" stopColor="#E0721C" stopOpacity="0.5"/>
-        <stop offset="80%" stopColor="#6E2010" stopOpacity="0.1"/>
-        <stop offset="100%" stopColor="#080A12" stopOpacity="0"/>
-      </radialGradient>
-      <linearGradient id="aWater" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stopColor="#50291A"/>
-        <stop offset="35%" stopColor="#1C0E09"/>
-        <stop offset="100%" stopColor="#060810"/>
-      </linearGradient>
-      <linearGradient id="aTower" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" stopColor="#12202F" stopOpacity="0.96"/>
-        <stop offset="50%" stopColor="#1E3148" stopOpacity="0.85"/>
-        <stop offset="100%" stopColor="#091420" stopOpacity="0.96"/>
-      </linearGradient>
-    </defs>
-    <rect width="520" height="230" fill="url(#aSky)"/>
-    <rect width="520" height="230" fill="url(#aSun)"/>
-    {/* Skyline */}
-    <rect x="30" y="75" width="28" height="155" fill="url(#aTower)" rx="1"/>
-    <line x1="38" y1="75" x2="38" y2="230" stroke="#C9A84C" strokeWidth="0.6" opacity="0.7"/>
-    <line x1="46" y1="75" x2="46" y2="230" stroke="#C9A84C" strokeWidth="0.6" opacity="0.7"/>
-    {[90,108,126,144,162,180].map(y=>(
-      <line key={y} x1="32" y1={y} x2="56" y2={y} stroke="#FFE9A0" strokeWidth="0.6" strokeDasharray="2 3" opacity="0.6"/>
-    ))}
-    <polygon points="72,55 95,40 105,230 68,230" fill="#162233"/>
-    <line x1="95" y1="40" x2="105" y2="230" stroke="#C9A84C" strokeWidth="1"/>
-    <g transform="translate(114,30)">
-      <path d="M7 200 Q2 90 12 12 L28 12 Q38 90 33 200 Z" fill="#111C2C"/>
-      <path d="M7 200 Q2 90 12 12 L28 12 Q38 90 33 200 Z" stroke="#C9A84C" strokeWidth="0.9" opacity="0.8"/>
-      <circle cx="20" cy="10" r="3" fill="#FFF8E5"/>
-    </g>
-    <g transform="translate(168,22)">
-      <polygon points="17,0 13,60 5,210 30,210 21,60" fill="#192840"/>
-      <line x1="17" y1="0" x2="17" y2="210" stroke="#C9A84C" strokeWidth="1"/>
-      <circle cx="17" cy="0" r="2" fill="#FF2020"/>
-    </g>
-    <rect x="210" y="68" width="28" height="162" fill="#14202F" rx="1"/>
-    <rect x="222" y="55" width="10" height="178" fill="#1E3046"/>
-    <polygon points="255,80 270,58 285,80" fill="#162030"/>
-    <rect x="290" y="98" width="35" height="132" fill="#11202E"/>
-    <polygon points="290,98 308,78 325,98" fill="#C9A84C" opacity="0.6"/>
-    <rect x="338" y="110" width="42" height="120" fill="#162130"/>
-    <rect x="392" y="80" width="32" height="150" fill="#102030"/>
-    <line x1="406" y1="68" x2="406" y2="80" stroke="#C9A84C" strokeWidth="1.4"/>
-    <polygon points="436,88 452,70 462,88" fill="#1A2B3E"/>
-    <rect x="462" y="95" width="55" height="135" fill="#0E1E2D"/>
-    {/* Water */}
-    <rect x="0" y="230" width="520" height="130" fill="url(#aWater)"/>
-    <rect x="0" y="230" width="520" height="8" fill="#0C1520"/>
-    <line x1="0" y1="230" x2="520" y2="230" stroke="#C9A84C" strokeWidth="1.2"/>
-    <path d="M0 255 Q130 262 260 255 T520 255" stroke="#C9A84C" strokeWidth="0.7" opacity="0.25" fill="none"/>
-    <path d="M0 285 Q150 294 300 285 T520 285" stroke="#C9A84C" strokeWidth="0.7" opacity="0.18" fill="none"/>
-    {/* Gold reflections */}
-    {[[180,15,240,70,0.45],[250,12,244,55,0.35],[310,10,248,45,0.28]].map(([cx,rx,cy,ry,op],i)=>(
-      <ellipse key={i} cx={cx} cy={cy+cy/4} rx={rx} ry={ry/3} fill="#F0B840" opacity={op}/>
-    ))}
-  </svg>
-);
-
 export default function AboutPreview({ onLearnMore }) {
   return (
     <section
@@ -147,7 +71,19 @@ export default function AboutPreview({ onLearnMore }) {
       >
         {/* LEFT: Image + Text overlay */}
         <div className="about-left" style={{ position: 'relative', overflow: 'hidden', minHeight: 420 }}>
-          <DohaAboutSvg />
+          <img
+            src={aboutSkylineImg}
+            alt="Doha Skyline - ProBiz Consultancy Services"
+            style={{
+              position: 'absolute',
+              inset: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'center',
+              display: 'block',
+            }}
+          />
 
           {/* Dark overlay gradient from bottom */}
           <div
@@ -191,7 +127,7 @@ export default function AboutPreview({ onLearnMore }) {
           >
             <div
               style={{
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontFamily: "'Lora', serif",
                 fontWeight: 700,
                 fontSize: '0.7rem',
                 color: '#C9A84C',
@@ -205,7 +141,7 @@ export default function AboutPreview({ onLearnMore }) {
 
             <h2
               style={{
-                fontFamily: "'Space Grotesk', 'Plus Jakarta Sans', sans-serif",
+                fontFamily: "'Merriweather', serif",
                 fontWeight: 800,
                 fontSize: 'clamp(1.8rem, 3vw, 2.5rem)',
                 color: '#FFFFFF',
@@ -220,7 +156,7 @@ export default function AboutPreview({ onLearnMore }) {
 
             <p
               style={{
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontFamily: "'Lora', serif",
                 color: '#AAAAAA',
                 fontSize: '0.9rem',
                 lineHeight: 1.7,
@@ -236,7 +172,7 @@ export default function AboutPreview({ onLearnMore }) {
               style={{
                 background: 'transparent',
                 color: '#C9A84C',
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontFamily: "'Merriweather', 'Lora', serif",
                 fontWeight: 700,
                 fontSize: '0.9rem',
                 border: '1.5px solid #C9A84C',
@@ -275,7 +211,7 @@ export default function AboutPreview({ onLearnMore }) {
         >
           <h3
             style={{
-              fontFamily: "'Space Grotesk', 'Plus Jakarta Sans', sans-serif",
+              fontFamily: "'Merriweather', serif",
               fontWeight: 800,
               fontSize: 'clamp(1.5rem, 2.5vw, 2rem)',
               color: '#FFFFFF',
@@ -328,7 +264,7 @@ export default function AboutPreview({ onLearnMore }) {
                 <div>
                   <div
                     style={{
-                      fontFamily: "'Space Grotesk', 'Plus Jakarta Sans', sans-serif",
+                      fontFamily: "'Merriweather', serif",
                       fontWeight: 700,
                       fontSize: '0.9rem',
                       color: '#FFFFFF',
@@ -339,7 +275,7 @@ export default function AboutPreview({ onLearnMore }) {
                   </div>
                   <div
                     style={{
-                      fontFamily: "'Plus Jakarta Sans', sans-serif",
+                      fontFamily: "'Lora', serif",
                       fontSize: '0.82rem',
                       color: '#888888',
                       lineHeight: 1.5,

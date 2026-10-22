@@ -150,7 +150,7 @@ export default function HeroSection({ onGetStarted, onContact, onServices }) {
           <p
             className="hero-subtext"
             style={{
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontFamily: "'Lora', serif",
               color: '#BBBBBB',
               fontSize: '1rem',
               lineHeight: 1.7,
@@ -169,7 +169,7 @@ export default function HeroSection({ onGetStarted, onContact, onServices }) {
                 background: 'linear-gradient(135deg, #DFBA73 0%, #C9A84C 60%, #9E7B2A 100%)',
                 color: '#0D0D0D',
                 fontWeight: 700,
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontFamily: "'Merriweather', 'Lora', serif",
                 fontSize: '0.9rem',
                 padding: '0.8rem 1.8rem',
                 borderRadius: 6,
@@ -193,7 +193,7 @@ export default function HeroSection({ onGetStarted, onContact, onServices }) {
                 background: 'rgba(255,255,255,0.06)',
                 color: '#FFFFFF',
                 fontWeight: 600,
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontFamily: "'Merriweather', 'Lora', serif",
                 fontSize: '0.9rem',
                 padding: '0.8rem 1.8rem',
                 borderRadius: 6,
@@ -219,20 +219,20 @@ export default function HeroSection({ onGetStarted, onContact, onServices }) {
             }}
           >
             <div>
-              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800, fontSize: '1.6rem', color: '#FFFFFF', lineHeight: 1 }}>
+              <div style={{ fontFamily: "'Merriweather', serif", fontWeight: 800, fontSize: '1.6rem', color: '#FFFFFF', lineHeight: 1 }}>
                 {count100}+
               </div>
-              <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '0.75rem', color: '#888', marginTop: 4 }}>Businesses Supported</div>
+              <div style={{ fontFamily: "'Lora', serif", fontSize: '0.75rem', color: '#888', marginTop: 4 }}>Businesses Supported</div>
             </div>
             <div className="hero-stat-item-bordered" style={{ borderLeft: '1px solid rgba(255,255,255,0.1)', paddingLeft: '2.5rem' }}>
-              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800, fontSize: '1.6rem', color: '#FFFFFF', lineHeight: 1 }}>
+              <div style={{ fontFamily: "'Merriweather', serif", fontWeight: 800, fontSize: '1.6rem', color: '#FFFFFF', lineHeight: 1 }}>
                 {count5}+
               </div>
-              <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '0.75rem', color: '#888', marginTop: 4 }}>Years of Experience</div>
+              <div style={{ fontFamily: "'Lora', serif", fontSize: '0.75rem', color: '#888', marginTop: 4 }}>Years of Experience</div>
             </div>
             <div className="hero-stat-item-bordered" style={{ borderLeft: '1px solid rgba(255,255,255,0.1)', paddingLeft: '2.5rem' }}>
-              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800, fontSize: '1.4rem', color: '#C9A84C', lineHeight: 1 }}>Qatar</div>
-              <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '0.75rem', color: '#888', marginTop: 4 }}>Local Market Expertise</div>
+              <div style={{ fontFamily: "'Merriweather', serif", fontWeight: 800, fontSize: '1.4rem', color: '#C9A84C', lineHeight: 1 }}>Qatar</div>
+              <div style={{ fontFamily: "'Lora', serif", fontSize: '0.75rem', color: '#888', marginTop: 4 }}>Local Market Expertise</div>
             </div>
           </div>
         </div>
@@ -255,7 +255,7 @@ export default function HeroSection({ onGetStarted, onContact, onServices }) {
               zIndex: 4,
             }}
           >
-            <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '0.62rem', color: 'rgba(255,255,255,0.75)', letterSpacing: 2, lineHeight: 1.8, textTransform: 'uppercase', textShadow: '0 2px 10px rgba(0,0,0,0.85)' }}>
+            <div style={{ fontFamily: "'Lora', serif", fontSize: '0.62rem', color: 'rgba(255,255,255,0.75)', letterSpacing: 2, lineHeight: 1.8, textTransform: 'uppercase', textShadow: '0 2px 10px rgba(0,0,0,0.85)' }}>
               Business Opportunities<br />Beyond Borders
             </div>
           </div>

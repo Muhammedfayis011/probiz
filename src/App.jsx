@@ -105,7 +105,8 @@ export default function App() {
   }, []);
 
   const handleSelectServiceFromGlance = (service) => {
-    handleOpenServicePage(service.id);
+    const id = typeof service === 'object' && service?.id ? service.id : service;
+    handleOpenServicePage(id || 'business-setup');
   };
 
   return (
@@ -116,7 +117,7 @@ export default function App() {
         color: '#F1F5F9',
         display: 'flex',
         flexDirection: 'column',
-        fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif",
+        fontFamily: "'Lora', 'Merriweather', serif",
       }}
     >
       {/* ── TOP NAVIGATION ── */}

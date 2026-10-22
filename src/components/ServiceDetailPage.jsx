@@ -1,5 +1,11 @@
 import React, { useEffect } from 'react';
 import { SERVICES, COMPANY_INFO, FAQS } from '../data/probizData';
+import mophBgImg from '../assets/moph-licensing-bg.jpg';
+import businessSetupBgImg from '../assets/business-setup-bg.jpg';
+import proServicesBgImg from '../assets/pro-services-bg.jpg';
+import brandingDigitalBgImg from '../assets/branding-digital-bg.jpg';
+import translationDocBgImg from '../assets/translation-document-bg.jpg';
+import recruitmentHrBgImg from '../assets/recruitment-hr-bg.jpg';
 import {
   ArrowLeft,
   Briefcase,
@@ -125,6 +131,11 @@ export default function ServiceDetailPage({
   const Icon = iconMap[service.icon] || Briefcase;
 
   const isBusinessSetup = service.id === 'business-setup';
+  const isHealthcare = service.id === 'healthcare-services';
+  const isProServices = service.id === 'pro-services';
+  const isBrandingDigital = service.id === 'branding-digital';
+  const isTranslation = service.id === 'translation-services';
+  const isRecruitmentHr = service.id === 'recruitment-hr';
 
   // Specific FAQs for this service or general
   const serviceFaqs = isBusinessSetup
@@ -179,30 +190,204 @@ export default function ServiceDetailPage({
       </div>
 
       {/* ── HERO BANNER ── */}
-      <div className="relative overflow-hidden bg-gradient-to-b from-[#121927] via-[#0B0F1A] to-[#070A10] pt-12 pb-16 sm:pb-24 border-b border-[#C5A059]/20">
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#C9A84C]/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-10 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="relative overflow-hidden bg-gradient-to-b from-[#121927] via-[#0B0F1A] to-[#070A10] pt-12 pb-16 sm:pb-24 border-b border-[#C5A059]/20 min-h-[480px] flex flex-col justify-center">
+        {/* Business Setup Background Image & Overlays */}
+        {isBusinessSetup && (
+          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+            <img
+              src={businessSetupBgImg}
+              alt="Business Setup & Company Formation Qatar"
+              className="w-full h-full object-cover object-center lg:object-right opacity-45 sm:opacity-55 lg:opacity-65"
+            />
+            {/* Desktop Left-to-Right Gradient: Keeps text super readable on left, shows meeting & skyline on right */}
+            <div
+              className="absolute inset-0 hidden sm:block"
+              style={{
+                background:
+                  'linear-gradient(90deg, rgba(7,10,16,0.97) 0%, rgba(7,10,16,0.93) 38%, rgba(7,10,16,0.72) 60%, rgba(7,10,16,0.35) 82%, rgba(7,10,16,0.2) 100%)',
+              }}
+            />
+            {/* Mobile Top-to-Bottom Gradient */}
+            <div
+              className="absolute inset-0 sm:hidden"
+              style={{
+                background:
+                  'linear-gradient(180deg, rgba(7,10,16,0.92) 0%, rgba(7,10,16,0.85) 50%, rgba(7,10,16,0.95) 100%)',
+              }}
+            />
+            {/* Bottom blend */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070A10] via-transparent to-[#070A10]/50" />
+          </div>
+        )}
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* PRO Services Background Image & Overlays */}
+        {isProServices && (
+          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+            <img
+              src={proServicesBgImg}
+              alt="PRO & Government Services Qatar"
+              className="w-full h-full object-cover object-center lg:object-right opacity-45 sm:opacity-55 lg:opacity-65"
+            />
+            {/* Desktop Left-to-Right Gradient: Keeps text super readable on left, shows documents, stamp & skyline on right */}
+            <div
+              className="absolute inset-0 hidden sm:block"
+              style={{
+                background:
+                  'linear-gradient(90deg, rgba(7,10,16,0.97) 0%, rgba(7,10,16,0.93) 38%, rgba(7,10,16,0.72) 60%, rgba(7,10,16,0.35) 82%, rgba(7,10,16,0.2) 100%)',
+              }}
+            />
+            {/* Mobile Top-to-Bottom Gradient */}
+            <div
+              className="absolute inset-0 sm:hidden"
+              style={{
+                background:
+                  'linear-gradient(180deg, rgba(7,10,16,0.92) 0%, rgba(7,10,16,0.85) 50%, rgba(7,10,16,0.95) 100%)',
+              }}
+            />
+            {/* Bottom blend */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070A10] via-transparent to-[#070A10]/50" />
+          </div>
+        )}
+
+        {/* Recruitment & HR Background Image & Overlays */}
+        {isRecruitmentHr && (
+          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+            <img
+              src={recruitmentHrBgImg}
+              alt="Recruitment & HR Support Qatar"
+              className="w-full h-full object-cover object-center lg:object-right opacity-45 sm:opacity-55 lg:opacity-65"
+            />
+            {/* Desktop Left-to-Right Gradient: Keeps text super readable on left, shows hiring team on right */}
+            <div
+              className="absolute inset-0 hidden sm:block"
+              style={{
+                background:
+                  'linear-gradient(90deg, rgba(7,10,16,0.97) 0%, rgba(7,10,16,0.93) 38%, rgba(7,10,16,0.72) 60%, rgba(7,10,16,0.35) 82%, rgba(7,10,16,0.2) 100%)',
+              }}
+            />
+            {/* Mobile Top-to-Bottom Gradient */}
+            <div
+              className="absolute inset-0 sm:hidden"
+              style={{
+                background:
+                  'linear-gradient(180deg, rgba(7,10,16,0.92) 0%, rgba(7,10,16,0.85) 50%, rgba(7,10,16,0.95) 100%)',
+              }}
+            />
+            {/* Bottom blend */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070A10] via-transparent to-[#070A10]/50" />
+          </div>
+        )}
+
+        {/* Translation & Document Services Background Image & Overlays */}
+        {isTranslation && (
+          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+            <img
+              src={translationDocBgImg}
+              alt="Translation & Document Services Qatar"
+              className="w-full h-full object-cover object-center lg:object-right opacity-45 sm:opacity-55 lg:opacity-65"
+            />
+            {/* Desktop Left-to-Right Gradient: Keeps text super readable on left, shows document signing on right */}
+            <div
+              className="absolute inset-0 hidden sm:block"
+              style={{
+                background:
+                  'linear-gradient(90deg, rgba(7,10,16,0.97) 0%, rgba(7,10,16,0.93) 38%, rgba(7,10,16,0.72) 60%, rgba(7,10,16,0.35) 82%, rgba(7,10,16,0.2) 100%)',
+              }}
+            />
+            {/* Mobile Top-to-Bottom Gradient */}
+            <div
+              className="absolute inset-0 sm:hidden"
+              style={{
+                background:
+                  'linear-gradient(180deg, rgba(7,10,16,0.92) 0%, rgba(7,10,16,0.85) 50%, rgba(7,10,16,0.95) 100%)',
+              }}
+            />
+            {/* Bottom blend */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070A10] via-transparent to-[#070A10]/50" />
+          </div>
+        )}
+
+        {/* Branding & Digital Background Image & Overlays */}
+        {isBrandingDigital && (
+          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+            <img
+              src={brandingDigitalBgImg}
+              alt="Branding, Marketing & Digital Solutions Qatar"
+              className="w-full h-full object-cover object-center lg:object-right opacity-45 sm:opacity-55 lg:opacity-65"
+            />
+            {/* Desktop Left-to-Right Gradient: Keeps text super readable on left, shows creative studio & skyline on right */}
+            <div
+              className="absolute inset-0 hidden sm:block"
+              style={{
+                background:
+                  'linear-gradient(90deg, rgba(7,10,16,0.97) 0%, rgba(7,10,16,0.93) 38%, rgba(7,10,16,0.72) 60%, rgba(7,10,16,0.35) 82%, rgba(7,10,16,0.2) 100%)',
+              }}
+            />
+            {/* Mobile Top-to-Bottom Gradient */}
+            <div
+              className="absolute inset-0 sm:hidden"
+              style={{
+                background:
+                  'linear-gradient(180deg, rgba(7,10,16,0.92) 0%, rgba(7,10,16,0.85) 50%, rgba(7,10,16,0.95) 100%)',
+              }}
+            />
+            {/* Bottom blend */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070A10] via-transparent to-[#070A10]/50" />
+          </div>
+        )}
+
+        {/* Healthcare Background Image & Overlays */}
+        {isHealthcare && (
+          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+            <img
+              src={mophBgImg}
+              alt="MOPH & Healthcare Licensing Qatar"
+              className="w-full h-full object-cover object-center lg:object-right opacity-45 sm:opacity-55 lg:opacity-65"
+            />
+            {/* Desktop Left-to-Right Gradient: Keeps text super readable on left, shows image on right */}
+            <div
+              className="absolute inset-0 hidden sm:block"
+              style={{
+                background:
+                  'linear-gradient(90deg, rgba(7,10,16,0.97) 0%, rgba(7,10,16,0.93) 38%, rgba(7,10,16,0.72) 60%, rgba(7,10,16,0.35) 82%, rgba(7,10,16,0.2) 100%)',
+              }}
+            />
+            {/* Mobile Top-to-Bottom Gradient */}
+            <div
+              className="absolute inset-0 sm:hidden"
+              style={{
+                background:
+                  'linear-gradient(180deg, rgba(7,10,16,0.92) 0%, rgba(7,10,16,0.85) 50%, rgba(7,10,16,0.95) 100%)',
+              }}
+            />
+            {/* Bottom blend */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070A10] via-transparent to-[#070A10]/50" />
+          </div>
+        )}
+
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#C9A84C]/10 rounded-full blur-3xl pointer-events-none z-[1]" />
+        <div className="absolute bottom-0 left-10 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl pointer-events-none z-[1]" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
           <div className="max-w-3xl">
             {/* Vertical Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#C9A84C]/15 border border-[#C9A84C]/40 text-[#DFBA73] text-xs font-bold mb-5">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#C9A84C]/15 border border-[#C9A84C]/40 text-[#DFBA73] text-xs font-bold mb-5 backdrop-blur-sm">
               <Icon className="w-3.5 h-3.5 text-[#DFBA73]" />
               <span>VERTICAL {service.number} • {service.badge}</span>
             </div>
 
             {/* Title */}
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold font-display text-white tracking-tight leading-[1.15]">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold font-display text-white tracking-tight leading-[1.15] drop-shadow-md">
               {service.title}
             </h1>
 
             {/* Tagline */}
-            <p className="text-lg sm:text-xl text-[#DFBA73] font-medium mt-4">
+            <p className="text-lg sm:text-xl text-[#DFBA73] font-medium mt-4 drop-shadow-sm">
               {service.tagline}
             </p>
 
             {/* Full description */}
-            <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-2xl">
+            <p className="text-slate-200 text-base sm:text-lg mt-4 leading-relaxed max-w-2xl drop-shadow-sm">
               {service.fullDesc}
             </p>
 
@@ -210,7 +395,7 @@ export default function ServiceDetailPage({
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <button
                 onClick={() => onOpenQuote(service.title)}
-                className="btn-gold px-6 py-3 text-sm font-bold flex items-center gap-2"
+                className="btn-gold px-6 py-3 text-sm font-bold flex items-center gap-2 shadow-lg"
               >
                 <span>Book Setup Consultation</span>
                 <ChevronRight className="w-4 h-4" />
@@ -220,7 +405,7 @@ export default function ServiceDetailPage({
                 href={COMPANY_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-outline-gold px-5 py-3 text-sm font-semibold flex items-center gap-2"
+                className="btn-outline-gold px-5 py-3 text-sm font-semibold flex items-center gap-2 backdrop-blur-sm"
               >
                 <MessageCircle className="w-4 h-4 text-[#25D366]" />
                 <span>Quick WhatsApp Chat</span>
@@ -228,28 +413,158 @@ export default function ServiceDetailPage({
             </div>
           </div>
 
-          {/* Quick Stats Highlights */}
+          {/* Quick Stats Highlights (Business Setup) */}
           {isBusinessSetup && (
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-12 pt-8 border-t border-white/10">
-              <div className="p-4 rounded-xl bg-white/5 border border-white/5">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-12 pt-8 border-t border-white/15">
+              <div className="p-4 rounded-xl bg-[#0A0E17]/80 backdrop-blur-md border border-[#C5A059]/25">
                 <div className="text-2xl sm:text-3xl font-extrabold text-[#DFBA73] font-display">100%</div>
-                <div className="text-xs text-slate-300 font-semibold mt-1">Foreign Ownership</div>
-                <div className="text-[11px] text-slate-500 mt-0.5">Permitted under Law No. 1</div>
+                <div className="text-xs text-white font-semibold mt-1">Foreign Ownership</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">Permitted under Law No. 1</div>
               </div>
-              <div className="p-4 rounded-xl bg-white/5 border border-white/5">
+              <div className="p-4 rounded-xl bg-[#0A0E17]/80 backdrop-blur-md border border-[#C5A059]/25">
                 <div className="text-2xl sm:text-3xl font-extrabold text-[#DFBA73] font-display">7 - 14 Days</div>
-                <div className="text-xs text-slate-300 font-semibold mt-1">Typical CR Issuance</div>
-                <div className="text-[11px] text-slate-500 mt-0.5">Fast-track ministry clearance</div>
+                <div className="text-xs text-white font-semibold mt-1">Typical CR Issuance</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">Fast-track ministry clearance</div>
               </div>
-              <div className="p-4 rounded-xl bg-white/5 border border-white/5">
+              <div className="p-4 rounded-xl bg-[#0A0E17]/80 backdrop-blur-md border border-[#C5A059]/25">
                 <div className="text-2xl sm:text-3xl font-extrabold text-[#DFBA73] font-display">0%</div>
-                <div className="text-xs text-slate-300 font-semibold mt-1">Personal Income Tax</div>
-                <div className="text-[11px] text-slate-500 mt-0.5">10% competitive corporate tax</div>
+                <div className="text-xs text-white font-semibold mt-1">Personal Income Tax</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">10% competitive corporate tax</div>
               </div>
-              <div className="p-4 rounded-xl bg-white/5 border border-white/5">
+              <div className="p-4 rounded-xl bg-[#0A0E17]/80 backdrop-blur-md border border-[#C5A059]/25">
                 <div className="text-2xl sm:text-3xl font-extrabold text-[#DFBA73] font-display">10+ Years</div>
-                <div className="text-xs text-slate-300 font-semibold mt-1">Team Expertise</div>
-                <div className="text-[11px] text-slate-500 mt-0.5">Direct ministry coordination</div>
+                <div className="text-xs text-white font-semibold mt-1">Team Expertise</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">Direct ministry coordination</div>
+              </div>
+            </div>
+          )}
+
+          {/* Quick Highlights (Healthcare Services) */}
+          {isHealthcare && (
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-12 pt-8 border-t border-white/15">
+              <div className="p-4 rounded-xl bg-[#0A0E17]/80 backdrop-blur-md border border-[#C5A059]/25">
+                <div className="text-xl sm:text-2xl font-extrabold text-[#DFBA73] font-display">DataFlow PSV</div>
+                <div className="text-xs text-white font-semibold mt-1">Verification Filing</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">Primary Source Verification support</div>
+              </div>
+              <div className="p-4 rounded-xl bg-[#0A0E17]/80 backdrop-blur-md border border-[#C5A059]/25">
+                <div className="text-xl sm:text-2xl font-extrabold text-[#DFBA73] font-display">DHP & QCHP</div>
+                <div className="text-xs text-white font-semibold mt-1">Practitioner Licensing</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">Doctors, nurses, dentists, allied</div>
+              </div>
+              <div className="p-4 rounded-xl bg-[#0A0E17]/80 backdrop-blur-md border border-[#C5A059]/25">
+                <div className="text-xl sm:text-2xl font-extrabold text-[#DFBA73] font-display">Prometric Exam</div>
+                <div className="text-xs text-white font-semibold mt-1">Booking & Scheduling</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">Exam preparation guidance</div>
+              </div>
+              <div className="p-4 rounded-xl bg-[#0A0E17]/80 backdrop-blur-md border border-[#C5A059]/25">
+                <div className="text-xl sm:text-2xl font-extrabold text-[#DFBA73] font-display">Facility Licences</div>
+                <div className="text-xs text-white font-semibold mt-1">MOPH Pre-Approvals</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">Clinics, polyclinics & pharmacies</div>
+              </div>
+            </div>
+          )}
+
+          {/* Quick Highlights (PRO & Government Services) */}
+          {isProServices && (
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-12 pt-8 border-t border-white/15">
+              <div className="p-4 rounded-xl bg-[#0A0E17]/80 backdrop-blur-md border border-[#C5A059]/25">
+                <div className="text-xl sm:text-2xl font-extrabold text-[#DFBA73] font-display">Ministry Liaison</div>
+                <div className="text-xs text-white font-semibold mt-1">Direct Coordination</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">MOCI, MOI, MADLSA & MOJ</div>
+              </div>
+              <div className="p-4 rounded-xl bg-[#0A0E17]/80 backdrop-blur-md border border-[#C5A059]/25">
+                <div className="text-xl sm:text-2xl font-extrabold text-[#DFBA73] font-display">Labour & QID</div>
+                <div className="text-xs text-white font-semibold mt-1">Employee Processing</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">Work visas & residence permits</div>
+              </div>
+              <div className="p-4 rounded-xl bg-[#0A0E17]/80 backdrop-blur-md border border-[#C5A059]/25">
+                <div className="text-xl sm:text-2xl font-extrabold text-[#DFBA73] font-display">Annual Renewals</div>
+                <div className="text-xs text-white font-semibold mt-1">Zero Downtime</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">CR, Trade Licence & Computer Card</div>
+              </div>
+              <div className="p-4 rounded-xl bg-[#0A0E17]/80 backdrop-blur-md border border-[#C5A059]/25">
+                <div className="text-xl sm:text-2xl font-extrabold text-[#DFBA73] font-display">Attestation</div>
+                <div className="text-xs text-white font-semibold mt-1">Legal Clearance</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">MOFA, Chamber & Embassy clearance</div>
+              </div>
+            </div>
+          )}
+
+          {/* Quick Highlights (Branding, Marketing & Digital) */}
+          {isBrandingDigital && (
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-12 pt-8 border-t border-white/15">
+              <div className="p-4 rounded-xl bg-[#0A0E17]/80 backdrop-blur-md border border-[#C5A059]/25">
+                <div className="text-xl sm:text-2xl font-extrabold text-[#DFBA73] font-display">Brand Identity</div>
+                <div className="text-xs text-white font-semibold mt-1">Logo & Guidelines</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">Complete corporate visual system</div>
+              </div>
+              <div className="p-4 rounded-xl bg-[#0A0E17]/80 backdrop-blur-md border border-[#C5A059]/25">
+                <div className="text-xl sm:text-2xl font-extrabold text-[#DFBA73] font-display">Web Portals</div>
+                <div className="text-xs text-white font-semibold mt-1">Modern & Responsive</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">Corporate websites & landing pages</div>
+              </div>
+              <div className="p-4 rounded-xl bg-[#0A0E17]/80 backdrop-blur-md border border-[#C5A059]/25">
+                <div className="text-xl sm:text-2xl font-extrabold text-[#DFBA73] font-display">Digital Growth</div>
+                <div className="text-xs text-white font-semibold mt-1">Targeted Campaigns</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">SEO, social media & ad acquisition</div>
+              </div>
+              <div className="p-4 rounded-xl bg-[#0A0E17]/80 backdrop-blur-md border border-[#C5A059]/25">
+                <div className="text-xl sm:text-2xl font-extrabold text-[#DFBA73] font-display">Software / ERP</div>
+                <div className="text-xs text-white font-semibold mt-1">Custom Business Tech</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">CRM, workflow automation & portals</div>
+              </div>
+            </div>
+          )}
+
+          {/* Quick Highlights (Translation & Document Services) */}
+          {isTranslation && (
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-12 pt-8 border-t border-white/15">
+              <div className="p-4 rounded-xl bg-[#0A0E17]/80 backdrop-blur-md border border-[#C5A059]/25">
+                <div className="text-xl sm:text-2xl font-extrabold text-[#DFBA73] font-display">Certified Arabic</div>
+                <div className="text-xs text-white font-semibold mt-1">Court & Ministry Ready</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">English-Arabic legal translations</div>
+              </div>
+              <div className="p-4 rounded-xl bg-[#0A0E17]/80 backdrop-blur-md border border-[#C5A059]/25">
+                <div className="text-xl sm:text-2xl font-extrabold text-[#DFBA73] font-display">Attestation</div>
+                <div className="text-xs text-white font-semibold mt-1">MOFA & Embassies</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">Qatar Embassy & Consular certification</div>
+              </div>
+              <div className="p-4 rounded-xl bg-[#0A0E17]/80 backdrop-blur-md border border-[#C5A059]/25">
+                <div className="text-xl sm:text-2xl font-extrabold text-[#DFBA73] font-display">Contracts & AOA</div>
+                <div className="text-xs text-white font-semibold mt-1">Corporate Agreements</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">Bylaws, resolutions & financial audits</div>
+              </div>
+              <div className="p-4 rounded-xl bg-[#0A0E17]/80 backdrop-blur-md border border-[#C5A059]/25">
+                <div className="text-xl sm:text-2xl font-extrabold text-[#DFBA73] font-display">Fast Turnaround</div>
+                <div className="text-xs text-white font-semibold mt-1">Accuracy Guaranteed</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">Express same-day legal translations</div>
+              </div>
+            </div>
+          )}
+
+          {/* Quick Highlights (Recruitment & HR Support) */}
+          {isRecruitmentHr && (
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-12 pt-8 border-t border-white/15">
+              <div className="p-4 rounded-xl bg-[#0A0E17]/80 backdrop-blur-md border border-[#C5A059]/25">
+                <div className="text-xl sm:text-2xl font-extrabold text-[#DFBA73] font-display">Talent Sourcing</div>
+                <div className="text-xs text-white font-semibold mt-1">Local & Global Reach</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">Specialist pipelines for Qatar</div>
+              </div>
+              <div className="p-4 rounded-xl bg-[#0A0E17]/80 backdrop-blur-md border border-[#C5A059]/25">
+                <div className="text-xl sm:text-2xl font-extrabold text-[#DFBA73] font-display">Executive Search</div>
+                <div className="text-xs text-white font-semibold mt-1">Leadership Roles</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">C-suite, managers & directors</div>
+              </div>
+              <div className="p-4 rounded-xl bg-[#0A0E17]/80 backdrop-blur-md border border-[#C5A059]/25">
+                <div className="text-xl sm:text-2xl font-extrabold text-[#DFBA73] font-display">Candidate Vetting</div>
+                <div className="text-xs text-white font-semibold mt-1">Screening & Interviews</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">Credentials & background checks</div>
+              </div>
+              <div className="p-4 rounded-xl bg-[#0A0E17]/80 backdrop-blur-md border border-[#C5A059]/25">
+                <div className="text-xl sm:text-2xl font-extrabold text-[#DFBA73] font-display">MADLSA / Labour</div>
+                <div className="text-xs text-white font-semibold mt-1">Workforce Clearances</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">Ministry of Labour visa quotas</div>
               </div>
             </div>
           )}

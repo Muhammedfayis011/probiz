@@ -11,17 +11,165 @@
     <meta name="keywords" content="Business Setup Qatar, Company Formation Doha, PRO Services Qatar, MOPH Licensing, DHP Prometric Dataflow, Qatar Commercial Registration, Translation Services Doha, ProBiz Consultancy Services" />
     <meta name="author" content="ProBiz Consultancy Services" />
 
-    <!-- Favicon SVG -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%23F5D061'/><stop offset='50%25' stop-color='%23C5A059'/><stop offset='100%25' stop-color='%238A6623'/></linearGradient></defs><rect width='100' height='100' rx='20' fill='%230B0F19'/><path d='M25 22h32c12 0 20 8 20 19s-8 19-20 19H42v22H25V22zm17 26h14c5 0 9-3 9-8s-4-8-9-8H42v16z' fill='url(%23g)'/><circle cx='68' cy='41' r='6' fill='%23F5D061'/></svg>" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/probiz-logo.png" />
+    <link rel="apple-touch-icon" href="/probiz-logo.png" />
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Lora & Merriweather -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
+
+    <!-- Opening Screen (Preloader) Styles -->
+    <style>
+      #probiz-preloader {
+        position: fixed;
+        inset: 0;
+        z-index: 9999999;
+        background-color: #070A10;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), filter 0.65s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.65s;
+      }
+      #probiz-preloader.fade-out {
+        opacity: 0;
+        transform: scale(1.02);
+        filter: blur(4px);
+        visibility: hidden;
+        pointer-events: none;
+      }
+      .probiz-preloader-glow {
+        position: absolute;
+        width: 520px;
+        height: 520px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(201, 168, 76, 0.12) 0%, rgba(201, 168, 76, 0.02) 45%, transparent 70%);
+        pointer-events: none;
+        animation: probizPulseGlow 3s ease-in-out infinite alternate;
+      }
+      .probiz-preloader-content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+        padding: 2rem;
+        text-align: center;
+      }
+      .probiz-preloader-logo {
+        width: 195px;
+        max-width: 70vw;
+        height: auto;
+        display: block;
+        margin-bottom: 1.5rem;
+        filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 20px rgba(201, 168, 76, 0.16));
+        animation: probizLogoEnter 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+      .probiz-preloader-loader {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.85rem;
+        animation: probizFadeIn 0.8s 0.25s ease-out backwards;
+      }
+      .probiz-preloader-spinner {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 2.5px solid rgba(201, 168, 76, 0.18);
+        border-top-color: #F5D061;
+        border-right-color: #C9A84C;
+        animation: probizSpinnerRound 0.85s linear infinite;
+        box-shadow: 0 0 12px rgba(201, 168, 76, 0.25);
+      }
+      .probiz-preloader-subtext {
+        font-family: 'Lora', serif;
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: rgba(201, 168, 76, 0.8);
+        margin-top: 4px;
+      }
+      @keyframes probizSpinnerRound {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      @keyframes probizLogoEnter {
+        0% { opacity: 0; transform: translateY(12px) scale(0.96); }
+        100% { opacity: 1; transform: translateY(0) scale(1); }
+      }
+      @keyframes probizFadeIn {
+        0% { opacity: 0; transform: translateY(6px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes probizPulseGlow {
+        0% { opacity: 0.6; transform: scale(0.95); }
+        100% { opacity: 1; transform: scale(1.05); }
+      }
+    </style>
   </head>
   <body class="bg-[#080B11] text-slate-100 antialiased selection:bg-[#C5A059] selection:text-black">
+    <!-- Opening Time Loading Screen with Centered Logo and Small Rounding Icon -->
+    <div id="probiz-preloader" role="status" aria-label="Loading ProBiz Website">
+      <div class="probiz-preloader-glow"></div>
+      <div class="probiz-preloader-content">
+        <img src="/probiz-logo.png" alt="ProBiz Consultancy Services" class="probiz-preloader-logo" />
+        <div class="probiz-preloader-loader">
+          <div class="probiz-preloader-spinner"></div>
+          <span class="probiz-preloader-subtext">Loading Excellence</span>
+        </div>
+      </div>
+    </div>
+
     <div id="root"></div>
+
+    <!-- Preloader Dismiss Script -->
+    <script>
+      (function() {
+        var startTime = Date.now();
+        var minDisplayMs = 1200;
+        var dismissed = false;
+
+        function dismissPreloader() {
+          if (dismissed) return;
+          var loader = document.getElementById('probiz-preloader');
+          if (!loader) {
+            dismissed = true;
+            return;
+          }
+          var elapsed = Date.now() - startTime;
+          var delay = Math.max(0, minDisplayMs - elapsed);
+
+          setTimeout(function() {
+            if (loader) {
+              loader.classList.add('fade-out');
+              setTimeout(function() {
+                if (loader && loader.parentNode) {
+                  loader.parentNode.removeChild(loader);
+                }
+                dismissed = true;
+              }, 700);
+            }
+          }, delay);
+        }
+
+        if (document.readyState === 'complete') {
+          dismissPreloader();
+        } else {
+          window.addEventListener('load', dismissPreloader);
+          // Safety timeout in case resources stall
+          setTimeout(dismissPreloader, 3500);
+        }
+
+        window.__probizDismissPreloader = dismissPreloader;
+      })();
+    </script>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
