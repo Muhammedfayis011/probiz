@@ -138,9 +138,6 @@ export default function ServicesAtAGlance({ onSelectService }) {
 
                     {/* Bottom Content Area */}
                     <div className="relative z-10 p-6 mt-auto">
-                      <div className="inline-block text-[11px] font-bold text-[#DFBA73] tracking-widest uppercase mb-1">
-                        Qatar Vertical
-                      </div>
                       <h3 className="text-xl sm:text-2xl font-bold text-white font-display leading-snug mb-2 group-hover:text-[#DFBA73] transition-colors">
                         {srv.title}
                       </h3>
