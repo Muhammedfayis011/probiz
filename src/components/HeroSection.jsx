@@ -65,6 +65,7 @@ export default function HeroSection({ onGetStarted, onContact, onServices }) {
         <img
           src={heroDohaImg}
           alt="Doha Skyline — ProBiz Consultancy Services Qatar"
+          className="hero-bg-img"
           style={{
             width: '100%',
             height: '100%',
@@ -272,7 +273,13 @@ export default function HeroSection({ onGetStarted, onContact, onServices }) {
         }
 
         @media (max-width: 768px) {
-          .hero-left-overlay { background: rgba(7,9,14,0.85) !important; }
+          .hero-bg-img {
+            object-position: 70% center !important;
+            opacity: 0.85 !important;
+          }
+          .hero-left-overlay {
+            background: linear-gradient(180deg, rgba(7,9,14,0.72) 0%, rgba(7,9,14,0.42) 45%, rgba(7,9,14,0.85) 100%) !important;
+          }
           .hero-grid { grid-template-columns: 1fr !important; min-height: auto !important; }
           .hero-container { padding: 0 1.25rem !important; }
           .hero-left { padding: 5.5rem 0 2rem !important; }

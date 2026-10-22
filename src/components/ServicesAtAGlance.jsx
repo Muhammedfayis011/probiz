@@ -323,10 +323,24 @@ export default function ServicesAtAGlance({ onSelectService }) {
           inset: 0;
           background: linear-gradient(
             to top,
-            rgba(7, 9, 14, 0.96) 0%,
-            rgba(7, 9, 14, 0.65) 50%,
-            rgba(7, 9, 14, 0.35) 100%
+            rgba(7, 9, 14, 0.88) 0%,
+            rgba(7, 9, 14, 0.46) 50%,
+            rgba(7, 9, 14, 0.15) 100%
           );
+        }
+
+        @media (max-width: 768px) {
+          .flip-card-overlay {
+            background: linear-gradient(
+              to top,
+              rgba(7, 9, 14, 0.85) 0%,
+              rgba(7, 9, 14, 0.38) 50%,
+              rgba(7, 9, 14, 0.10) 100%
+            ) !important;
+          }
+          .flip-card-image {
+            opacity: 0.95 !important;
+          }
         }
 
         /* Back card styling */

@@ -87,10 +87,11 @@ export default function AboutPreview({ onLearnMore }) {
 
           {/* Dark overlay gradient from bottom */}
           <div
+            className="about-left-overlay"
             style={{
               position: 'absolute',
               inset: 0,
-              background: 'linear-gradient(to top, rgba(13,13,13,0.95) 0%, rgba(13,13,13,0.6) 50%, rgba(13,13,13,0.1) 100%)',
+              background: 'linear-gradient(to top, rgba(13,13,13,0.92) 0%, rgba(13,13,13,0.52) 50%, rgba(13,13,13,0.1) 100%)',
               zIndex: 2,
               pointerEvents: 'none',
             }}
@@ -299,11 +300,17 @@ export default function AboutPreview({ onLearnMore }) {
           .about-grid { grid-template-columns: 1fr !important; }
           .about-left { min-height: 440px !important; }
           .about-left-text { padding: 2rem 1.25rem !important; }
+          .about-left-overlay {
+            background: linear-gradient(to top, rgba(13,13,13,0.88) 0%, rgba(13,13,13,0.38) 55%, rgba(13,13,13,0.1) 100%) !important;
+          }
           .why-panel { padding: 2.5rem 1.25rem !important; }
         }
         @media (max-width: 480px) {
           .about-left { min-height: 480px !important; }
           .about-left-text { padding: 1.5rem 1rem !important; }
+          .about-left-overlay {
+            background: linear-gradient(to top, rgba(13,13,13,0.85) 0%, rgba(13,13,13,0.32) 55%, rgba(13,13,13,0.08) 100%) !important;
+          }
           .why-panel { padding: 2rem 1rem !important; }
           .about-gold-circle { display: none !important; }
         }

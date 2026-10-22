@@ -22,25 +22,25 @@ export default function PageHero({
           <img
             src={backgroundImage}
             alt=""
-            className="w-full h-full object-cover object-center lg:object-right opacity-45 sm:opacity-55 lg:opacity-70"
+            className="w-full h-full object-cover object-center sm:object-right opacity-70 sm:opacity-65 lg:opacity-75"
           />
           {/* Desktop Left-to-Right Gradient: Ensures text is high contrast on left while showcasing imagery on right */}
           <div
             className="absolute inset-0 hidden sm:block"
             style={{
               background:
-                'linear-gradient(90deg, rgba(6,9,17,0.97) 0%, rgba(11,16,29,0.92) 42%, rgba(13,13,13,0.70) 65%, rgba(13,13,13,0.30) 85%, transparent 100%)',
+                'linear-gradient(90deg, rgba(6,9,17,0.97) 0%, rgba(11,16,29,0.90) 42%, rgba(13,13,13,0.65) 65%, rgba(13,13,13,0.30) 85%, transparent 100%)',
             }}
           />
-          {/* Mobile Top-to-Bottom Gradient */}
+          {/* Mobile Top-to-Bottom Gradient: Luminous so background image is clearly seen */}
           <div
             className="absolute inset-0 sm:hidden"
             style={{
               background:
-                'linear-gradient(180deg, rgba(6,9,17,0.94) 0%, rgba(11,16,29,0.88) 50%, rgba(13,13,13,0.96) 100%)',
+                'linear-gradient(180deg, rgba(6,9,17,0.72) 0%, rgba(11,16,29,0.48) 45%, rgba(13,13,13,0.82) 100%)',
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D] via-transparent to-[#060911]/70" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D]/90 via-transparent to-[#060911]/50" />
         </div>
       )}
 

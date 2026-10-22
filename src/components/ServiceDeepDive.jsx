@@ -138,13 +138,13 @@ export default function ServiceDeepDive({ activeServiceId, onSelectService, onOp
                 <img
                   src={businessSetupBgImg}
                   alt="Business Setup & Company Formation Qatar"
-                  className="absolute inset-0 w-full h-full object-cover object-center sm:object-right opacity-45"
+                  className="absolute inset-0 w-full h-full object-cover object-center sm:object-right opacity-65 sm:opacity-60 lg:opacity-70"
                 />
                 <div
                   className="absolute inset-0"
                   style={{
                     background:
-                      'linear-gradient(90deg, rgba(8,13,24,0.96) 0%, rgba(8,13,24,0.88) 45%, rgba(8,13,24,0.4) 80%, rgba(8,13,24,0.2) 100%)',
+                      'linear-gradient(90deg, rgba(8,13,24,0.90) 0%, rgba(8,13,24,0.70) 45%, rgba(8,13,24,0.3) 80%, rgba(8,13,24,0.15) 100%)',
                   }}
                 />
                 <div className="relative z-10 max-w-xl">
@@ -210,13 +210,13 @@ export default function ServiceDeepDive({ activeServiceId, onSelectService, onOp
                 <img
                   src={proServicesBgImg}
                   alt="PRO & Government Services Qatar"
-                  className="absolute inset-0 w-full h-full object-cover object-center sm:object-right opacity-45"
+                  className="absolute inset-0 w-full h-full object-cover object-center sm:object-right opacity-65 sm:opacity-60 lg:opacity-70"
                 />
                 <div
                   className="absolute inset-0"
                   style={{
                     background:
-                      'linear-gradient(90deg, rgba(8,13,24,0.96) 0%, rgba(8,13,24,0.88) 45%, rgba(8,13,24,0.4) 80%, rgba(8,13,24,0.2) 100%)',
+                      'linear-gradient(90deg, rgba(8,13,24,0.90) 0%, rgba(8,13,24,0.70) 45%, rgba(8,13,24,0.3) 80%, rgba(8,13,24,0.15) 100%)',
                   }}
                 />
                 <div className="relative z-10 max-w-xl">
@@ -281,13 +281,13 @@ export default function ServiceDeepDive({ activeServiceId, onSelectService, onOp
                 <img
                   src={translationDocBgImg}
                   alt="Translation & Document Services Qatar"
-                  className="absolute inset-0 w-full h-full object-cover object-center sm:object-right opacity-45"
+                  className="absolute inset-0 w-full h-full object-cover object-center sm:object-right opacity-65 sm:opacity-60 lg:opacity-70"
                 />
                 <div
                   className="absolute inset-0"
                   style={{
                     background:
-                      'linear-gradient(90deg, rgba(8,13,24,0.96) 0%, rgba(8,13,24,0.88) 45%, rgba(8,13,24,0.4) 80%, rgba(8,13,24,0.2) 100%)',
+                      'linear-gradient(90deg, rgba(8,13,24,0.90) 0%, rgba(8,13,24,0.70) 45%, rgba(8,13,24,0.3) 80%, rgba(8,13,24,0.15) 100%)',
                   }}
                 />
                 <div className="relative z-10 max-w-xl">
@@ -367,13 +367,13 @@ export default function ServiceDeepDive({ activeServiceId, onSelectService, onOp
                 <img
                   src={recruitmentHrBgImg}
                   alt="Recruitment & HR Support Qatar"
-                  className="absolute inset-0 w-full h-full object-cover object-center sm:object-right opacity-45"
+                  className="absolute inset-0 w-full h-full object-cover object-center sm:object-right opacity-65 sm:opacity-60 lg:opacity-70"
                 />
                 <div
                   className="absolute inset-0"
                   style={{
                     background:
-                      'linear-gradient(90deg, rgba(8,13,24,0.96) 0%, rgba(8,13,24,0.88) 45%, rgba(8,13,24,0.4) 80%, rgba(8,13,24,0.2) 100%)',
+                      'linear-gradient(90deg, rgba(8,13,24,0.90) 0%, rgba(8,13,24,0.70) 45%, rgba(8,13,24,0.3) 80%, rgba(8,13,24,0.15) 100%)',
                   }}
                 />
                 <div className="relative z-10 max-w-xl">
@@ -432,13 +432,13 @@ export default function ServiceDeepDive({ activeServiceId, onSelectService, onOp
                 <img
                   src={mophBgImg}
                   alt="MOPH & Healthcare Licensing Qatar"
-                  className="absolute inset-0 w-full h-full object-cover object-center sm:object-right opacity-45"
+                  className="absolute inset-0 w-full h-full object-cover object-center sm:object-right opacity-65 sm:opacity-60 lg:opacity-70"
                 />
                 <div
                   className="absolute inset-0"
                   style={{
                     background:
-                      'linear-gradient(90deg, rgba(8,13,24,0.96) 0%, rgba(8,13,24,0.88) 45%, rgba(8,13,24,0.4) 80%, rgba(8,13,24,0.2) 100%)',
+                      'linear-gradient(90deg, rgba(8,13,24,0.90) 0%, rgba(8,13,24,0.70) 45%, rgba(8,13,24,0.3) 80%, rgba(8,13,24,0.15) 100%)',
                   }}
                 />
                 <div className="relative z-10 max-w-xl">
@@ -505,13 +505,13 @@ export default function ServiceDeepDive({ activeServiceId, onSelectService, onOp
                 <img
                   src={brandingDigitalBgImg}
                   alt="Branding, Marketing & Digital Solutions Qatar"
-                  className="absolute inset-0 w-full h-full object-cover object-center sm:object-right opacity-45"
+                  className="absolute inset-0 w-full h-full object-cover object-center sm:object-right opacity-65 sm:opacity-60 lg:opacity-70"
                 />
                 <div
                   className="absolute inset-0"
                   style={{
                     background:
-                      'linear-gradient(90deg, rgba(8,13,24,0.96) 0%, rgba(8,13,24,0.88) 45%, rgba(8,13,24,0.4) 80%, rgba(8,13,24,0.2) 100%)',
+                      'linear-gradient(90deg, rgba(8,13,24,0.90) 0%, rgba(8,13,24,0.70) 45%, rgba(8,13,24,0.3) 80%, rgba(8,13,24,0.15) 100%)',
                   }}
                 />
                 <div className="relative z-10 max-w-xl">

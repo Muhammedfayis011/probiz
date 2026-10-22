@@ -197,7 +197,7 @@ export default function ServiceDetailPage({
             <img
               src={businessSetupBgImg}
               alt="Business Setup & Company Formation Qatar"
-              className="w-full h-full object-cover object-center lg:object-right opacity-45 sm:opacity-55 lg:opacity-65"
+              className="w-full h-full object-cover object-center sm:object-right opacity-70 sm:opacity-65 lg:opacity-75"
             />
             {/* Desktop Left-to-Right Gradient: Keeps text super readable on left, shows meeting & skyline on right */}
             <div
@@ -207,16 +207,16 @@ export default function ServiceDetailPage({
                   'linear-gradient(90deg, rgba(7,10,16,0.97) 0%, rgba(7,10,16,0.93) 38%, rgba(7,10,16,0.72) 60%, rgba(7,10,16,0.35) 82%, rgba(7,10,16,0.2) 100%)',
               }}
             />
-            {/* Mobile Top-to-Bottom Gradient */}
+            {/* Mobile Top-to-Bottom Gradient: Luminous so background image is clearly seen */}
             <div
               className="absolute inset-0 sm:hidden"
               style={{
                 background:
-                  'linear-gradient(180deg, rgba(7,10,16,0.92) 0%, rgba(7,10,16,0.85) 50%, rgba(7,10,16,0.95) 100%)',
+                  'linear-gradient(180deg, rgba(7,10,16,0.72) 0%, rgba(7,10,16,0.45) 45%, rgba(7,10,16,0.85) 100%)',
               }}
             />
             {/* Bottom blend */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#070A10] via-transparent to-[#070A10]/50" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070A10]/90 via-transparent to-[#070A10]/40" />
           </div>
         )}
 
@@ -226,7 +226,7 @@ export default function ServiceDetailPage({
             <img
               src={proServicesBgImg}
               alt="PRO & Government Services Qatar"
-              className="w-full h-full object-cover object-center lg:object-right opacity-45 sm:opacity-55 lg:opacity-65"
+              className="w-full h-full object-cover object-center sm:object-right opacity-70 sm:opacity-65 lg:opacity-75"
             />
             {/* Desktop Left-to-Right Gradient: Keeps text super readable on left, shows documents, stamp & skyline on right */}
             <div
@@ -241,11 +241,11 @@ export default function ServiceDetailPage({
               className="absolute inset-0 sm:hidden"
               style={{
                 background:
-                  'linear-gradient(180deg, rgba(7,10,16,0.92) 0%, rgba(7,10,16,0.85) 50%, rgba(7,10,16,0.95) 100%)',
+                  'linear-gradient(180deg, rgba(7,10,16,0.72) 0%, rgba(7,10,16,0.45) 45%, rgba(7,10,16,0.85) 100%)',
               }}
             />
             {/* Bottom blend */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#070A10] via-transparent to-[#070A10]/50" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070A10]/90 via-transparent to-[#070A10]/40" />
           </div>
         )}
 
@@ -255,7 +255,7 @@ export default function ServiceDetailPage({
             <img
               src={recruitmentHrBgImg}
               alt="Recruitment & HR Support Qatar"
-              className="w-full h-full object-cover object-center lg:object-right opacity-45 sm:opacity-55 lg:opacity-65"
+              className="w-full h-full object-cover object-center sm:object-right opacity-70 sm:opacity-65 lg:opacity-75"
             />
             {/* Desktop Left-to-Right Gradient: Keeps text super readable on left, shows hiring team on right */}
             <div
@@ -270,11 +270,11 @@ export default function ServiceDetailPage({
               className="absolute inset-0 sm:hidden"
               style={{
                 background:
-                  'linear-gradient(180deg, rgba(7,10,16,0.92) 0%, rgba(7,10,16,0.85) 50%, rgba(7,10,16,0.95) 100%)',
+                  'linear-gradient(180deg, rgba(7,10,16,0.72) 0%, rgba(7,10,16,0.45) 45%, rgba(7,10,16,0.85) 100%)',
               }}
             />
             {/* Bottom blend */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#070A10] via-transparent to-[#070A10]/50" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070A10]/90 via-transparent to-[#070A10]/40" />
           </div>
         )}
 
@@ -284,7 +284,7 @@ export default function ServiceDetailPage({
             <img
               src={translationDocBgImg}
               alt="Translation & Document Services Qatar"
-              className="w-full h-full object-cover object-center lg:object-right opacity-45 sm:opacity-55 lg:opacity-65"
+              className="w-full h-full object-cover object-center sm:object-right opacity-70 sm:opacity-65 lg:opacity-75"
             />
             {/* Desktop Left-to-Right Gradient: Keeps text super readable on left, shows document signing on right */}
             <div
@@ -299,11 +299,11 @@ export default function ServiceDetailPage({
               className="absolute inset-0 sm:hidden"
               style={{
                 background:
-                  'linear-gradient(180deg, rgba(7,10,16,0.92) 0%, rgba(7,10,16,0.85) 50%, rgba(7,10,16,0.95) 100%)',
+                  'linear-gradient(180deg, rgba(7,10,16,0.72) 0%, rgba(7,10,16,0.45) 45%, rgba(7,10,16,0.85) 100%)',
               }}
             />
             {/* Bottom blend */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#070A10] via-transparent to-[#070A10]/50" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070A10]/90 via-transparent to-[#070A10]/40" />
           </div>
         )}
 
@@ -313,7 +313,7 @@ export default function ServiceDetailPage({
             <img
               src={brandingDigitalBgImg}
               alt="Branding, Marketing & Digital Solutions Qatar"
-              className="w-full h-full object-cover object-center lg:object-right opacity-45 sm:opacity-55 lg:opacity-65"
+              className="w-full h-full object-cover object-center sm:object-right opacity-70 sm:opacity-65 lg:opacity-75"
             />
             {/* Desktop Left-to-Right Gradient: Keeps text super readable on left, shows creative studio & skyline on right */}
             <div
@@ -328,11 +328,11 @@ export default function ServiceDetailPage({
               className="absolute inset-0 sm:hidden"
               style={{
                 background:
-                  'linear-gradient(180deg, rgba(7,10,16,0.92) 0%, rgba(7,10,16,0.85) 50%, rgba(7,10,16,0.95) 100%)',
+                  'linear-gradient(180deg, rgba(7,10,16,0.72) 0%, rgba(7,10,16,0.45) 45%, rgba(7,10,16,0.85) 100%)',
               }}
             />
             {/* Bottom blend */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#070A10] via-transparent to-[#070A10]/50" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070A10]/90 via-transparent to-[#070A10]/40" />
           </div>
         )}
 
@@ -342,7 +342,7 @@ export default function ServiceDetailPage({
             <img
               src={mophBgImg}
               alt="MOPH & Healthcare Licensing Qatar"
-              className="w-full h-full object-cover object-center lg:object-right opacity-45 sm:opacity-55 lg:opacity-65"
+              className="w-full h-full object-cover object-center sm:object-right opacity-70 sm:opacity-65 lg:opacity-75"
             />
             {/* Desktop Left-to-Right Gradient: Keeps text super readable on left, shows image on right */}
             <div
@@ -357,11 +357,11 @@ export default function ServiceDetailPage({
               className="absolute inset-0 sm:hidden"
               style={{
                 background:
-                  'linear-gradient(180deg, rgba(7,10,16,0.92) 0%, rgba(7,10,16,0.85) 50%, rgba(7,10,16,0.95) 100%)',
+                  'linear-gradient(180deg, rgba(7,10,16,0.72) 0%, rgba(7,10,16,0.45) 45%, rgba(7,10,16,0.85) 100%)',
               }}
             />
             {/* Bottom blend */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#070A10] via-transparent to-[#070A10]/50" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070A10]/90 via-transparent to-[#070A10]/40" />
           </div>
         )}
 
