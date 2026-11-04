@@ -13,7 +13,7 @@ import {
   ExternalLink
 } from 'lucide-react';
 
-export default function ContactSection() {
+export default function ContactSection({ showMap = true }) {
   const [formState, setFormState] = useState({
     name: '',
     company: '',
@@ -181,13 +181,25 @@ export default function ContactSection() {
                   Close to Doha Municipalities & Government Ministries
                 </div>
               </div>
-              <a
-                href="#office-map"
-                className="text-[11px] font-bold text-[#DFBA73] hover:underline flex items-center gap-1 bg-[#DFBA73]/10 px-2.5 py-1 rounded border border-[#DFBA73]/20"
-              >
-                <span>View Map</span>
-                <span>↓</span>
-              </a>
+              {showMap ? (
+                <a
+                  href="#office-map"
+                  className="text-[11px] font-bold text-[#DFBA73] hover:underline flex items-center gap-1 bg-[#DFBA73]/10 px-2.5 py-1 rounded border border-[#DFBA73]/20"
+                >
+                  <span>View Map</span>
+                  <span>↓</span>
+                </a>
+              ) : (
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(COMPANY_INFO.address)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[11px] font-bold text-[#DFBA73] hover:underline flex items-center gap-1 bg-[#DFBA73]/10 px-2.5 py-1 rounded border border-[#DFBA73]/20"
+                >
+                  <span>View on Google Maps</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              )}
             </div>
 
           </div>
@@ -356,72 +368,74 @@ export default function ContactSection() {
         </div>
 
         {/* Interactive Office Location Map */}
-        <div id="office-map" className="mt-14 rounded-2xl overflow-hidden border border-[#C5A059]/30 bg-[#0A0E18] shadow-2xl relative">
-          {/* Map Header Bar */}
-          <div className="p-5 sm:p-6 bg-gradient-to-r from-[#0C1220] via-[#0F172A] to-[#0C1220] border-b border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-4">
-            <div className="flex items-start sm:items-center gap-3.5">
-              <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#DFBA73]/20 to-[#9E7B2A]/20 border border-[#DFBA73]/40 flex items-center justify-center text-[#DFBA73] flex-shrink-0">
-                <MapPin className="w-5 h-5" />
-              </div>
-              <div>
-                <div className="flex flex-wrap items-center gap-2">
-                  <h4 className="text-lg font-bold text-white font-display">
-                    ProBiz Office Location Map
-                  </h4>
-                  <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-[#DFBA73]/15 text-[#DFBA73] border border-[#DFBA73]/30">
-                    Doha, Qatar
-                  </span>
+        {showMap && (
+          <div id="office-map" className="mt-14 rounded-2xl overflow-hidden border border-[#C5A059]/30 bg-[#0A0E18] shadow-2xl relative">
+            {/* Map Header Bar */}
+            <div className="p-5 sm:p-6 bg-gradient-to-r from-[#0C1220] via-[#0F172A] to-[#0C1220] border-b border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div className="flex items-start sm:items-center gap-3.5">
+                <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#DFBA73]/20 to-[#9E7B2A]/20 border border-[#DFBA73]/40 flex items-center justify-center text-[#DFBA73] flex-shrink-0">
+                  <MapPin className="w-5 h-5" />
                 </div>
-                <p className="text-xs text-slate-300 mt-1">
-                  {COMPANY_INFO.address}
-                </p>
+                <div>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <h4 className="text-lg font-bold text-white font-display">
+                      ProBiz Office Location Map
+                    </h4>
+                    <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-[#DFBA73]/15 text-[#DFBA73] border border-[#DFBA73]/30">
+                      Doha, Qatar
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-300 mt-1">
+                    {COMPANY_INFO.address}
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2.5 w-full sm:w-auto">
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(COMPANY_INFO.address)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-gold text-xs px-4 py-2.5 flex items-center justify-center gap-2 w-full sm:w-auto whitespace-nowrap"
+                >
+                  <Navigation className="w-3.5 h-3.5" />
+                  <span>Open in Google Maps</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
               </div>
             </div>
 
-            <div className="flex items-center gap-2.5 w-full sm:w-auto">
-              <a
-                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(COMPANY_INFO.address)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-gold text-xs px-4 py-2.5 flex items-center justify-center gap-2 w-full sm:w-auto whitespace-nowrap"
-              >
-                <Navigation className="w-3.5 h-3.5" />
-                <span>Open in Google Maps</span>
-                <ExternalLink className="w-3 h-3" />
-              </a>
+            {/* Embedded Google Map */}
+            <div className="relative w-full h-[380px] sm:h-[440px] bg-[#070A12]">
+              <iframe
+                title="ProBiz Corporate Office Location Map"
+                src="https://maps.google.com/maps?q=Hleyton+Tower,+Al+Baladhiya+St,+Doha,+Qatar&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0, filter: 'contrast(1.04) saturate(1.1)' }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
-          </div>
 
-          {/* Embedded Google Map */}
-          <div className="relative w-full h-[380px] sm:h-[440px] bg-[#070A12]">
-            <iframe
-              title="ProBiz Corporate Office Location Map"
-              src="https://maps.google.com/maps?q=Hleyton+Tower,+Al+Baladhiya+St,+Doha,+Qatar&t=&z=16&ie=UTF8&iwloc=&output=embed"
-              width="100%"
-              height="100%"
-              style={{ border: 0, filter: 'contrast(1.04) saturate(1.1)' }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
-
-          {/* Quick Location Landmarks Bar */}
-          <div className="p-4 sm:p-5 bg-[#080C16] border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-slate-300">
-            <div className="flex items-center gap-2.5">
-              <div className="w-2 h-2 rounded-full bg-[#DFBA73]" />
-              <span><strong>Building:</strong> Hleyton Tower (Floor 10, Office #49)</span>
-            </div>
-            <div className="flex items-center gap-2.5">
-              <div className="w-2 h-2 rounded-full bg-emerald-400" />
-              <span><strong>Street:</strong> Al Baladhiya St., Al Miqrab, Doha</span>
-            </div>
-            <div className="flex items-center gap-2.5">
-              <div className="w-2 h-2 rounded-full bg-cyan-400" />
-              <span><strong>Access:</strong> Central Doha • Close to Government Ministries</span>
+            {/* Quick Location Landmarks Bar */}
+            <div className="p-4 sm:p-5 bg-[#080C16] border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-slate-300">
+              <div className="flex items-center gap-2.5">
+                <div className="w-2 h-2 rounded-full bg-[#DFBA73]" />
+                <span><strong>Building:</strong> Hleyton Tower (Floor 10, Office #49)</span>
+              </div>
+              <div className="flex items-center gap-2.5">
+                <div className="w-2 h-2 rounded-full bg-emerald-400" />
+                <span><strong>Street:</strong> Al Baladhiya St., Al Miqrab, Doha</span>
+              </div>
+              <div className="flex items-center gap-2.5">
+                <div className="w-2 h-2 rounded-full bg-cyan-400" />
+                <span><strong>Access:</strong> Central Doha • Close to Government Ministries</span>
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
       </div>
     </section>

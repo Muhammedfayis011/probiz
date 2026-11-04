@@ -4,6 +4,7 @@ import HeroSection from './components/HeroSection';
 import ServicesStrip from './components/ServicesStrip';
 import AboutPreview from './components/AboutPreview';
 import ServicesAtAGlance from './components/ServicesAtAGlance';
+import OurCustomers from './components/OurCustomers';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import ConsultationModal from './components/ConsultationModal';
@@ -183,8 +184,11 @@ export default function App() {
           {/* SERVICES AT A GLANCE */}
           <ServicesAtAGlance onSelectService={handleSelectServiceFromGlance} />
 
+          {/* OUR CUSTOMERS SECTION (6 CARDS WITH MARQUEE OPTION - HOME ONLY) */}
+          <OurCustomers />
+
           {/* CONTACT SECTION */}
-          <ContactSection />
+          <ContactSection showMap={false} />
         </main>
       )}
 
