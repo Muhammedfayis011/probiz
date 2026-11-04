@@ -1,31 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Building2,
-  Stethoscope,
+  Briefcase,
   Globe2,
-  Cpu,
-  Layers,
-  Utensils,
-  CheckCircle2,
-  Star,
-  Play,
-  Pause,
-  LayoutGrid,
-  Sparkles,
   ShieldCheck,
-  MapPin
+  Layers,
+  Sparkles,
+  CheckCircle2
 } from 'lucide-react';
 
 const CUSTOMERS = [
   {
     id: 1,
-    name: 'Al-Mansoor Trading & Contracting W.L.L',
-    shortName: 'Al-Mansoor',
-    monogram: 'AM',
-    sector: 'Trading & Commercial Contracting',
-    location: 'Doha, Qatar',
-    serviceReceived: '100% Foreign LLC Setup & PRO Retainer',
-    highlight: 'CR, Tax Card & Municipality License completed in 10 working days',
+    name: 'abc',
+    monogram: 'ABC',
     icon: Building2,
     accentGradient: 'from-amber-500/25 via-yellow-600/15 to-transparent',
     logoBg: 'from-[#DFBA73]/20 to-[#8E6D27]/30',
@@ -33,27 +21,17 @@ const CUSTOMERS = [
   },
   {
     id: 2,
-    name: 'Al-Rayyan Specialized Medical Center',
-    shortName: 'Al-Rayyan Medical',
-    monogram: 'AR',
-    sector: 'Healthcare & Clinical Services',
-    location: 'Lusail Marina, Qatar',
-    serviceReceived: 'MOPH Licensing & DHP Staff Credentialing',
-    highlight: 'Full Ministry of Public Health facility permit & healthcare compliance',
-    icon: Stethoscope,
+    name: 'abc',
+    monogram: 'ABC',
+    icon: Briefcase,
     accentGradient: 'from-emerald-500/25 via-teal-600/15 to-transparent',
     logoBg: 'from-emerald-400/20 to-teal-800/30',
     logoColor: '#34D399',
   },
   {
     id: 3,
-    name: 'Apex Global Logistics & Freight QFC',
-    shortName: 'Apex Logistics',
-    monogram: 'AG',
-    sector: 'Supply Chain & Maritime Freight',
-    location: 'West Bay, Doha (QFC)',
-    serviceReceived: 'QFC Branch Formation & Corporate Visas',
-    highlight: 'Seamless Qatar Financial Centre registration & international quota clearance',
+    name: 'abc',
+    monogram: 'ABC',
     icon: Globe2,
     accentGradient: 'from-cyan-500/25 via-blue-600/15 to-transparent',
     logoBg: 'from-cyan-400/20 to-blue-800/30',
@@ -61,27 +39,17 @@ const CUSTOMERS = [
   },
   {
     id: 4,
-    name: 'Oryx Tech Solutions LLC',
-    shortName: 'Oryx Tech',
-    monogram: 'OT',
-    sector: 'Fintech & Cloud Architecture',
-    location: 'QSTP, Doha, Qatar',
-    serviceReceived: 'Commercial Registration & Digital IP Advisory',
-    highlight: 'Technology entity setup with Ministry of Communications & IP protection',
-    icon: Cpu,
+    name: 'abc',
+    monogram: 'ABC',
+    icon: ShieldCheck,
     accentGradient: 'from-purple-500/25 via-indigo-600/15 to-transparent',
     logoBg: 'from-purple-400/20 to-indigo-800/30',
     logoColor: '#C084FC',
   },
   {
     id: 5,
-    name: 'Doha Crest Engineering Consultancy',
-    shortName: 'Doha Crest',
-    monogram: 'DC',
-    sector: 'Grade-A Engineering & Architecture',
-    location: 'C-Ring Road, Doha, Qatar',
-    serviceReceived: 'MMUP / UPDA Classification & PRO Retainer',
-    highlight: 'Engineering committee approval & corporate visa allocation fulfilled',
+    name: 'abc',
+    monogram: 'ABC',
     icon: Layers,
     accentGradient: 'from-orange-500/25 via-amber-600/15 to-transparent',
     logoBg: 'from-orange-400/20 to-amber-800/30',
@@ -89,14 +57,9 @@ const CUSTOMERS = [
   },
   {
     id: 6,
-    name: 'Gulf Horizon Hospitality Group',
-    shortName: 'Gulf Horizon',
-    monogram: 'GH',
-    sector: 'Premium Hospitality & F&B Management',
-    location: 'The Pearl-Qatar, Doha',
-    serviceReceived: 'Municipality Trade Licences & Staff Quota',
-    highlight: 'Multi-outlet municipality approvals & Civil Defence certifications issued',
-    icon: Utensils,
+    name: 'abc',
+    monogram: 'ABC',
+    icon: Sparkles,
     accentGradient: 'from-rose-500/25 via-pink-600/15 to-transparent',
     logoBg: 'from-rose-400/20 to-pink-800/30',
     logoColor: '#FB7185',
@@ -104,277 +67,110 @@ const CUSTOMERS = [
 ];
 
 export default function OurCustomers() {
-  const [viewMode, setViewMode] = useState('marquee'); // 'marquee' | 'grid'
-  const [isPaused, setIsPaused] = useState(false);
-
-  // Triple items for seamless, gap-free marquee loop
+  // Triple items for seamless, continuous marquee flow
   const marqueeItems = [...CUSTOMERS, ...CUSTOMERS, ...CUSTOMERS];
 
   return (
-    <section className="py-20 relative bg-[#07090E] border-t border-white/5 overflow-hidden">
+    <section className="customers-section relative bg-[#07090E] border-t border-white/5 overflow-hidden">
       {/* Background Ambient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-[#DFBA73]/5 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#DFBA73]/5 rounded-full blur-[130px] pointer-events-none" />
 
       <div className="probiz-container relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div className="max-w-2xl">
-            <div className="badge-gold mb-3 inline-flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-[#DFBA73]" />
-              <span>Trusted Partnerships</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-white tracking-tight">
-              Our <span className="gold-text-gradient">Customers</span>
-            </h2>
-            <p className="text-slate-400 text-sm sm:text-base mt-3 leading-relaxed">
-              Empowering visionary enterprises, international corporations, and local ventures
-              across Qatar with trusted company setup, government PRO, and corporate solutions.
-            </p>
-          </div>
-
-          {/* Marquee / Grid View Control Option */}
-          <div className="flex items-center gap-2 self-start md:self-end bg-[#0B101C] p-1.5 rounded-xl border border-white/10 shadow-lg">
-            <button
-              onClick={() => setViewMode('marquee')}
-              className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                viewMode === 'marquee'
-                  ? 'bg-gradient-to-r from-[#DFBA73] to-[#C5A059] text-black shadow-md'
-                  : 'text-slate-400 hover:text-white'
-              }`}
-              title="Continuous Marquee Flow"
-            >
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Marquee View</span>
-            </button>
-
-            <button
-              onClick={() => setViewMode('grid')}
-              className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                viewMode === 'grid'
-                  ? 'bg-gradient-to-r from-[#DFBA73] to-[#C5A059] text-black shadow-md'
-                  : 'text-slate-400 hover:text-white'
-              }`}
-              title="Static Card Grid"
-            >
-              <LayoutGrid className="w-3.5 h-3.5" />
-              <span>Grid View</span>
-            </button>
-
-            {viewMode === 'marquee' && (
-              <button
-                onClick={() => setIsPaused(!isPaused)}
-                className="ml-1 p-1.5 text-slate-400 hover:text-[#DFBA73] rounded-md transition-colors"
-                title={isPaused ? 'Resume Marquee' : 'Pause Marquee'}
-                aria-label={isPaused ? 'Resume Marquee' : 'Pause Marquee'}
-              >
-                {isPaused ? <Play className="w-3.5 h-3.5 text-[#DFBA73]" /> : <Pause className="w-3.5 h-3.5" />}
-              </button>
-            )}
-          </div>
+        <div className="customers-header text-center max-w-xl mx-auto">
+          <h2 className="customers-title font-bold font-display text-white tracking-tight">
+            Our <span className="gold-text-gradient">Customers</span>
+          </h2>
+          <p className="customers-subtitle text-slate-400 leading-relaxed">
+            Trusted by leading enterprises, healthcare institutions, and corporate ventures across Qatar.
+          </p>
         </div>
 
-        {/* ── OPTION A: CONTINUOUS INFINITE MARQUEE VIEW ── */}
-        {viewMode === 'marquee' ? (
-          <div className="customers-marquee-wrapper relative overflow-hidden py-4 -mx-4 sm:-mx-6 px-4 sm:px-6">
-            <div
-              className={`customers-marquee-track flex gap-6 ${isPaused ? 'is-paused' : ''}`}
-            >
-              {marqueeItems.map((customer, index) => {
-                const IconComponent = customer.icon;
-                return (
-                  <div
-                    key={`${customer.id}-${index}`}
-                    className="customer-card group relative p-6 rounded-2xl bg-[#0B101C]/90 border border-[#C5A059]/25 hover:border-[#DFBA73]/60 transition-all duration-300 flex flex-col justify-between flex-shrink-0 shadow-xl overflow-hidden"
-                    style={{ width: '340px' }}
-                  >
-                    {/* Subtle Gradient Backlight */}
-                    <div
-                      className={`absolute top-0 right-0 w-36 h-36 bg-gradient-to-br ${customer.accentGradient} rounded-full blur-2xl pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity`}
-                    />
-
-                    <div>
-                      {/* Top Row: Round Company Logo & Verified Pill */}
-                      <div className="flex items-start justify-between gap-4 mb-5 relative z-10">
-                        {/* Round Company Logo */}
-                        <div className="relative">
-                          <div
-                            className={`w-16 h-16 rounded-full p-0.5 bg-gradient-to-br ${customer.logoBg} border-2 border-[#DFBA73]/50 shadow-lg flex items-center justify-center group-hover:scale-105 transition-transform duration-300`}
-                          >
-                            <div className="w-full h-full rounded-full bg-[#080D18] flex flex-col items-center justify-center">
-                              <IconComponent
-                                className="w-6 h-6 mb-0.5 transition-transform group-hover:scale-110"
-                                style={{ color: customer.logoColor }}
-                              />
-                              <span className="text-[9px] font-extrabold tracking-widest text-[#DFBA73] font-mono">
-                                {customer.monogram}
-                              </span>
-                            </div>
-                          </div>
-                          {/* Mini Verified Checkmark on Logo */}
-                          <div
-                            className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-[#DFBA73] text-black flex items-center justify-center shadow-md"
-                            title="Verified Qatar Client"
-                          >
-                            <CheckCircle2 className="w-3.5 h-3.5" />
-                          </div>
-                        </div>
-
-                        {/* Star Rating Badge */}
-                        <div className="flex items-center gap-1 bg-[#DFBA73]/10 px-2.5 py-1 rounded-full border border-[#DFBA73]/25">
-                          <div className="flex text-[#DFBA73]">
-                            {[...Array(5)].map((_, i) => (
-                              <Star key={i} className="w-3 h-3 fill-[#DFBA73]" />
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Company Name */}
-                      <h3 className="text-base sm:text-lg font-bold text-white font-display group-hover:text-[#DFBA73] transition-colors leading-snug mb-1.5 relative z-10">
-                        {customer.name}
-                      </h3>
-
-                      {/* Sector / Industry Tag */}
-                      <div className="text-xs font-semibold text-[#DFBA73] mb-3 relative z-10">
-                        {customer.sector}
-                      </div>
-
-                      {/* Service Details & Highlight */}
-                      <div className="space-y-2 text-xs text-slate-300 border-t border-white/5 pt-3 relative z-10">
-                        <div className="flex items-start gap-2">
-                          <ShieldCheck className="w-4 h-4 text-[#DFBA73] flex-shrink-0 mt-0.5" />
-                          <span className="text-slate-300">
-                            <strong className="text-white">Service:</strong> {customer.serviceReceived}
-                          </span>
-                        </div>
-                        <div className="flex items-start gap-2">
-                          <MapPin className="w-4 h-4 text-slate-400 flex-shrink-0 mt-0.5" />
-                          <span className="text-slate-400 font-mono text-[11px]">
-                            {customer.location}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Milestone Note */}
-                    <div className="mt-4 pt-3 border-t border-white/5 bg-black/30 -mx-6 -mb-6 p-4 rounded-b-2xl relative z-10">
-                      <p className="text-[11px] text-slate-400 italic leading-relaxed">
-                        "{customer.highlight}"
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        ) : (
-          /* ── OPTION B: RESPONSIVE 6-CARD GRID VIEW ── */
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 animate-in fade-in duration-300">
-            {CUSTOMERS.map((customer) => {
+        {/* ── CONTINUOUS INFINITE MARQUEE ── */}
+        <div className="customers-marquee-wrapper relative overflow-hidden">
+          <div className="customers-marquee-track flex">
+            {marqueeItems.map((customer, index) => {
               const IconComponent = customer.icon;
               return (
                 <div
-                  key={customer.id}
-                  className="customer-card group relative p-6 rounded-2xl bg-[#0B101C]/90 border border-[#C5A059]/25 hover:border-[#DFBA73]/60 transition-all duration-300 flex flex-col justify-between shadow-xl overflow-hidden hover:-translate-y-1.5"
+                  key={`${customer.id}-${index}`}
+                  className="customer-card group relative rounded-2xl bg-[#0B101C]/90 border border-[#C5A059]/25 hover:border-[#DFBA73]/60 transition-all duration-300 flex flex-col items-center text-center flex-shrink-0 shadow-lg overflow-hidden hover:-translate-y-1"
                 >
                   {/* Subtle Gradient Backlight */}
                   <div
-                    className={`absolute top-0 right-0 w-36 h-36 bg-gradient-to-br ${customer.accentGradient} rounded-full blur-2xl pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity`}
+                    className={`absolute top-0 right-0 w-28 h-28 bg-gradient-to-br ${customer.accentGradient} rounded-full blur-2xl pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity`}
                   />
 
-                  <div>
-                    {/* Top Row: Round Company Logo & Verified Pill */}
-                    <div className="flex items-start justify-between gap-4 mb-5 relative z-10">
-                      {/* Round Company Logo */}
-                      <div className="relative">
-                        <div
-                          className={`w-16 h-16 rounded-full p-0.5 bg-gradient-to-br ${customer.logoBg} border-2 border-[#DFBA73]/50 shadow-lg flex items-center justify-center group-hover:scale-105 transition-transform duration-300`}
-                        >
-                          <div className="w-full h-full rounded-full bg-[#080D18] flex flex-col items-center justify-center">
-                            <IconComponent
-                              className="w-6 h-6 mb-0.5 transition-transform group-hover:scale-110"
-                              style={{ color: customer.logoColor }}
-                            />
-                            <span className="text-[9px] font-extrabold tracking-widest text-[#DFBA73] font-mono">
-                              {customer.monogram}
-                            </span>
-                          </div>
-                        </div>
-                        {/* Mini Verified Checkmark on Logo */}
-                        <div
-                          className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-[#DFBA73] text-black flex items-center justify-center shadow-md"
-                          title="Verified Qatar Client"
-                        >
-                          <CheckCircle2 className="w-3.5 h-3.5" />
-                        </div>
-                      </div>
-
-                      {/* Star Rating Badge */}
-                      <div className="flex items-center gap-1 bg-[#DFBA73]/10 px-2.5 py-1 rounded-full border border-[#DFBA73]/25">
-                        <div className="flex text-[#DFBA73]">
-                          {[...Array(5)].map((_, i) => (
-                            <Star key={i} className="w-3 h-3 fill-[#DFBA73]" />
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Company Name */}
-                    <h3 className="text-base sm:text-lg font-bold text-white font-display group-hover:text-[#DFBA73] transition-colors leading-snug mb-1.5 relative z-10">
-                      {customer.name}
-                    </h3>
-
-                    {/* Sector / Industry Tag */}
-                    <div className="text-xs font-semibold text-[#DFBA73] mb-3 relative z-10">
-                      {customer.sector}
-                    </div>
-
-                    {/* Service Details & Highlight */}
-                    <div className="space-y-2 text-xs text-slate-300 border-t border-white/5 pt-3 relative z-10">
-                      <div className="flex items-start gap-2">
-                        <ShieldCheck className="w-4 h-4 text-[#DFBA73] flex-shrink-0 mt-0.5" />
-                        <span className="text-slate-300">
-                          <strong className="text-white">Service:</strong> {customer.serviceReceived}
+                  {/* Round Picture in Center */}
+                  <div className="relative z-10 customer-card-logo-container">
+                    <div
+                      className={`customer-card-logo-wrap rounded-full p-0.5 bg-gradient-to-br ${customer.logoBg} border-2 border-[#DFBA73]/50 shadow-md flex items-center justify-center group-hover:scale-105 transition-transform duration-300`}
+                    >
+                      <div className="w-full h-full rounded-full bg-[#080D18] flex flex-col items-center justify-center">
+                        <IconComponent
+                          className="customer-card-icon mb-0.5 transition-transform group-hover:scale-110"
+                          style={{ color: customer.logoColor }}
+                        />
+                        <span className="customer-card-monogram font-extrabold tracking-widest text-[#DFBA73] font-mono">
+                          {customer.monogram}
                         </span>
                       </div>
-                      <div className="flex items-start gap-2">
-                        <MapPin className="w-4 h-4 text-slate-400 flex-shrink-0 mt-0.5" />
-                        <span className="text-slate-400 font-mono text-[11px]">
-                          {customer.location}
-                        </span>
-                      </div>
+                    </div>
+                    {/* Mini Verified Checkmark on Logo */}
+                    <div
+                      className="customer-card-badge absolute rounded-full bg-[#DFBA73] text-black flex items-center justify-center shadow-sm"
+                      title="Verified Qatar Client"
+                    >
+                      <CheckCircle2 className="w-3 h-3" />
                     </div>
                   </div>
 
-                  {/* Milestone Note */}
-                  <div className="mt-4 pt-3 border-t border-white/5 bg-black/30 -mx-6 -mb-6 p-4 rounded-b-2xl relative z-10">
-                    <p className="text-[11px] text-slate-400 italic leading-relaxed">
-                      "{customer.highlight}"
-                    </p>
+                  {/* Company Name: abc */}
+                  <h3 className="customer-card-title font-bold text-white font-display group-hover:text-[#DFBA73] transition-colors leading-snug line-clamp-1 z-10">
+                    abc
+                  </h3>
+
+                  {/* Line 1: Business Setup & PRO Services */}
+                  <div className="customer-card-line1 font-semibold text-[#DFBA73] line-clamp-1 z-10">
+                    Business Setup & PRO Services
+                  </div>
+
+                  {/* Line 2: Doha, Qatar */}
+                  <div className="customer-card-line2 text-slate-400 line-clamp-1 z-10">
+                    Doha, Qatar
                   </div>
                 </div>
               );
             })}
           </div>
-        )}
-
-        {/* Bottom Trust Stat Bar */}
-        <div className="mt-12 p-4 sm:p-5 rounded-2xl bg-[#090E1A] border border-[#C5A059]/20 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-300">
-          <div className="flex items-center gap-3">
-            <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Over <strong>150+ Companies Established & Supported</strong> Across Qatar</span>
-          </div>
-          <div className="flex items-center gap-6 text-[11px] text-slate-400 font-medium">
-            <span>• 100% Regulatory Compliance</span>
-            <span>• Direct Ministry Liaison (MOCI / MOPH / MOI)</span>
-            <span>• Zero Corporate Downtime</span>
-          </div>
         </div>
       </div>
 
-      {/* ── CSS KEYFRAMES FOR INFINITE MARQUEE SCROLL ── */}
+      {/* ── MASTER RESPONSIVE MEDIA QUERIES SUITE FOR CUSTOMER CARDS ── */}
       <style>{`
+        /* Base Defaults */
+        .customers-section {
+          padding-top: 3.5rem;
+          padding-bottom: 3.5rem;
+        }
+
+        .customers-header {
+          margin-bottom: 2.25rem;
+        }
+
+        .customers-title {
+          font-size: 2rem;
+          line-height: 1.2;
+        }
+
+        .customers-subtitle {
+          font-size: 0.875rem;
+          margin-top: 0.375rem;
+        }
+
         .customers-marquee-wrapper {
+          padding-top: 0.75rem;
+          padding-bottom: 0.75rem;
           mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
           -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
         }
@@ -382,17 +178,331 @@ export default function OurCustomers() {
         .customers-marquee-track {
           display: flex;
           width: max-content;
-          animation: marqueeScrollCustomers 32s linear infinite;
+          gap: 1.25rem;
+          animation: marqueeScrollCustomers 28s linear infinite;
         }
 
         .customers-marquee-track:hover {
           animation-play-state: paused;
         }
 
-        .customers-marquee-track.is-paused {
-          animation-play-state: paused;
+        .customer-card {
+          width: 230px;
+          padding: 1.15rem 1rem;
         }
 
+        .customer-card-logo-container {
+          margin-bottom: 0.75rem;
+        }
+
+        .customer-card-logo-wrap {
+          width: 56px;
+          height: 56px;
+        }
+
+        .customer-card-icon {
+          width: 20px;
+          height: 20px;
+        }
+
+        .customer-card-monogram {
+          font-size: 8px;
+        }
+
+        .customer-card-badge {
+          width: 16px;
+          height: 16px;
+          bottom: -2px;
+          right: -2px;
+        }
+
+        .customer-card-badge svg {
+          width: 11px;
+          height: 11px;
+        }
+
+        .customer-card-title {
+          font-size: 0.875rem;
+          margin-bottom: 0.25rem;
+        }
+
+        .customer-card-line1 {
+          font-size: 0.6875rem;
+        }
+
+        .customer-card-line2 {
+          font-size: 0.625rem;
+          margin-top: 0.125rem;
+        }
+
+        /* ── 1. ULTRA-WIDE & 4K DISPLAYS (>= 1536px) ── */
+        @media (min-width: 1536px) {
+          .customers-section {
+            padding-top: 4.5rem;
+            padding-bottom: 4.5rem;
+          }
+          .customers-title {
+            font-size: 2.5rem;
+          }
+          .customers-subtitle {
+            font-size: 0.95rem;
+          }
+          .customers-marquee-track {
+            gap: 1.5rem;
+            animation-duration: 32s;
+          }
+          .customer-card {
+            width: 250px;
+            padding: 1.35rem 1.15rem;
+          }
+          .customer-card-logo-wrap {
+            width: 60px;
+            height: 60px;
+          }
+          .customer-card-icon {
+            width: 22px;
+            height: 22px;
+          }
+          .customer-card-title {
+            font-size: 0.95rem;
+          }
+          .customer-card-line1 {
+            font-size: 0.75rem;
+          }
+          .customer-card-line2 {
+            font-size: 0.7rem;
+          }
+        }
+
+        /* ── 2. DESKTOP & LAPTOPS (1024px to 1535px) ── */
+        @media (min-width: 1024px) and (max-width: 1535px) {
+          .customers-section {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+          }
+          .customers-title {
+            font-size: 2.25rem;
+          }
+          .customers-marquee-track {
+            gap: 1.25rem;
+            animation-duration: 28s;
+          }
+          .customer-card {
+            width: 230px;
+            padding: 1.15rem 1rem;
+          }
+          .customer-card-logo-wrap {
+            width: 56px;
+            height: 56px;
+          }
+        }
+
+        /* ── 3. TABLETS (768px to 1023px) ── */
+        @media (min-width: 768px) and (max-width: 1023px) {
+          .customers-section {
+            padding-top: 3.5rem;
+            padding-bottom: 3.5rem;
+          }
+          .customers-header {
+            margin-bottom: 2rem;
+          }
+          .customers-title {
+            font-size: 1.85rem;
+          }
+          .customers-subtitle {
+            font-size: 0.825rem;
+          }
+          .customers-marquee-track {
+            gap: 1.1rem;
+            animation-duration: 26s;
+          }
+          .customer-card {
+            width: 215px;
+            padding: 1rem 0.9rem;
+          }
+          .customer-card-logo-wrap {
+            width: 52px;
+            height: 52px;
+          }
+          .customer-card-icon {
+            width: 19px;
+            height: 19px;
+          }
+          .customer-card-title {
+            font-size: 0.85rem;
+          }
+          .customer-card-line1 {
+            font-size: 0.68rem;
+          }
+          .customer-card-line2 {
+            font-size: 0.625rem;
+          }
+        }
+
+        /* ── 4. LARGE PHONES & PHABLETS (480px to 767px) ── */
+        @media (min-width: 480px) and (max-width: 767px) {
+          .customers-section {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+          }
+          .customers-header {
+            margin-bottom: 1.75rem;
+          }
+          .customers-title {
+            font-size: 1.65rem;
+          }
+          .customers-subtitle {
+            font-size: 0.8rem;
+          }
+          .customers-marquee-track {
+            gap: 0.9rem;
+            animation-duration: 25s;
+          }
+          .customer-card {
+            width: 195px;
+            padding: 0.95rem 0.8rem;
+          }
+          .customer-card-logo-container {
+            margin-bottom: 0.65rem;
+          }
+          .customer-card-logo-wrap {
+            width: 48px;
+            height: 48px;
+          }
+          .customer-card-icon {
+            width: 18px;
+            height: 18px;
+          }
+          .customer-card-title {
+            font-size: 0.825rem;
+          }
+          .customer-card-line1 {
+            font-size: 0.65rem;
+          }
+          .customer-card-line2 {
+            font-size: 0.6rem;
+          }
+        }
+
+        /* ── 5. STANDARD SMARTPHONES (361px to 479px) ── */
+        @media (min-width: 361px) and (max-width: 479px) {
+          .customers-section {
+            padding-top: 2.75rem;
+            padding-bottom: 2.75rem;
+          }
+          .customers-header {
+            margin-bottom: 1.5rem;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+          }
+          .customers-title {
+            font-size: 1.5rem;
+          }
+          .customers-subtitle {
+            font-size: 0.775rem;
+          }
+          .customers-marquee-track {
+            gap: 0.75rem;
+            animation-duration: 24s;
+          }
+          .customer-card {
+            width: 180px;
+            padding: 0.85rem 0.7rem;
+            border-radius: 0.875rem;
+          }
+          .customer-card-logo-container {
+            margin-bottom: 0.55rem;
+          }
+          .customer-card-logo-wrap {
+            width: 44px;
+            height: 44px;
+          }
+          .customer-card-icon {
+            width: 17px;
+            height: 17px;
+          }
+          .customer-card-monogram {
+            font-size: 7px;
+          }
+          .customer-card-badge {
+            width: 14px;
+            height: 14px;
+          }
+          .customer-card-badge svg {
+            width: 9px;
+            height: 9px;
+          }
+          .customer-card-title {
+            font-size: 0.8rem;
+            margin-bottom: 0.15rem;
+          }
+          .customer-card-line1 {
+            font-size: 0.625rem;
+          }
+          .customer-card-line2 {
+            font-size: 0.58rem;
+          }
+        }
+
+        /* ── 6. COMPACT PHONES (< 360px) ── */
+        @media (max-width: 360px) {
+          .customers-section {
+            padding-top: 2.5rem;
+            padding-bottom: 2.5rem;
+          }
+          .customers-header {
+            margin-bottom: 1.25rem;
+          }
+          .customers-title {
+            font-size: 1.35rem;
+          }
+          .customers-subtitle {
+            font-size: 0.725rem;
+          }
+          .customers-marquee-track {
+            gap: 0.65rem;
+            animation-duration: 22s;
+          }
+          .customer-card {
+            width: 165px;
+            padding: 0.75rem 0.6rem;
+            border-radius: 0.75rem;
+          }
+          .customer-card-logo-container {
+            margin-bottom: 0.5rem;
+          }
+          .customer-card-logo-wrap {
+            width: 40px;
+            height: 40px;
+          }
+          .customer-card-icon {
+            width: 15px;
+            height: 15px;
+          }
+          .customer-card-monogram {
+            font-size: 6.5px;
+          }
+          .customer-card-badge {
+            width: 13px;
+            height: 13px;
+          }
+          .customer-card-badge svg {
+            width: 8px;
+            height: 8px;
+          }
+          .customer-card-title {
+            font-size: 0.75rem;
+            margin-bottom: 0.1rem;
+          }
+          .customer-card-line1 {
+            font-size: 0.6rem;
+          }
+          .customer-card-line2 {
+            font-size: 0.55rem;
+          }
+        }
+
+        /* ── 7. ACCESSIBILITY & MOTION ── */
         @keyframes marqueeScrollCustomers {
           0% {
             transform: translateX(0);
@@ -405,6 +515,10 @@ export default function OurCustomers() {
         @media (prefers-reduced-motion: reduce) {
           .customers-marquee-track {
             animation: none !important;
+          }
+          .customers-marquee-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
           }
         }
       `}</style>
