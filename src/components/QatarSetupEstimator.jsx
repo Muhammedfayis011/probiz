@@ -56,7 +56,7 @@ export default function QatarSetupEstimator({ onOpenQuote }) {
     currentEntityObj.name
   )}%0A- Estimated Visas: ${visaCount}%0A- Office Type: ${officeType}%0A- Selected Services:%0A${selectedServiceNames}%0A%0APlease provide a detailed proposal and consultation.`;
 
-  const waLink = `https://wa.me/97440001977?text=${waMessage}`;
+  const waLink = `https://wa.me/${COMPANY_INFO.whatsappRaw || '97477307004'}?text=${waMessage}`;
 
   return (
     <section id="cost-estimator" className="py-20 relative bg-[#070A10]">
@@ -237,7 +237,7 @@ export default function QatarSetupEstimator({ onOpenQuote }) {
                 <div>
                   <div className="text-[11px] text-slate-400 uppercase tracking-wide">Selected Services</div>
                   <div className="text-base font-bold font-mono text-white mt-0.5">
-                    {selectedServices.length} Verticals
+                    {selectedServices.length} Services
                   </div>
                 </div>
               </div>
@@ -304,7 +304,7 @@ export default function QatarSetupEstimator({ onOpenQuote }) {
                 href={`tel:${COMPANY_INFO.phoneRaw}`}
                 className="font-mono font-bold text-[#DFBA73] hover:underline"
               >
-                +974 4000 1977
+                {COMPANY_INFO.phone}
               </a>
             </div>
 

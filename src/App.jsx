@@ -4,13 +4,10 @@ import HeroSection from './components/HeroSection';
 import ServicesStrip from './components/ServicesStrip';
 import AboutPreview from './components/AboutPreview';
 import ServicesAtAGlance from './components/ServicesAtAGlance';
-import ServiceDeepDive from './components/ServiceDeepDive';
-import SetupRoadmap from './components/SetupRoadmap';
-import WhyChooseUs from './components/WhyChooseUs';
-import FaqSection from './components/FaqSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import ConsultationModal from './components/ConsultationModal';
+import RightAsidePopup from './components/RightAsidePopup';
 import ServiceModal from './components/ServiceModal';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
 import ServiceDetailPage from './components/ServiceDetailPage';
@@ -28,7 +25,6 @@ export default function App() {
   const [detailServiceId, setDetailServiceId] = useState('business-setup');
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const [selectedServiceForModal, setSelectedServiceForModal] = useState(null);
-  const [activeDeepDiveServiceId, setActiveDeepDiveServiceId] = useState('business-setup');
   const [preselectedServiceName, setPreselectedServiceName] = useState('');
 
   const handleOpenQuote = (serviceName = '') => {
@@ -87,21 +83,6 @@ export default function App() {
     handleHash();
     window.addEventListener('hashchange', handleHash);
     return () => window.removeEventListener('hashchange', handleHash);
-  }, []);
-
-  // ── AUTO-POPUP: open Free Consultation modal 4 seconds after every page load ──
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsQuoteModalOpen((current) => {
-        if (!current) {
-          setPreselectedServiceName('');
-          return true;
-        }
-        return current;
-      });
-    }, 4000);
-
-    return () => clearTimeout(timer);
   }, []);
 
   const handleSelectServiceFromGlance = (service) => {
@@ -202,22 +183,6 @@ export default function App() {
           {/* SERVICES AT A GLANCE */}
           <ServicesAtAGlance onSelectService={handleSelectServiceFromGlance} />
 
-          {/* SERVICE SPECIFICATIONS DEEP DIVE */}
-          <ServiceDeepDive
-            activeServiceId={activeDeepDiveServiceId}
-            onSelectService={(srv) => setActiveDeepDiveServiceId(srv.id)}
-            onOpenQuote={() => handleOpenQuote(SERVICES.find((s) => s.id === activeDeepDiveServiceId)?.title)}
-          />
-
-          {/* SETUP ROADMAP */}
-          <SetupRoadmap onOpenQuote={() => handleOpenQuote('Business Setup & Company Formation')} />
-
-          {/* WHY CHOOSE US */}
-          <WhyChooseUs onOpenQuote={() => handleOpenQuote()} />
-
-          {/* FAQ SECTION */}
-          <FaqSection onOpenQuote={() => handleOpenQuote()} />
-
           {/* CONTACT SECTION */}
           <ContactSection />
         </main>
@@ -230,7 +195,8 @@ export default function App() {
         onNavigateSection={handleNavigateSection}
       />
 
-      {/* ── MODALS ── */}
+      {/* ── MODALS & RIGHT ASIDE POPUP ── */}
+      <RightAsidePopup isFullModalOpen={isQuoteModalOpen} />
       <ConsultationModal
         isOpen={isQuoteModalOpen}
         onClose={() => setIsQuoteModalOpen(false)}
@@ -243,7 +209,9 @@ export default function App() {
       />
 
       {/* ── FLOATING WHATSAPP ── */}
-      <FloatingWhatsApp />
+      <FloatingWhatsApp
+        isMarketingService={currentView === 'service-detail' && detailServiceId === 'branding-digital'}
+      />
     </div>
   );
 }

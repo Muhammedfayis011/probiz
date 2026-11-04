@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { SERVICES, COMPANY_INFO, FAQS } from '../data/probizData';
+import { SERVICES, COMPANY_INFO, FAQS, PRO_SERVICES_FAQS, TRANSLATION_SERVICES_FAQS, RECRUITMENT_HR_FAQS, HEALTHCARE_SERVICES_FAQS, BRANDING_MARKETING_FAQS } from '../data/probizData';
 import mophBgImg from '../assets/moph-licensing-bg.jpg';
 import businessSetupBgImg from '../assets/business-setup-bg.jpg';
 import proServicesBgImg from '../assets/pro-services-bg.jpg';
@@ -138,7 +138,17 @@ export default function ServiceDetailPage({
   const isRecruitmentHr = service.id === 'recruitment-hr';
 
   // Specific FAQs for this service or general
-  const serviceFaqs = isBusinessSetup
+  const serviceFaqs = isProServices
+    ? PRO_SERVICES_FAQS
+    : isTranslation
+    ? TRANSLATION_SERVICES_FAQS
+    : isRecruitmentHr
+    ? RECRUITMENT_HR_FAQS
+    : isHealthcare
+    ? HEALTHCARE_SERVICES_FAQS
+    : isBrandingDigital
+    ? BRANDING_MARKETING_FAQS
+    : isBusinessSetup
     ? FAQS.slice(0, 3)
     : FAQS.filter((f, idx) => idx >= 2);
 
@@ -370,10 +380,10 @@ export default function ServiceDetailPage({
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
           <div className="max-w-3xl">
-            {/* Vertical Badge */}
+            {/* Service Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#C9A84C]/15 border border-[#C9A84C]/40 text-[#DFBA73] text-xs font-bold mb-5 backdrop-blur-sm">
               <Icon className="w-3.5 h-3.5 text-[#DFBA73]" />
-              <span>VERTICAL {service.number} • {service.badge}</span>
+              <span>SERVICE {service.number} • {service.badge}</span>
             </div>
 
             {/* Title */}
@@ -402,13 +412,13 @@ export default function ServiceDetailPage({
               </button>
 
               <a
-                href={COMPANY_INFO.whatsappUrl}
+                href={isBrandingDigital ? COMPANY_INFO.marketingWhatsappUrl : COMPANY_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-outline-gold px-5 py-3 text-sm font-semibold flex items-center gap-2 backdrop-blur-sm"
               >
                 <MessageCircle className="w-4 h-4 text-[#25D366]" />
-                <span>Quick WhatsApp Chat</span>
+                <span>Quick WhatsApp Chat ({isBrandingDigital ? COMPANY_INFO.marketingWhatsappNumber : COMPANY_INFO.whatsappNumber})</span>
               </a>
             </div>
           </div>
@@ -748,14 +758,14 @@ export default function ServiceDetailPage({
               </div>
             )}
 
-            {/* Verticals Grid */}
+            {/* Services Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {service.sections.map((sec, i) => (
                 <div key={i} className="p-6 rounded-2xl bg-[#0E1524] border border-white/10 hover:border-[#C5A059]/40 transition-all flex flex-col justify-between">
                   <div>
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-xs font-mono font-bold text-[#DFBA73] bg-[#DFBA73]/10 px-2.5 py-0.5 rounded border border-[#DFBA73]/20">
-                        VERTICAL 0{i + 1}
+                        SECTION 0{i + 1}
                       </span>
                     </div>
                     <h3 className="text-lg font-bold text-white mb-2 font-display">
@@ -890,10 +900,12 @@ export default function ServiceDetailPage({
         <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-[#172135] via-[#111929] to-[#172135] border border-[#C5A059]/40 text-center relative overflow-hidden">
           <div className="relative z-10 max-w-2xl mx-auto">
             <h2 className="text-2xl sm:text-4xl font-extrabold font-display text-white">
-              Ready to Form Your Company in Qatar?
+              {isBrandingDigital ? 'Ready to Elevate Your Brand & Digital Presence in Qatar?' : 'Ready to Form Your Company in Qatar?'}
             </h2>
             <p className="text-slate-300 text-sm sm:text-base mt-3 leading-relaxed">
-              Speak directly with our senior corporate setup consultants. We evaluate your business model, recommend the best legal structure, and outline exact timelines and transparent government costs.
+              {isBrandingDigital
+                ? 'Speak directly with our creative branding and digital specialists. We craft high-impact identities, custom software, and digital marketing strategies tailored to your market.'
+                : 'Speak directly with our senior corporate setup consultants. We evaluate your business model, recommend the best legal structure, and outline exact timelines and transparent government costs.'}
             </p>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
@@ -904,11 +916,20 @@ export default function ServiceDetailPage({
                 Schedule Free Consultation
               </button>
               <a
-                href={`tel:${COMPANY_INFO.phoneRaw}`}
+                href={isBrandingDigital ? COMPANY_INFO.marketingWhatsappUrl : COMPANY_INFO.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-outline-gold px-6 py-3.5 text-sm font-semibold flex items-center gap-2"
+              >
+                <MessageCircle className="w-4 h-4 text-[#25D366]" />
+                <span>WhatsApp ({isBrandingDigital ? COMPANY_INFO.marketingWhatsappNumber : COMPANY_INFO.whatsappNumber})</span>
+              </a>
+              <a
+                href={`tel:${isBrandingDigital ? COMPANY_INFO.marketingPhoneRaw : COMPANY_INFO.phoneRaw}`}
                 className="btn-outline-gold px-6 py-3.5 text-sm font-semibold flex items-center gap-2"
               >
                 <PhoneCall className="w-4 h-4 text-[#DFBA73]" />
-                <span>Call {COMPANY_INFO.phone}</span>
+                <span>Call {isBrandingDigital ? COMPANY_INFO.marketingPhone : COMPANY_INFO.phone}</span>
               </a>
             </div>
 

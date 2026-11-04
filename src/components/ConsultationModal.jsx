@@ -26,9 +26,22 @@ export default function ConsultationModal({ isOpen, onClose, preselectedService 
     setSubmitted(true);
   };
 
+  const isMarketingService =
+    formData.service?.toLowerCase().includes('brand') ||
+    formData.service?.toLowerCase().includes('marketing') ||
+    formData.service?.toLowerCase().includes('digital');
+
+  const targetWhatsAppRaw = isMarketingService
+    ? (COMPANY_INFO.marketingWhatsappRaw || '97477307006')
+    : (COMPANY_INFO.whatsappRaw || '97477307004');
+
+  const targetWhatsAppDisplay = isMarketingService
+    ? (COMPANY_INFO.marketingWhatsappNumber || '+974 7730 7006')
+    : (COMPANY_INFO.whatsappNumber || '+974 7730 7004');
+
   const handleWhatsAppSend = () => {
     const text = `Hello ProBiz,%0A%0AI would like to consult on *${formData.service}*.%0AName: ${formData.name || 'Not provided'}%0APhone: ${formData.phone || 'Not provided'}%0ANotes: ${formData.notes || 'None'}`;
-    window.open(`https://wa.me/97440001977?text=${text}`, '_blank');
+    window.open(`https://wa.me/${targetWhatsAppRaw}?text=${text}`, '_blank');
   };
 
   return (
@@ -130,7 +143,7 @@ export default function ConsultationModal({ isOpen, onClose, preselectedService 
 
               <div>
                 <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1">
-                  Service Vertical *
+                  Service Required *
                 </label>
                 <select
                   value={formData.service}
@@ -174,7 +187,7 @@ export default function ConsultationModal({ isOpen, onClose, preselectedService 
                   className="btn-outline-gold w-full text-center py-2.5 text-xs font-bold flex items-center justify-center gap-2"
                 >
                   <MessageSquare className="w-3.5 h-3.5 text-emerald-400" />
-                  <span>Send via WhatsApp (+974 4000 1977)</span>
+                  <span>Send via WhatsApp ({targetWhatsAppDisplay})</span>
                 </button>
               </div>
             </form>

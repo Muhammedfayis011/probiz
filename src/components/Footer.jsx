@@ -7,11 +7,9 @@ import {
   MapPin,
   Globe,
   ArrowUp,
-  ArrowRight,
   ShieldCheck,
   CheckCircle2,
   Clock,
-  MessageSquare,
   Building2,
   Lock,
   Sparkles,
@@ -53,48 +51,6 @@ export default function Footer({ onSelectService, onOpenQuote, onNavigateSection
       <div className="absolute bottom-0 right-0 w-[500px] h-[350px] bg-[#C5A059]/5 rounded-full blur-[180px] pointer-events-none" />
 
       <div className="probiz-container relative z-10">
-        
-        {/* ── TOP VIP CALLOUT BANNER ── */}
-        <div className="mb-16 p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-[#0D1424] via-[#090E1A] to-[#0D1424] border border-[#C5A059]/35 relative overflow-hidden shadow-2xl">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-[#DFBA73]/10 rounded-full blur-3xl pointer-events-none" />
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-            <div className="lg:col-span-7 space-y-3">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#DFBA73]/15 border border-[#DFBA73]/30 text-[#DFBA73] text-xs font-semibold">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span>Senior Corporate Consultants Available in Doha</span>
-              </div>
-              <h3 className="text-2xl sm:text-3xl font-bold font-display text-white tracking-tight leading-tight">
-                Ready to Establish or Expand Your Business in Qatar?
-              </h3>
-              <p className="text-sm text-slate-300 leading-relaxed max-w-xl">
-                Get immediate clarity on 100% foreign ownership LLC laws, Commercial Registration (CR), PRO government clearances, and healthcare licensing.
-              </p>
-            </div>
-
-            <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3.5 justify-end">
-              <button
-                type="button"
-                onClick={() => onOpenQuote && onOpenQuote()}
-                className="btn-gold py-3.5 px-6 text-sm font-bold font-display flex items-center justify-center gap-2 shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer whitespace-nowrap"
-              >
-                <span>Free Strategic Consultation</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-
-              <a
-                href={COMPANY_INFO.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="py-3.5 px-5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-sm font-semibold flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-[0.98]"
-              >
-                <MessageSquare className="w-4 h-4 text-emerald-400" />
-                <span>WhatsApp Business</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
         {/* ── 5-COLUMN MAIN FOOTER ARCHITECTURE ── */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-14 border-b border-white/10">
           
@@ -172,7 +128,7 @@ export default function Footer({ onSelectService, onOpenQuote, onNavigateSection
           <div className="lg:col-span-3 space-y-4">
             <div className="text-xs font-bold uppercase tracking-widest text-[#DFBA73] font-display flex items-center gap-2">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Core Business Verticals</span>
+              <span>Core Business Services</span>
             </div>
             <ul className="space-y-2.5 text-xs">
               {SERVICES.map((srv) => (
@@ -303,14 +259,28 @@ export default function Footer({ onSelectService, onOpenQuote, onNavigateSection
                 </span>
               </div>
 
-              <div className="flex items-center gap-3 p-2.5 rounded-xl bg-[#090E1A] border border-white/5">
-                <Phone className="w-4 h-4 text-[#DFBA73] flex-shrink-0" />
-                <a
-                  href={`tel:${COMPANY_INFO.phoneRaw}`}
-                  className="font-mono text-white hover:text-[#DFBA73] font-semibold transition-colors"
-                >
-                  {COMPANY_INFO.phone}
-                </a>
+              <div className="flex items-start gap-3 p-2.5 rounded-xl bg-[#090E1A] border border-white/5">
+                <Phone className="w-4 h-4 text-[#DFBA73] flex-shrink-0 mt-0.5" />
+                <div className="flex flex-col gap-0.5 font-mono text-white text-xs">
+                  <a
+                    href="tel:+97440001977"
+                    className="hover:text-[#DFBA73] font-semibold transition-colors"
+                  >
+                    +974 4000 1977
+                  </a>
+                  <a
+                    href="tel:+97477307004"
+                    className="hover:text-[#DFBA73] font-semibold transition-colors"
+                  >
+                    +974 7730 7004
+                  </a>
+                  <a
+                    href="tel:+97477307006"
+                    className="hover:text-[#DFBA73] font-semibold transition-colors"
+                  >
+                    +974 7730 7006
+                  </a>
+                </div>
               </div>
 
               <div className="flex items-center gap-3 p-2.5 rounded-xl bg-[#090E1A] border border-white/5">

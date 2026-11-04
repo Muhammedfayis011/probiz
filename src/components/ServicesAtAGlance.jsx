@@ -83,7 +83,7 @@ export default function ServicesAtAGlance({ onSelectService }) {
             Our Services <span className="gold-text-gradient">at a Glance</span>
           </h2>
           <p className="text-slate-400 text-base sm:text-lg mt-3 leading-relaxed font-sans">
-            Six interconnected corporate verticals engineered to support your enterprise at every step of its journey in the State of Qatar.
+            Six interconnected corporate solutions engineered to support your enterprise at every step of its journey in the State of Qatar.
           </p>
         </div>
 
@@ -166,7 +166,7 @@ export default function ServicesAtAGlance({ onSelectService }) {
                         <div className="flex items-center justify-between mb-4 pb-3 border-b border-white/10">
                           <span className="text-xs font-bold text-[#DFBA73] tracking-wider uppercase flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full bg-[#DFBA73] inline-block animate-pulse" />
-                            Vertical #{srv.number}
+                            Service #{srv.number}
                           </span>
                         </div>
 
@@ -214,21 +214,6 @@ export default function ServicesAtAGlance({ onSelectService }) {
               </div>
             );
           })}
-        </div>
-
-        {/* Bottom Callout */}
-        <div className="mt-14 p-6 sm:p-7 rounded-2xl bg-gradient-to-r from-[#121A2B] via-[#0E1524] to-[#121A2B] border border-[#C5A059]/30 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
-          <div>
-            <div className="text-sm font-bold text-white font-display">Need a customized combination of services?</div>
-            <div className="text-xs text-slate-400 mt-0.5 font-sans">We craft tailored corporate packages combining formation, PRO retainers, translation, and branding.</div>
-          </div>
-          <a
-            href="#contact"
-            className="btn-gold text-xs px-5 py-2.5 whitespace-nowrap font-display"
-          >
-            <span>Get Tailored Corporate Package</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </a>
         </div>
       </div>
 

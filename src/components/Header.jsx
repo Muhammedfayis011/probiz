@@ -171,7 +171,7 @@ export default function Header({ onOpenQuote, onSelectService }) {
               className="btn-outline-gold text-xs py-2 px-3.5 hidden xl:inline-flex"
             >
               <Phone className="w-3.5 h-3.5 text-[#DFBA73]" />
-              <span>+974 4000 1977</span>
+              <span>{COMPANY_INFO.phone}</span>
             </a>
 
             <button
@@ -285,7 +285,7 @@ export default function Header({ onOpenQuote, onSelectService }) {
                 rel="noopener noreferrer"
                 className="btn-outline-gold w-full text-center py-2.5 text-sm"
               >
-                Chat on WhatsApp (+974 4000 1977)
+                Chat on WhatsApp ({COMPANY_INFO.whatsappNumber})
               </a>
             </div>
           </div>

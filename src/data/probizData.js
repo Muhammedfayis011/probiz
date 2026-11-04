@@ -8,12 +8,24 @@ export const COMPANY_INFO = {
   slogan: "SIMPLIFY YOUR BUSINESS • FOCUS ON GROWTH",
   phone: "+974 4000 1977",
   phoneRaw: "+97440001977",
-  whatsappUrl: "https://wa.me/97440001977?text=Hello%20ProBiz%2C%20I%20am%20interested%20in%20your%20business%20services%20in%20Qatar.",
-  email: "probiz.qa@gmail.com",
+  mobileNumbers: [
+    { display: "+974 4000 1977", raw: "+97440001977" },
+    { display: "+974 7730 7004", raw: "+97477307004" },
+    { display: "+974 7730 7006", raw: "+97477307006" }
+  ],
+  whatsappNumber: "+974 7730 7004",
+  whatsappRaw: "97477307004",
+  whatsappUrl: "https://wa.me/97477307004?text=Hello%20ProBiz%2C%20I%20am%20interested%20in%20your%20business%20services%20in%20Qatar.",
+  marketingWhatsappNumber: "+974 7730 7006",
+  marketingWhatsappRaw: "97477307006",
+  marketingWhatsappUrl: "https://wa.me/97477307006?text=Hello%20ProBiz%2C%20I%20am%20interested%20in%20your%20Branding%2C%20Marketing%20%26%20Digital%20services%20in%20Qatar.",
+  marketingPhone: "+974 7730 7006",
+  marketingPhoneRaw: "+97477307006",
+  email: "hello@probiz.qa",
   website: "www.probiz.qa",
   address: "Office #49, 10th Floor, Hleyton Tower, Al Baladhiya St., Al Miqrab, Doha, Qatar",
   addressShort: "Hleyton Tower, Al Miqrab, Doha, Qatar",
-  workingHours: "Sunday – Thursday: 8:00 AM – 5:30 PM",
+  workingHours: "Saturday – Thursday: 9:00 AM – 5:30 PM",
   experienceYears: "10+",
   combinedExpNote: "With over 10 years of combined team experience",
   aim: "To help businesses save time, manage costs and focus on their core activities while we support their essential business needs."
@@ -21,7 +33,7 @@ export const COMPANY_INFO = {
 
 export const STATS = [
   { value: "10+", label: "Years Combined Experience", sub: "Proven industry track record" },
-  { value: "6", label: "Core Business Verticals", sub: "Comprehensive integrated solutions" },
+  { value: "6", label: "Core Business Services", sub: "Comprehensive integrated solutions" },
   { value: "100%", label: "Qatar Regulatory Compliance", sub: "MOCI, MOPH, MOI & Labour" },
   { value: "1", label: "Single Trusted Partner", sub: "Zero vendor-management fatigue" }
 ];
@@ -405,6 +417,193 @@ export const WORKFLOW_STEPS = [
   }
 ];
 
+export const PRO_SERVICES_FAQS = [
+  {
+    q: "What PRO services does ProBiz provide for ongoing companies?",
+    a: "We provide comprehensive corporate PRO support through flexible retainer and on-demand services, including Commercial Registration (CR) renewals, trade licence renewals, Computer Card renewals, employee QID renewals, visa processing, profession amendments, and other government documentation requirements."
+  },
+  {
+    q: "Can ProBiz help with company document renewals and government approvals?",
+    a: "Yes. Our team assists businesses with monitoring and processing important renewals, government applications, approvals, amendments, and related documentation to help companies maintain compliance and avoid unnecessary delays."
+  },
+  {
+    q: "Does ProBiz assist with employee visa and QID services?",
+    a: "Yes. We support companies and individuals with various visa-related procedures, including work visa processing, family visa assistance, employee QID services, renewals, and other related government formalities, subject to applicable requirements and approvals."
+  },
+  {
+    q: "Can ProBiz assist with Commercial Registration (CR) and Trade Licence renewals?",
+    a: "Yes. We assist businesses with the renewal and processing of Commercial Registrations, applicable trade licences, establishment documentation, and other required government records."
+  },
+  {
+    q: "Do you provide services for new companies as well as existing businesses?",
+    a: "Yes. ProBiz supports both new entrepreneurs establishing their businesses in Qatar and existing companies requiring ongoing PRO, government documentation, renewal, amendment, and compliance support."
+  },
+  {
+    q: "Can ProBiz help with document amendments and company changes?",
+    a: "Yes. We can assist with applicable company amendments and documentation changes, including profession amendments, company information updates, partner-related documentation, and other government procedures based on the requirements of the relevant authorities."
+  },
+  {
+    q: "How long does a PRO or government service request take?",
+    a: "Processing time depends on the specific service, government authority requirements, document availability, and approval procedures. Our team will review your requirements and provide guidance on the expected process and timeline."
+  },
+  {
+    q: "Do you offer corporate PRO service packages or monthly retainers?",
+    a: "Yes. ProBiz offers flexible corporate PRO support options for businesses that require ongoing assistance with renewals, employee documentation, government procedures, and other administrative requirements."
+  },
+  {
+    q: "How can I get started with ProBiz PRO & Government Services?",
+    a: "Simply contact our team and share your requirement. We will review your situation, explain the applicable process and documentation, and guide you through the next steps."
+  }
+];
+
+export const TRANSLATION_SERVICES_FAQS = [
+  {
+    q: "What types of documents can ProBiz help translate?",
+    a: "We assist with the translation of a wide range of personal, corporate, legal and official documents, including certificates, contracts, agreements, company documents, academic records, letters and other documents required for official or business purposes."
+  },
+  {
+    q: "Do you provide certified or official document translation services?",
+    a: "We can assist clients with translation requirements for documents intended for official, legal, business and government-related purposes, subject to the applicable certification, attestation and authority requirements."
+  },
+  {
+    q: "Can ProBiz help with document attestation and legalization?",
+    a: "Yes. We assist with document-related procedures, including guidance and support for applicable attestation and legalization processes involving relevant government authorities and embassies."
+  },
+  {
+    q: "Can you help translate documents for government or embassy submission?",
+    a: "Yes. We assist clients with preparing translated documents for submission to relevant government departments, embassies and other official institutions, based on their specific documentation requirements."
+  },
+  {
+    q: "Which languages are available for translation services?",
+    a: "Translation availability depends on the document type and language combination required. Contact our team with your document details, and we will advise you on the available translation options."
+  },
+  {
+    q: "Can ProBiz help with both personal and business documents?",
+    a: "Yes. Our Translation & Document Services support individuals, professionals, entrepreneurs and companies with a variety of personal, legal, corporate and administrative documentation requirements."
+  },
+  {
+    q: "How long does document translation take?",
+    a: "The turnaround time depends on the document length, complexity, language combination and any certification or additional processing requirements. Our team will provide an estimated timeline after reviewing your requirements."
+  },
+  {
+    q: "How can I submit my document for translation or assistance?",
+    a: "You can contact ProBiz and share a clear copy of your document along with your required language and purpose of use. Our team will review the requirement and guide you through the next steps."
+  }
+];
+
+export const RECRUITMENT_HR_FAQS = [
+  {
+    q: "What recruitment services does ProBiz provide?",
+    a: "We help businesses identify and recruit suitable candidates for a range of roles and industries. Our support includes understanding employer requirements, candidate sourcing, screening, shortlisting and coordinating the recruitment process."
+  },
+  {
+    q: "Can ProBiz help us recruit employees from outside Qatar?",
+    a: "Yes. Depending on the role and recruitment requirements, we can assist businesses with candidate sourcing and recruitment coordination for local and international talent, subject to applicable employment and immigration procedures."
+  },
+  {
+    q: "Do you provide recruitment support for specific industries?",
+    a: "Yes. We work with employers across different business sectors and can tailor our recruitment approach based on the required skills, experience and workforce requirements."
+  },
+  {
+    q: "Can ProBiz help with candidate screening and shortlisting?",
+    a: "Yes. We assist employers by reviewing candidate profiles against the job requirements and preparing suitable shortlists, helping businesses save time during the initial stages of recruitment."
+  },
+  {
+    q: "Do you provide HR support for small and growing businesses?",
+    a: "Yes. ProBiz supports startups, SMEs and established companies with practical recruitment and HR-related assistance based on their workforce requirements and business needs."
+  },
+  {
+    q: "Can you help us create job descriptions and define our hiring requirements?",
+    a: "Yes. We can assist businesses in clearly defining job roles, responsibilities, required qualifications and candidate expectations before beginning the recruitment process."
+  },
+  {
+    q: "How long does the recruitment process take?",
+    a: "The timeline depends on the position, required qualifications, availability of suitable candidates and the employer's selection process. We will discuss the expected timeline based on your specific recruitment requirement."
+  },
+  {
+    q: "How can my company get started with ProBiz Recruitment & HR Support?",
+    a: "Simply contact our team with details about the position or workforce requirement. We will review your needs and guide you through the appropriate recruitment and support process."
+  }
+];
+
+export const HEALTHCARE_SERVICES_FAQS = [
+  {
+    q: "How does ProBiz assist healthcare professionals with MOPH licensing?",
+    a: "We guide healthcare professionals through the licensing process, including eligibility review, document preparation, Primary Source Verification (DataFlow PSV), Prometric exam registration and scheduling, online application procedures, and licence issuance or transfer requirements."
+  },
+  {
+    q: "Who needs an MOPH healthcare licence in Qatar?",
+    a: "Healthcare professionals who intend to practise in regulated healthcare roles in Qatar may require the appropriate licence or registration from the relevant health authority. Requirements depend on the profession, qualifications, experience and current regulations."
+  },
+  {
+    q: "Can ProBiz help with DataFlow Primary Source Verification (PSV)?",
+    a: "Yes. We assist clients with preparing and submitting the required information and documents for the Primary Source Verification (DataFlow PSV) process and guide them through the applicable requirements."
+  },
+  {
+    q: "Do you assist with Prometric exam registration and scheduling?",
+    a: "Yes. Where applicable, we help eligible healthcare professionals understand the registration requirements and assist with the process for Prometric examination registration and scheduling."
+  },
+  {
+    q: "Can you help with transferring an existing healthcare licence?",
+    a: "Yes. We can provide guidance and support for applicable healthcare licence transfer procedures, subject to the requirements, eligibility criteria and approval of the relevant authorities."
+  },
+  {
+    q: "What documents are generally required for healthcare licensing?",
+    a: "Requirements vary depending on the healthcare profession and individual circumstances. Common documents may include educational certificates, professional qualifications, experience certificates, identification documents, existing licences and other supporting records required by the relevant authority."
+  },
+  {
+    q: "How long does the MOPH healthcare licensing process take?",
+    a: "The processing time varies depending on the profession, completeness of documentation, verification procedures, examination requirements and authority approvals. Our team can review your case and explain the expected process."
+  },
+  {
+    q: "Can ProBiz help healthcare facilities with licensing requirements?",
+    a: "Yes. In addition to supporting individual healthcare professionals, we can provide guidance and consultancy support for healthcare-related business and documentation requirements based on the specific facility and applicable regulations."
+  },
+  {
+    q: "How can I start my healthcare licensing process with ProBiz?",
+    a: "Simply contact our team and share your profession, qualifications and current licensing status. We will review your requirements and guide you through the appropriate next steps."
+  }
+];
+
+export const BRANDING_MARKETING_FAQS = [
+  {
+    q: "What branding and marketing services does ProBiz provide?",
+    a: "We provide integrated branding and marketing solutions, including brand strategy, logo and visual identity design, graphic design, social media marketing, digital campaigns, content creation and marketing support tailored to business goals."
+  },
+  {
+    q: "Can ProBiz help us create a complete brand identity for a new business?",
+    a: "Yes. We can help develop a professional brand identity, including logo design, colour and typography direction, brand visuals and marketing materials to create a consistent and memorable business presence."
+  },
+  {
+    q: "Do you provide social media marketing and digital advertising services?",
+    a: "Yes. We support businesses with social media strategy, content planning, creative design, campaign management and digital advertising solutions based on their target audience and marketing objectives."
+  },
+  {
+    q: "Can ProBiz design and develop a professional business website?",
+    a: "Yes. We create modern, responsive websites for businesses, including corporate websites, service websites, landing pages and other digital platforms designed to strengthen your online presence."
+  },
+  {
+    q: "Do you develop e-commerce websites?",
+    a: "Yes. We can assist businesses with developing professional e-commerce websites and digital storefronts, helping them showcase products or services and build an effective online sales presence."
+  },
+  {
+    q: "Can you help improve our existing brand or website?",
+    a: "Yes. We can review your existing brand identity, marketing materials and website to identify opportunities for improvement and provide updated branding, design, marketing or web development solutions."
+  },
+  {
+    q: "Do you offer customised software and web development solutions?",
+    a: "Yes. Depending on your business requirements, ProBiz can provide customised web development and software solutions designed to support specific operational and digital needs."
+  },
+  {
+    q: "How long does it take to complete a branding or website project?",
+    a: "Project timelines depend on the scope, number of deliverables, required features, content availability and approval process. After understanding your requirements, our team can provide a suitable project plan and estimated timeline."
+  },
+  {
+    q: "How can I get started with ProBiz Branding, Marketing & Web Development Solutions?",
+    a: "Simply contact our team and share your business requirements and objectives. We will review your needs and recommend a suitable branding, marketing, website or digital solution."
+  }
+];
+
 export const FAQS = [
   {
     q: "Can foreigners own 100% of a business in Qatar?",
@@ -416,11 +615,11 @@ export const FAQS = [
   },
   {
     q: "What PRO services does ProBiz provide for ongoing companies?",
-    a: "We offer comprehensive corporate PRO retainers as well as on-demand services: Commercial Registration (CR) annual renewals, Municipality Trade Licence renewals, Computer Card renewals, employee QID renewals, visa processing (work, family, business), profession amendments, and WPS compliance."
+    a: "We provide comprehensive corporate PRO support through flexible retainer and on-demand services, including Commercial Registration (CR) renewals, trade licence renewals, Computer Card renewals, employee QID renewals, visa processing, profession amendments, and other government documentation requirements."
   },
   {
-    q: "How does ProBiz assist healthcare professionals with MOPH / DHP licensing?",
-    a: "We manage the entire qualification journey: initial eligibility check against MOPH guidelines, Primary Source Verification (DataFlow PSV) filing, Prometric exam registration and scheduling, DHP online portal application, and final licence issuance or transfer."
+    q: "How does ProBiz assist healthcare professionals with MOPH licensing?",
+    a: "We guide healthcare professionals through the licensing process, including eligibility review, document preparation, Primary Source Verification (DataFlow PSV), Prometric exam registration and scheduling, online application procedures, and licence issuance or transfer requirements."
   },
   {
     q: "Do you provide certified legal translation for government and embassy use?",
@@ -428,6 +627,6 @@ export const FAQS = [
   },
   {
     q: "Where is the ProBiz office located in Doha?",
-    a: "Our headquarters are centrally located at Office #49, 10th Floor, Hleyton Tower, Al Baladhiya Street, Al Miqrab, Doha, Qatar. We welcome scheduled client visits from Sunday through Thursday."
+    a: "Our headquarters are centrally located at Office #49, 10th Floor, Hleyton Tower, Al Baladhiya Street, Al Miqrab, Doha, Qatar. We welcome scheduled client visits from Saturday through Thursday (9:00 AM – 5:30 PM)."
   }
 ];

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import aboutSkylineImg from '../assets/about-skyline.jpg';
 
 /* Why Choose Icons */
@@ -50,6 +50,28 @@ const WHY_ITEMS = [
 ];
 
 export default function AboutPreview({ onLearnMore }) {
+  const containerRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const checkScrollPosition = () => {
+      if (!containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+      if (rect.top <= windowHeight * 0.85 && rect.bottom >= 80) {
+        setIsVisible(true);
+      } else if (rect.top > windowHeight) {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener('scroll', checkScrollPosition, { passive: true });
+    checkScrollPosition();
+
+    return () => window.removeEventListener('scroll', checkScrollPosition);
+  }, []);
+
   return (
     <section
       id="about"
@@ -201,6 +223,7 @@ export default function AboutPreview({ onLearnMore }) {
 
         {/* RIGHT: Why Choose ProBiz */}
         <div
+          ref={containerRef}
           style={{
             background: '#111111',
             display: 'flex',
@@ -224,9 +247,10 @@ export default function AboutPreview({ onLearnMore }) {
           </h3>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            {WHY_ITEMS.map(({ Icon, title, desc }) => (
+            {WHY_ITEMS.map(({ Icon, title, desc }, idx) => (
               <div
                 key={title}
+                className={`why-item-card ${isVisible ? 'is-in-view' : ''}`}
                 style={{
                   display: 'flex',
                   alignItems: 'flex-start',
@@ -235,8 +259,8 @@ export default function AboutPreview({ onLearnMore }) {
                   borderRadius: 8,
                   background: 'rgba(255,255,255,0.03)',
                   border: '1px solid rgba(255,255,255,0.05)',
-                  transition: 'all 0.25s',
                   cursor: 'default',
+                  animationDelay: `${idx * 0.12}s`,
                 }}
                 onMouseEnter={e => {
                   e.currentTarget.style.background = 'rgba(197,160,89,0.07)';
@@ -292,6 +316,62 @@ export default function AboutPreview({ onLearnMore }) {
       </div>
 
       <style>{`
+        /* ── WHY CHOOSE CARDS: SCROLL ANIMATION (DROP DOWN & FIX TO POSITION) ── */
+        .why-item-card {
+          opacity: 0;
+          transform: translateY(-50px) scale(0.96);
+          will-change: transform, opacity, filter;
+          transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+        }
+
+        .why-item-card.is-in-view {
+          animation: whyCardDropDownAndFix 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes whyCardDropDownAndFix {
+          0% {
+            opacity: 0;
+            transform: translateY(-50px) scale(0.96);
+            filter: blur(5px);
+          }
+          65% {
+            opacity: 1;
+            transform: translateY(6px) scale(1.01);
+            filter: blur(0px);
+          }
+          85% {
+            transform: translateY(-2px) scale(1);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0px) scale(1);
+            filter: blur(0px);
+          }
+        }
+
+        @media (hover: hover) and (min-width: 769px) {
+          .why-item-card.is-in-view:hover {
+            transform: translateY(-3px) scale(1.02) !important;
+            box-shadow: 0 10px 24px -5px rgba(197, 160, 89, 0.2);
+          }
+        }
+
+        @media (max-width: 640px) {
+          .why-item-card {
+            transform: translateY(-25px);
+          }
+          @keyframes whyCardDropDownAndFix {
+            0% {
+              opacity: 0;
+              transform: translateY(-25px);
+            }
+            100% {
+              opacity: 1;
+              transform: translateY(0px);
+            }
+          }
+        }
+
         @media (max-width: 1024px) {
           .why-panel { padding: 3rem 2rem !important; }
           .about-left-text { padding: 2rem !important; }

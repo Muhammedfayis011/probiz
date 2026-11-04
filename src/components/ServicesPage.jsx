@@ -24,7 +24,7 @@ export default function ServicesPage({
     <div className="bg-[#0D0D0D] text-slate-100 min-h-screen">
       <PageHero
         breadcrumb="Services"
-        badge="6 Core Business Verticals"
+        badge="6 Core Business Services"
         title="Comprehensive Corporate Solutions."
         highlight="All Under One Roof."
         subtitle="Explore our specialized services across Qatar commercial registration, government PRO liaison, certified legal translation, healthcare MOPH licensing, executive talent recruitment, and corporate digital branding."

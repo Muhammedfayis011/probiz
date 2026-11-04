@@ -50,7 +50,7 @@ export default function ServiceDeepDive({ activeServiceId, onSelectService, onOp
             Integrated Solutions <span className="gold-text-gradient">Under One Roof</span>
           </h2>
           <p className="text-slate-400 text-sm sm:text-base mt-3">
-            Select a vertical below to explore exact government procedures, licensing workflows, and service deliverables.
+            Select a service below to explore exact government procedures, licensing workflows, and service deliverables.
           </p>
         </div>
 
@@ -538,7 +538,7 @@ export default function ServiceDeepDive({ activeServiceId, onSelectService, onOp
                 {currentService.sections.map((sec, idx) => (
                   <div key={idx} className="p-6 rounded-2xl bg-[#080D18] border border-[#C5A059]/20">
                     <div className="text-xs font-bold uppercase tracking-wider text-[#DFBA73] mb-1">
-                      Vertical 0{idx + 1}
+                      Section 0{idx + 1}
                     </div>
                     <h4 className="text-lg font-bold text-white mb-1.5 font-display">
                       {sec.title}

@@ -21,7 +21,7 @@ export default function ServiceModal({ service, onClose, onConsult }) {
         <div className="border-b border-white/10 pb-6 mb-6">
           <div className="flex items-center gap-2 mb-2">
             <span className="text-xs font-mono font-bold text-[#DFBA73] bg-[#DFBA73]/15 px-2.5 py-0.5 rounded">
-              VERTICAL {service.number}
+              SERVICE {service.number}
             </span>
             <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
               {service.badge}

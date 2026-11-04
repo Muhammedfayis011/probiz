@@ -85,19 +85,33 @@ export default function ContactSection() {
                   </div>
                 </div>
 
-                {/* Phone */}
+                {/* Contact Numbers */}
                 <div className="flex items-start gap-3.5">
                   <div className="w-10 h-10 rounded-xl bg-[#DFBA73]/15 border border-[#DFBA73]/30 flex items-center justify-center text-[#DFBA73] flex-shrink-0 mt-0.5">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="text-xs font-bold uppercase text-slate-400 mb-0.5">Direct Hotline</div>
-                    <a
-                      href={`tel:${COMPANY_INFO.phoneRaw}`}
-                      className="text-white font-mono font-bold hover:text-[#DFBA73] transition-colors text-base"
-                    >
-                      {COMPANY_INFO.phone}
-                    </a>
+                    <div className="text-xs font-bold uppercase text-slate-400 mb-1">Contact Numbers</div>
+                    <div className="flex flex-col gap-1">
+                      <a
+                        href="tel:+97440001977"
+                        className="text-white font-mono font-bold hover:text-[#DFBA73] transition-colors text-base"
+                      >
+                        +974 4000 1977
+                      </a>
+                      <a
+                        href="tel:+97477307004"
+                        className="text-white font-mono font-bold hover:text-[#DFBA73] transition-colors text-base"
+                      >
+                        +974 7730 7004
+                      </a>
+                      <a
+                        href="tel:+97477307006"
+                        className="text-white font-mono font-bold hover:text-[#DFBA73] transition-colors text-base"
+                      >
+                        +974 7730 7006
+                      </a>
+                    </div>
                   </div>
                 </div>
 
@@ -153,7 +167,7 @@ export default function ContactSection() {
                   className="btn-gold w-full text-center py-3 text-xs sm:text-sm font-bold flex items-center justify-center gap-2"
                 >
                   <MessageSquare className="w-4 h-4 text-black" />
-                  <span>Chat on WhatsApp (+974 4000 1977)</span>
+                  <span>Chat on WhatsApp ({COMPANY_INFO.whatsappNumber})</span>
                 </a>
               </div>
             </div>

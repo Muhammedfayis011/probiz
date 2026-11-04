@@ -90,7 +90,7 @@ export default function Hero({ onOpenQuote, onSelectPillar }) {
                 href="#services-overview"
                 className="text-sm font-semibold text-slate-300 hover:text-[#DFBA73] transition-colors flex items-center gap-1.5 px-3 py-2"
               >
-                <span>Explore 6 Verticals</span>
+                <span>Explore 6 Services</span>
                 <span className="text-xs">↓</span>
               </a>
             </div>
@@ -150,7 +150,7 @@ export default function Hero({ onOpenQuote, onSelectPillar }) {
                         href={`tel:${COMPANY_INFO.phoneRaw}`}
                         className="text-sm font-mono font-bold text-[#DFBA73] hover:underline"
                       >
-                        +974 4000 1977
+                        {COMPANY_INFO.phone}
                       </a>
                     </div>
                   </div>
