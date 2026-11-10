@@ -17,7 +17,6 @@ import ServicesPage from './components/ServicesPage';
 import ProcessPage from './components/ProcessPage';
 import WhyQatarPage from './components/WhyQatarPage';
 import ContactPage from './components/ContactPage';
-import { SERVICES } from './data/probizData';
 
 const VALID_PAGES = ['home', 'about', 'services', 'our-process', 'why-qatar', 'contact'];
 
@@ -27,6 +26,20 @@ export default function App() {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const [selectedServiceForModal, setSelectedServiceForModal] = useState(null);
   const [preselectedServiceName, setPreselectedServiceName] = useState('');
+  const [currentLang, setCurrentLang] = useState(() => {
+    try {
+      return localStorage.getItem('probiz_lang') || 'en';
+    } catch {
+      return 'en';
+    }
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('probiz_lang', currentLang);
+      document.documentElement.lang = currentLang;
+    } catch {}
+  }, [currentLang]);
 
   const handleOpenQuote = (serviceName = '') => {
     setPreselectedServiceName(serviceName || '');
@@ -107,11 +120,13 @@ export default function App() {
         onGetStarted={() => handleOpenQuote()}
         onNavigateSection={handleNavigateSection}
         currentView={currentView}
+        currentLang={currentLang}
+        onLanguageChange={setCurrentLang}
       />
 
       {/* ── MULTI-PAGE CONDITIONAL RENDERING ── */}
       {currentView === 'service-detail' && (
-        <main style={{ flexGrow: 1, paddingTop: 70 }}>
+        <main style={{ flexGrow: 1, paddingTop: 104 }}>
           <ServiceDetailPage
             serviceId={detailServiceId}
             onBack={handleBackToHome}

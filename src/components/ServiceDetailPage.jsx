@@ -155,7 +155,7 @@ export default function ServiceDetailPage({
   return (
     <div className="min-h-screen bg-[#070A10] text-slate-100 font-sans pb-24">
       {/* ── STICKY TOP SUB-BAR ── */}
-      <div className="sticky top-[70px] z-30 bg-[#0A0E17]/95 backdrop-blur-md border-b border-white/10 shadow-lg">
+      <div className="sticky top-[104px] z-30 bg-[#0A0E17]/95 backdrop-blur-md border-b border-white/10 shadow-lg">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between gap-3">
           <button
             onClick={onBack}

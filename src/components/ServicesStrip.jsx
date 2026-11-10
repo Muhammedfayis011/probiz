@@ -84,6 +84,7 @@ const SERVICES = [
     Icon: WebDevIcon,
     title: 'Web Development & Solutions',
     desc: 'Modern digital solutions for your business.',
+    isWebDev: true,
   },
 ];
 
@@ -108,11 +109,11 @@ export default function ServicesStrip({ onSelectService }) {
           gap: '1.5rem',
         }}
       >
-        {SERVICES.map(({ id, Icon, title, desc }) => (
+        {SERVICES.map(({ id, Icon, title, desc, isWebDev }) => (
           <div
             key={title}
             onClick={() => onSelectService && onSelectService(id)}
-            className="service-strip-item"
+            className={`service-strip-item ${isWebDev ? 'service-strip-item-web-dev' : ''}`}
             style={{
               display: 'flex',
               flexDirection: 'column',
@@ -177,18 +178,52 @@ export default function ServicesStrip({ onSelectService }) {
       </div>
 
       <style>{`
-        @media (max-width: 1024px) {
+        @media (min-width: 769px) and (max-width: 1024px) {
           .services-strip-grid {
-            grid-template-columns: repeat(3, 1fr) !important;
+            grid-template-columns: repeat(6, 1fr) !important;
             gap: 2rem 1.5rem !important;
             padding: 0 1.5rem !important;
           }
+          .services-strip-grid > .service-strip-item:nth-child(1) {
+            grid-column: 1 / span 2;
+          }
+          .services-strip-grid > .service-strip-item:nth-child(2) {
+            grid-column: 3 / span 2;
+          }
+          .services-strip-grid > .service-strip-item:nth-child(3) {
+            grid-column: 5 / span 2;
+          }
+          .services-strip-grid > .service-strip-item:nth-child(4) {
+            grid-column: 2 / span 2;
+          }
+          .services-strip-grid > .service-strip-item:nth-child(5) {
+            grid-column: 4 / span 2;
+          }
         }
-        @media (max-width: 640px) {
+        @media (max-width: 768px) {
           .services-strip-grid {
             grid-template-columns: repeat(2, 1fr) !important;
             gap: 1.8rem 1rem !important;
-            padding: 0 1rem !important;
+            padding: 0 1.25rem !important;
+          }
+          .service-strip-item-web-dev {
+            grid-column: 1 / -1 !important;
+            justify-self: center !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            width: 100% !important;
+            max-width: 280px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center !important;
+          }
+          .service-strip-item-web-dev .service-icon-circle {
+            margin: 0 auto !important;
+          }
+          .service-strip-item-web-dev .service-strip-desc {
+            max-width: 220px !important;
+            margin: 0 auto !important;
           }
           .service-icon-circle {
             width: 58px !important;
@@ -205,6 +240,11 @@ export default function ServicesStrip({ onSelectService }) {
           .services-strip-grid {
             grid-template-columns: 1fr !important;
             gap: 1.5rem !important;
+            padding: 0 1rem !important;
+          }
+          .service-strip-item-web-dev {
+            grid-column: auto !important;
+            max-width: 100% !important;
           }
         }
       `}</style>

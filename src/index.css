@@ -45,7 +45,7 @@ html {
 }
 
 section[id] {
-  scroll-margin-top: 80px;
+  scroll-margin-top: 104px;
 }
 
 body {
@@ -269,7 +269,7 @@ img, video {
   }
   
   section[id] {
-    scroll-margin-top: 70px;
+    scroll-margin-top: 104px;
   }
 }
 
