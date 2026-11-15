@@ -206,7 +206,7 @@ export default function ContactSection({ showMap = true }) {
 
           {/* Right Column: Interactive Consultation Inquiry Form */}
           <div className="lg:col-span-7">
-            <div className="glass-card p-6 sm:p-10 border border-[#C5A059]/30">
+            <div id="contact-form" style={{ scrollMarginTop: '90px' }} className="glass-card p-6 sm:p-10 border border-[#C5A059]/30">
               
               <div className="mb-6">
                 <h3 className="text-2xl font-bold text-white font-display">

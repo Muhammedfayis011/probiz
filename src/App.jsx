@@ -17,6 +17,7 @@ import ServicesPage from './components/ServicesPage';
 import ProcessPage from './components/ProcessPage';
 import WhyQatarPage from './components/WhyQatarPage';
 import ContactPage from './components/ContactPage';
+import { SERVICES } from './data/probizData';
 
 const VALID_PAGES = ['home', 'about', 'services', 'our-process', 'why-qatar', 'contact'];
 
@@ -26,24 +27,31 @@ export default function App() {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const [selectedServiceForModal, setSelectedServiceForModal] = useState(null);
   const [preselectedServiceName, setPreselectedServiceName] = useState('');
-  const [currentLang, setCurrentLang] = useState(() => {
-    try {
-      return localStorage.getItem('probiz_lang') || 'en';
-    } catch {
-      return 'en';
-    }
-  });
-
-  useEffect(() => {
-    try {
-      localStorage.setItem('probiz_lang', currentLang);
-      document.documentElement.lang = currentLang;
-    } catch {}
-  }, [currentLang]);
 
   const handleOpenQuote = (serviceName = '') => {
     setPreselectedServiceName(serviceName || '');
     setIsQuoteModalOpen(true);
+  };
+
+  const handleGoToContactForm = () => {
+    const scrollToForm = () => {
+      const formEl = document.getElementById('contact-form') || document.getElementById('contact');
+      if (formEl) {
+        formEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const firstInput = formEl.querySelector('input');
+        if (firstInput) {
+          setTimeout(() => firstInput.focus({ preventScroll: true }), 450);
+        }
+      }
+    };
+
+    if (currentView === 'home') {
+      scrollToForm();
+    } else {
+      setCurrentView('contact');
+      window.location.hash = '#contact';
+      setTimeout(scrollToForm, 100);
+    }
   };
 
   const handleOpenServicePage = (serviceId = 'business-setup') => {
@@ -99,6 +107,58 @@ export default function App() {
     return () => window.removeEventListener('hashchange', handleHash);
   }, []);
 
+  // Dynamic SEO metadata updates per view and service deep-dive
+  useEffect(() => {
+    const SEO_CONFIG = {
+      home: {
+        title: 'ProBiz Consultancy Services | Qatar Business Setup, PRO & Healthcare Solutions',
+        desc: 'ProBiz Consultancy Services in Doha, Qatar. Expert solutions for 100% foreign business setup, commercial registration (CR), PRO retainers, MOPH healthcare licensing, and translation.',
+      },
+      about: {
+        title: 'About Us | ProBiz Consultancy Services Doha Qatar',
+        desc: 'Learn about ProBiz Consultancy Services in Doha, Qatar. A multidisciplinary corporate firm delivering licensing, PRO, translation, and healthcare advisory with over a decade of track record.',
+      },
+      services: {
+        title: 'Our Corporate Solutions | ProBiz Consultancy Services Qatar',
+        desc: "Explore ProBiz's 6 core corporate solutions in Qatar: Business Setup, Corporate PRO Support, Healthcare Licensing, Translation, Recruitment, and Digital Solutions.",
+      },
+      'our-process': {
+        title: 'Our 4-Stage Setup Process & Methodology | ProBiz Qatar',
+        desc: "Discover ProBiz's structured 4-stage corporate setup roadmap in Qatar: Consultation, Documentation, Ministry Filings, and Ongoing Corporate Operations.",
+      },
+      'why-qatar': {
+        title: 'Why Invest in Qatar | 100% Ownership & 0% Personal Tax | ProBiz',
+        desc: "Discover Qatar's investment advantages: 0% personal tax, 100% foreign company ownership (Law No. 1), Hamad Port connectivity, and Qatar National Vision 2030 stability.",
+      },
+      contact: {
+        title: 'Contact ProBiz Consultancy Services | Doha, Qatar Headquarters',
+        desc: 'Get in touch with senior corporate consultants at ProBiz Consultancy Services in Hleyton Tower, Doha, Qatar. Direct phone, email, and WhatsApp advisory.',
+      },
+    };
+
+    if (currentView === 'service-detail') {
+      const srv = SERVICES.find((s) => s.id === detailServiceId);
+      if (srv) {
+        document.title = `${srv.title} in Qatar | ProBiz Consultancy Services`;
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) {
+          metaDesc.setAttribute(
+            'content',
+            `${srv.title} in Doha, Qatar. ${srv.shortDesc || srv.tagline} Guaranteed compliance with MOCI, MOPH, and Qatar government regulations.`
+          );
+        }
+        return;
+      }
+    }
+
+    const currentSeo = SEO_CONFIG[currentView] || SEO_CONFIG.home;
+    document.title = currentSeo.title;
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', currentSeo.desc);
+    }
+  }, [currentView, detailServiceId]);
+
   const handleSelectServiceFromGlance = (service) => {
     const id = typeof service === 'object' && service?.id ? service.id : service;
     handleOpenServicePage(id || 'business-setup');
@@ -117,16 +177,14 @@ export default function App() {
     >
       {/* ── TOP NAVIGATION ── */}
       <Navbar
-        onGetStarted={() => handleOpenQuote()}
+        onGetStarted={handleGoToContactForm}
         onNavigateSection={handleNavigateSection}
         currentView={currentView}
-        currentLang={currentLang}
-        onLanguageChange={setCurrentLang}
       />
 
       {/* ── MULTI-PAGE CONDITIONAL RENDERING ── */}
       {currentView === 'service-detail' && (
-        <main style={{ flexGrow: 1, paddingTop: 104 }}>
+        <main style={{ flexGrow: 1, paddingTop: 70 }}>
           <ServiceDetailPage
             serviceId={detailServiceId}
             onBack={handleBackToHome}
