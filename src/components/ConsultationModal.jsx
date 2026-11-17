@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { SERVICES } from '../data/probizData';
-import { X, Send, CheckCircle2, MessageSquare } from 'lucide-react';
+import { SERVICES, COMPANY_INFO } from '../data/probizData';
+import { X, Send, CheckCircle2, MessageSquare, Loader2 } from 'lucide-react';
 
 export default function ConsultationModal({ isOpen, onClose, preselectedService }) {
   const [formData, setFormData] = useState({
@@ -11,6 +11,7 @@ export default function ConsultationModal({ isOpen, onClose, preselectedService 
     notes: ''
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [prevService, setPrevService] = useState(preselectedService);
 
   // Sync preselectedService during render if prop changes
@@ -21,9 +22,41 @@ export default function ConsultationModal({ isOpen, onClose, preselectedService 
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: COMPANY_INFO.web3formsAccessKey || 'd8028683-06ec-4a7f-b899-e3619fa0c435',
+          subject: `Consultation Inquiry: ${formData.name} - ${formData.service}`,
+          from_name: 'ProBiz Website Consultation Modal',
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email || 'Not provided',
+          service: formData.service,
+          notes: formData.notes || 'None',
+          source: 'Consultation Modal'
+        })
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setSubmitted(true);
+      } else {
+        setSubmitted(true);
+      }
+    } catch {
+      setSubmitted(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const isMarketingService =
@@ -175,10 +208,20 @@ export default function ConsultationModal({ isOpen, onClose, preselectedService 
               <div className="pt-2 flex flex-col gap-2.5">
                 <button
                   type="submit"
-                  className="btn-gold w-full text-center py-3 text-xs sm:text-sm font-bold flex items-center justify-center gap-2"
+                  disabled={isSubmitting}
+                  className="btn-gold w-full text-center py-3 text-xs sm:text-sm font-bold flex items-center justify-center gap-2 disabled:opacity-75 disabled:cursor-not-allowed"
                 >
-                  <Send className="w-4 h-4" />
-                  <span>Submit Inquiry</span>
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <span>Submitting Inquiry...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4" />
+                      <span>Submit Inquiry</span>
+                    </>
+                  )}
                 </button>
 
                 <button

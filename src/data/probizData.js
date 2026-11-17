@@ -22,6 +22,7 @@ export const COMPANY_INFO = {
   marketingPhone: "+974 7730 7006",
   marketingPhoneRaw: "+97477307006",
   email: "probiz.qa@gmail.com",
+  web3formsAccessKey: "d8028683-06ec-4a7f-b899-e3619fa0c435",
   website: "www.probiz.qa",
   address: "Office #49, 10th Floor, Hleyton Tower, Al Baladhiya St., Al Miqrab, Doha, Qatar",
   addressShort: "Hleyton Tower, Al Miqrab, Doha, Qatar",

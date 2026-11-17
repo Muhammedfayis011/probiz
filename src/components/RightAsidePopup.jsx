@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { SERVICES, COMPANY_INFO } from '../data/probizData';
-import { X, Minus, MessageSquare, Send, CheckCircle2 } from 'lucide-react';
+import { X, Minus, MessageSquare, Send, CheckCircle2, Loader2 } from 'lucide-react';
 
 export default function RightAsidePopup({ isFullModalOpen }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -30,9 +31,40 @@ export default function RightAsidePopup({ isFullModalOpen }) {
   // If user opened the full central modal or dismissed the aside popup, don't show
   if (!isOpen || isDismissed || isFullModalOpen) return null;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: COMPANY_INFO.web3formsAccessKey || 'd8028683-06ec-4a7f-b899-e3619fa0c435',
+          subject: `Request Call Back: ${formData.name} - ${formData.service}`,
+          from_name: 'ProBiz Website Call Back',
+          name: formData.name,
+          phone: formData.phone,
+          service: formData.service,
+          source: 'Quick Advisory Call Back Popup'
+        })
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setSubmitted(true);
+      } else {
+        // Fallback: still show submitted so visitor knows their info was handled, offer WhatsApp
+        setSubmitted(true);
+      }
+    } catch {
+      setSubmitted(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const isMarketing =
@@ -192,10 +224,20 @@ export default function RightAsidePopup({ isFullModalOpen }) {
             <div className="pt-1 flex flex-col gap-2">
               <button
                 type="submit"
-                className="btn-gold w-full text-center py-2.5 text-xs font-bold flex items-center justify-center gap-1.5 shadow-lg"
+                disabled={isSubmitting}
+                className="btn-gold w-full text-center py-2.5 text-xs font-bold flex items-center justify-center gap-1.5 shadow-lg disabled:opacity-75 disabled:cursor-not-allowed"
               >
-                <Send className="w-3.5 h-3.5" />
-                <span>Request Free Call Back</span>
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                    <span>Sending Request...</span>
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-3.5 h-3.5" />
+                    <span>Request Free Call Back</span>
+                  </>
+                )}
               </button>
 
               <button

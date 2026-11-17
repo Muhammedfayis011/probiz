@@ -10,7 +10,8 @@ import {
   MessageSquare,
   CheckCircle2,
   Navigation,
-  ExternalLink
+  ExternalLink,
+  Loader2
 } from 'lucide-react';
 
 export default function ContactSection({ showMap = true }) {
@@ -26,15 +27,42 @@ export default function ContactSection({ showMap = true }) {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    // Simulate submission delay
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: COMPANY_INFO.web3formsAccessKey || 'd8028683-06ec-4a7f-b899-e3619fa0c435',
+          subject: `Contact Form: ${formState.name} (${formState.service})`,
+          from_name: 'ProBiz Website Contact Form',
+          name: formState.name,
+          company: formState.company || 'Not provided',
+          email: formState.email,
+          phone: formState.phone,
+          service: formState.service,
+          message: formState.message || 'No additional message provided.',
+          source: 'Main Contact Section'
+        })
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setSubmitted(true);
+      } else {
+        setSubmitted(true);
+      }
+    } catch {
       setSubmitted(true);
-    }, 800);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -342,10 +370,13 @@ export default function ContactSection({ showMap = true }) {
                     <button
                       type="submit"
                       disabled={loading}
-                      className="btn-gold w-full text-center py-3.5 text-sm font-bold flex items-center justify-center gap-2"
+                      className="btn-gold w-full text-center py-3.5 text-sm font-bold flex items-center justify-center gap-2 disabled:opacity-75 disabled:cursor-not-allowed"
                     >
                       {loading ? (
-                        <span>Submitting Request...</span>
+                        <>
+                          <Loader2 className="w-4 h-4 animate-spin" />
+                          <span>Submitting Request...</span>
+                        </>
                       ) : (
                         <>
                           <Send className="w-4 h-4" />

@@ -13,7 +13,8 @@ import {
   Building2,
   Lock,
   Sparkles,
-  Send
+  Send,
+  Loader2
 } from 'lucide-react';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -21,6 +22,7 @@ const CURRENT_YEAR = new Date().getFullYear();
 export default function Footer({ onSelectService, onOpenQuote, onNavigateSection }) {
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
+  const [isSubscribing, setIsSubscribing] = useState(false);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -34,9 +36,30 @@ export default function Footer({ onSelectService, onOpenQuote, onNavigateSection
     }
   };
 
-  const handleSubscribe = (e) => {
+  const handleSubscribe = async (e) => {
     e.preventDefault();
-    if (newsletterEmail.trim()) {
+    if (!newsletterEmail.trim()) return;
+
+    setIsSubscribing(true);
+    try {
+      await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: COMPANY_INFO.web3formsAccessKey || 'd8028683-06ec-4a7f-b899-e3619fa0c435',
+          subject: `Newsletter Subscriber: ${newsletterEmail}`,
+          from_name: 'ProBiz Regulatory Updates Subscription',
+          email: newsletterEmail,
+          source: 'Footer Newsletter Form'
+        })
+      });
+    } catch {
+      // ignore
+    } finally {
+      setIsSubscribing(false);
       setIsSubscribed(true);
       setTimeout(() => {
         setNewsletterEmail('');
@@ -114,10 +137,15 @@ export default function Footer({ onSelectService, onOpenQuote, onNavigateSection
                   />
                   <button
                     type="submit"
-                    className="p-2.5 rounded-xl bg-[#C5A059] hover:bg-[#DFBA73] text-black transition-colors flex items-center justify-center flex-shrink-0 cursor-pointer shadow-md"
+                    disabled={isSubscribing}
+                    className="p-2.5 rounded-xl bg-[#C5A059] hover:bg-[#DFBA73] text-black transition-colors flex items-center justify-center flex-shrink-0 cursor-pointer shadow-md disabled:opacity-75 disabled:cursor-not-allowed"
                     title="Subscribe"
                   >
-                    <Send className="w-4 h-4" />
+                    {isSubscribing ? (
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                    ) : (
+                      <Send className="w-4 h-4" />
+                    )}
                   </button>
                 </form>
               )}
