@@ -21,7 +21,7 @@ export const COMPANY_INFO = {
   marketingWhatsappUrl: "https://wa.me/97477307006?text=Hello%20ProBiz%2C%20I%20am%20interested%20in%20your%20Branding%2C%20Marketing%20%26%20Digital%20services%20in%20Qatar.",
   marketingPhone: "+974 7730 7006",
   marketingPhoneRaw: "+97477307006",
-  email: "hello@probiz.qa",
+  email: "probiz.qa@gmail.com",
   website: "www.probiz.qa",
   address: "Office #49, 10th Floor, Hleyton Tower, Al Baladhiya St., Al Miqrab, Doha, Qatar",
   addressShort: "Hleyton Tower, Al Miqrab, Doha, Qatar",
