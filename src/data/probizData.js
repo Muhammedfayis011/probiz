@@ -126,6 +126,32 @@ export const SERVICES = [
     badge: "SEAMLESS GOVERNMENT LIAISON",
     icon: "FileCheck2",
     note: "Ongoing PRO support can be discussed according to your company's requirements and agreed scope of work.",
+    features: [
+      {
+        title: "Commercial & Municipality Renewals",
+        desc: "Annual renewal of Commercial Registration (CR), Municipality Trade Licence, and Civil Defence approvals."
+      },
+      {
+        title: "Establishment Card (Computer Card) Services",
+        desc: "Issuance, renewal, and authorized signatory updates with the Ministry of Interior (MOI)."
+      },
+      {
+        title: "Work Visa & Qatar Residence Permit (QID)",
+        desc: "End-to-end processing of work visas, medical commissions, fingerprinting, and QID card stamping."
+      },
+      {
+        title: "Labour Ministry & MADLSA Approvals",
+        desc: "Work permit issuance, profession amendments, employer sponsorship transfers, and WPS registration."
+      },
+      {
+        title: "Official Ministry Attestation & Clearance",
+        desc: "Coordination with MOFA, Ministry of Justice, Qatar Chamber, and diplomatic embassies in Doha."
+      },
+      {
+        title: "Tax Card & General Tax Authority (GTA)",
+        desc: "Registration on Dhareeba tax portal, Tax Card issuance, and compliance coordination."
+      }
+    ],
     groups: [
       {
         category: "Government & Business Documentation",
@@ -161,6 +187,32 @@ export const SERVICES = [
     themeColor: "from-emerald-500/20 to-teal-600/10",
     badge: "CERTIFIED & ACCREDITED",
     icon: "Languages",
+    features: [
+      {
+        title: "Certified Arabic & English Translation",
+        desc: "Ministry-approved and sworn translations accepted across all Qatar courts, ministries, and state bodies."
+      },
+      {
+        title: "Commercial & Corporate Agreements",
+        desc: "Precision legal translation of Articles of Association, board resolutions, commercial contracts, and audits."
+      },
+      {
+        title: "Attestation with MOFA Qatar",
+        desc: "Consular legalization and verification support with the Ministry of Foreign Affairs (MOFA) in Doha."
+      },
+      {
+        title: "Ministry of Justice (MOJ) Notarization",
+        desc: "Sworn legal authentication and official authentication at the Ministry of Justice Documentation Dept."
+      },
+      {
+        title: "Embassy & Consulate Legalization",
+        desc: "Diplomatic document endorsement and legalization coordination with foreign embassies in Qatar."
+      },
+      {
+        title: "Educational & Personal Certificates",
+        desc: "Accredited translation of degrees, diplomas, marriage certificates, police clearances, and medical records."
+      }
+    ],
     groups: [
       {
         category: "Translation Services",
@@ -222,6 +274,26 @@ export const SERVICES = [
         title: "Workforce Planning & Advisory",
         desc: "Guidance on Qatar labour quotas, visa block allocations, WPS compliance, and competitive compensation trends."
       }
+    ],
+    groups: [
+      {
+        category: "Executive & Specialized Sourcing",
+        items: [
+          "C-suite executive search and department heads",
+          "Qualified finance, legal, and operational leadership",
+          "Certified engineers, project directors, and architects",
+          "Specialized healthcare practitioners and clinical staff"
+        ]
+      },
+      {
+        category: "Workforce & Administrative Recruitment",
+        items: [
+          "Bilingual administrative and executive assistants",
+          "Customer service and sales executives",
+          "IT, software engineers, and digital specialists",
+          "Labour quota management and compliance guidance"
+        ]
+      }
     ]
   },
   {
@@ -235,6 +307,32 @@ export const SERVICES = [
     badge: "SPECIALIZED MEDICAL REGULATORY EXPERTISE",
     icon: "Stethoscope",
     note: "Applications and approvals are subject to the requirements and decisions of the relevant authorities.",
+    features: [
+      {
+        title: "DHP & QCHP Practitioner Licensing",
+        desc: "End-to-end processing of medical licenses for doctors, dentists, nurses, allied health, and pharmacists."
+      },
+      {
+        title: "DataFlow Primary Source Verification (PSV)",
+        desc: "Complete application filing, document cross-referencing, and proactive tracking with DataFlow Group."
+      },
+      {
+        title: "Prometric Exam Registration & Support",
+        desc: "Scheduling, test-center booking, syllabus guidance, and retake assistance for Qatar Prometric exams."
+      },
+      {
+        title: "New Healthcare Facility Licensing",
+        desc: "MOPH pre-approvals, architectural layout reviews, and operational permits for clinics, polyclinics, and pharmacies."
+      },
+      {
+        title: "Scope of Practice & Upgrades",
+        desc: "Specialist upgrades, consultant promotions, license title amendments, and employer transfer clearance."
+      },
+      {
+        title: "MOPH On-Site Inspection Preparation",
+        desc: "Regulatory compliance audits, facility readiness inspections, and documentation checks prior to official visits."
+      }
+    ],
     categories: [
       {
         title: "Professional Licensing (DHP / QCHP)",
